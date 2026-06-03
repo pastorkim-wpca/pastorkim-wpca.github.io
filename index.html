@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>우리와 같이 그들에게도 · 말씀 묵상과 실천</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ── Apple design tokens (getdesign.md/apple) ── */
+    --primary:#0066cc;
+    --primary-focus:#0071e3;
+    --primary-on-dark:#2997ff;
+    --ink:#1d1d1f;
+    --ink-muted-80:#333333;
+    --ink-muted-48:#7a7a7a;
+    --hairline:#e0e0e0;
+    --divider-soft:#f0f0f0;
+    --canvas:#ffffff;
+    --parchment:#f5f5f7;
+    --pearl:#fafafc;
+    --tile-1:#272729;
+    --tile-2:#2a2a2c;
+    --tile-3:#252527;
+    --black:#000000;
+    --body-muted:#cccccc;
+    --on-dark:#ffffff;
+
+    --font-display:"SF Pro Display","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-text:"SF Pro Text","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+
+    --r-sm:8px; --r-md:11px; --r-lg:18px; --r-pill:9999px;
+    --shadow-product:rgba(0,0,0,0.22) 3px 5px 30px 0;
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-text);
+    background:var(--black);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overscroll-behavior-y:none;
+  }
+
+  /* ── Paged scroll-snap container ── */
+  .deck{
+    height:100svh;
+    overflow-y:scroll;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+  }
+  .deck::-webkit-scrollbar{display:none;}
+  .deck{scrollbar-width:none;}
+
+  section.page{
+    position:relative;
+    min-height:100svh;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:calc(64px + var(--safe-top)) 26px calc(76px + var(--safe-bottom));
+    overflow:hidden;
+  }
+  .inner{width:100%;max-width:600px;margin:0 auto;}
+
+  /* surface modes */
+  .light{background:var(--canvas);color:var(--ink);}
+  .parchment{background:var(--parchment);color:var(--ink);}
+  .dark{background:var(--tile-1);color:var(--on-dark);}
+  .dark-2{background:var(--tile-2);color:var(--on-dark);}
+  .void{background:var(--black);color:var(--on-dark);}
+
+  /* ── typography ── */
+  .eyebrow{
+    font-family:var(--font-text);
+    font-size:13px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--primary);
+    margin:0 0 16px;
+  }
+  .dark .eyebrow,.dark-2 .eyebrow,.void .eyebrow{color:var(--primary-on-dark);}
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(36px,9.5vw,56px);
+    font-weight:600;line-height:1.07;letter-spacing:-.022em;
+    margin:0 0 18px;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-size:clamp(30px,7.6vw,40px);
+    font-weight:600;line-height:1.12;letter-spacing:-.02em;
+    margin:0 0 16px;
+  }
+  h3{
+    font-family:var(--font-display);
+    font-size:21px;font-weight:600;line-height:1.2;letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  p.lead{
+    font-family:var(--font-display);
+    font-size:clamp(20px,5.2vw,26px);font-weight:400;line-height:1.32;letter-spacing:0;
+    margin:0 0 14px;
+  }
+  p{font-size:17px;font-weight:400;line-height:1.5;letter-spacing:-.01em;margin:0 0 14px;}
+  .muted{color:var(--ink-muted-48);}
+  .dark .muted,.dark-2 .muted,.void .muted{color:var(--body-muted);}
+  .accent{color:var(--primary);}
+  .dark .accent,.dark-2 .accent,.void .accent{color:var(--primary-on-dark);}
+  strong{font-weight:600;}
+
+  /* ── verse card ── */
+  .verse{
+    border-radius:var(--r-lg);
+    background:var(--pearl);
+    border:1px solid var(--hairline);
+    padding:20px 20px 18px;
+    margin:18px 0;
+  }
+  .dark .verse,.dark-2 .verse,.void .verse{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.14);
+  }
+  .verse .ref{
+    display:inline-block;
+    font-size:13px;font-weight:600;letter-spacing:.02em;
+    color:var(--primary);
+    margin-bottom:10px;
+  }
+  .dark .verse .ref,.dark-2 .verse .ref,.void .verse .ref{color:var(--primary-on-dark);}
+  .verse .scripture{
+    font-family:var(--font-display);
+    font-size:18px;line-height:1.62;font-weight:400;letter-spacing:-.005em;
+    margin:0;
+    color:var(--ink);
+  }
+  .dark .verse .scripture,.dark-2 .verse .scripture,.void .verse .scripture{color:#f2f2f4;}
+  .verse .scripture .vn{
+    font-size:12px;font-weight:600;color:var(--ink-muted-48);
+    vertical-align:super;margin-right:3px;
+  }
+  .dark .verse .scripture .vn,.void .verse .scripture .vn{color:var(--body-muted);}
+
+  /* expandable */
+  .verse.expandable .scripture{
+    max-height:5.4em;overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);
+            mask-image:linear-gradient(180deg,#000 60%,transparent);
+    transition:max-height .4s ease;
+  }
+  .verse.expandable.open .scripture{
+    max-height:2000px;
+    -webkit-mask-image:none;mask-image:none;
+  }
+  .verse .toggle{
+    margin-top:12px;
+    font-size:14px;font-weight:600;color:var(--primary);
+    background:none;border:0;padding:6px 0;cursor:pointer;
+  }
+  .dark .verse .toggle,.void .verse .toggle{color:var(--primary-on-dark);}
+
+  /* ── key-truth pill / list ── */
+  ul.beats{list-style:none;padding:0;margin:18px 0 0;}
+  ul.beats li{
+    position:relative;padding:14px 0 14px 30px;
+    font-size:17px;line-height:1.45;
+    border-top:1px solid var(--divider-soft);
+  }
+  .dark ul.beats li,.dark-2 ul.beats li{border-top-color:rgba(255,255,255,.12);}
+  ul.beats li:first-child{border-top:0;}
+  ul.beats li::before{
+    content:"";position:absolute;left:4px;top:21px;
+    width:8px;height:8px;border-radius:var(--r-pill);background:var(--primary);
+  }
+  .dark ul.beats li::before,.void ul.beats li::before{background:var(--primary-on-dark);}
+
+  .flow{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    margin:22px 0 4px;font-family:var(--font-display);
+  }
+  .flow .node{
+    font-size:15px;font-weight:600;padding:9px 15px;border-radius:var(--r-pill);
+    background:var(--canvas);border:1px solid var(--hairline);color:var(--ink);
+  }
+  .flow .arrow{color:var(--primary);font-weight:700;}
+
+  /* ── buttons ── */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font-text);font-size:17px;font-weight:400;letter-spacing:-.01em;
+    background:var(--primary);color:#fff;border:0;
+    border-radius:var(--r-pill);padding:13px 26px;cursor:pointer;
+    transition:transform .15s ease,background .2s ease;
+    text-decoration:none;min-height:48px;
+  }
+  .btn:active{transform:scale(.95);}
+  .btn.ghost{background:transparent;color:var(--primary);border:1px solid var(--primary);}
+  .dark .btn.ghost,.void .btn.ghost{color:var(--primary-on-dark);border-color:var(--primary-on-dark);}
+  .btn.block{display:flex;width:100%;}
+
+  /* ── self-check scale ── */
+  .scale{display:flex;justify-content:space-between;gap:8px;margin:18px 0 8px;}
+  .scale button{
+    flex:1;aspect-ratio:1;border-radius:var(--r-md);
+    border:1px solid var(--hairline);background:var(--canvas);
+    font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink-muted-48);
+    cursor:pointer;transition:transform .12s ease,background .2s,color .2s,border-color .2s;
+  }
+  .scale button:active{transform:scale(.93);}
+  .scale button.sel{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .scale-legend{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted-48);}
+
+  /* ── checklist ── */
+  ul.check{list-style:none;padding:0;margin:18px 0 0;}
+  ul.check li{margin:0 0 10px;}
+  ul.check label{
+    display:flex;gap:13px;align-items:flex-start;
+    background:var(--canvas);border:1px solid var(--hairline);
+    border-radius:var(--r-lg);padding:15px 16px;cursor:pointer;
+    transition:border-color .2s,background .2s;
+  }
+  ul.check input{position:absolute;opacity:0;width:0;height:0;}
+  .box{
+    flex:0 0 24px;width:24px;height:24px;border-radius:var(--r-pill);
+    border:2px solid var(--hairline);margin-top:1px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,border-color .2s;
+  }
+  .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:.2s;}
+  ul.check label .txt{font-size:16px;line-height:1.45;color:var(--ink);}
+  ul.check input:checked + label{border-color:var(--primary);background:#f4f9ff;}
+  ul.check input:checked + label .box{background:var(--primary);border-color:var(--primary);}
+  ul.check input:checked + label .box svg{opacity:1;transform:scale(1);}
+
+  /* ── textarea ── */
+  textarea{
+    width:100%;font-family:var(--font-text);font-size:17px;line-height:1.5;color:var(--ink);
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-lg);
+    padding:15px 16px;margin-top:14px;resize:vertical;min-height:96px;
+  }
+  textarea:focus{outline:2px solid var(--primary-focus);border-color:transparent;}
+  .field-label{font-size:14px;font-weight:600;color:var(--ink-muted-80);margin-top:18px;display:block;}
+
+  /* ── progress bar (top) ── */
+  #progress{
+    position:fixed;top:0;left:0;height:3px;width:0;
+    background:var(--primary);z-index:50;transition:width .15s ease;
+  }
+  /* ── dots (right) ── */
+  #dots{
+    position:fixed;right:12px;top:50%;transform:translateY(-50%);
+    display:flex;flex-direction:column;gap:11px;z-index:40;
+  }
+  #dots button{
+    width:8px;height:8px;border-radius:var(--r-pill);border:0;padding:0;cursor:pointer;
+    background:rgba(127,127,127,.4);transition:transform .2s,background .2s;
+  }
+  #dots button.active{background:var(--primary);transform:scale(1.5);}
+  @media (max-width:380px){#dots{display:none;}}
+
+  /* ── page counter (bottom-left) ── */
+  .counter{
+    position:absolute;left:26px;bottom:calc(26px + var(--safe-bottom));
+    font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--ink-muted-48);
+  }
+  .dark .counter,.dark-2 .counter,.void .counter{color:var(--body-muted);}
+
+  /* scroll hint */
+  .hint{
+    position:absolute;left:0;right:0;bottom:calc(24px + var(--safe-bottom));
+    text-align:center;font-size:13px;color:var(--body-muted);
+    animation:bob 1.8s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateY(0);opacity:.7;}50%{transform:translateY(6px);opacity:1;}}
+
+  /* reveal on enter */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .page.in .reveal{opacity:1;transform:none;}
+  .page.in .reveal:nth-child(2){transition-delay:.06s;}
+  .page.in .reveal:nth-child(3){transition-delay:.12s;}
+  .page.in .reveal:nth-child(4){transition-delay:.18s;}
+  .page.in .reveal:nth-child(5){transition-delay:.24s;}
+  .page.in .reveal:nth-child(6){transition-delay:.30s;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  .tag{
+    display:inline-block;font-size:12px;font-weight:600;letter-spacing:.02em;
+    padding:6px 12px;border-radius:var(--r-pill);
+    background:rgba(0,102,204,.1);color:var(--primary);margin-bottom:18px;
+  }
+  .dark .tag,.void .tag{background:rgba(41,151,255,.16);color:var(--primary-on-dark);}
+
+  .savednote{font-size:13px;color:var(--ink-muted-48);margin-top:10px;min-height:18px;transition:opacity .3s;}
+  .toast{
+    position:fixed;left:50%;bottom:calc(28px + var(--safe-bottom));transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;font-size:14px;font-weight:600;
+    padding:12px 20px;border-radius:var(--r-pill);opacity:0;pointer-events:none;
+    transition:opacity .3s,transform .3s;z-index:60;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav id="dots"></nav>
+<div class="toast" id="toast"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 1 · 표지 -->
+  <section class="page void" data-label="표지">
+    <div class="inner">
+      <p class="eyebrow reveal">미주서부장로교회 · 주일 대예배</p>
+      <h1 class="reveal">우리와 같이<br />그들에게도</h1>
+      <p class="lead reveal muted" style="max-width:30ch">비교를 내려놓고, 오직 주 예수의 은혜로.</p>
+      <div class="verse reveal" style="margin-top:24px">
+        <span class="ref">사도행전 15:6</span>
+        <p class="scripture">사도와 장로들이 이 일을 의논하러 모여</p>
+      </div>
+      <div class="reveal" style="margin-top:20px">
+        <button class="btn" onclick="go(1)">묵상 시작하기 →</button>
+      </div>
+      <p class="reveal muted" style="font-size:13px;margin-top:22px">사도행전 15:1–11 · 2026.05.31 설교 묵상노트</p>
+    </div>
+    <div class="hint">아래로 넘기세요 ↓</div>
+    <div class="counter">01 / 08</div>
+  </section>
+
+  <!-- 2 · 한눈에 -->
+  <section class="page light" data-label="한눈에">
+    <div class="inner">
+      <p class="eyebrow reveal">한 눈에 보기</p>
+      <h2 class="reveal">믿음은 멈추면<br />자라지 않고 죽는다</h2>
+      <p class="reveal">겨자씨가 큰 나무가 되고, 한 알의 밀이 땅에 떨어져 많은 열매를 맺습니다. 믿음은 반드시 자랍니다. 사탄의 가장 큰 공격은 성도를 <strong>그저 가만히 있게</strong> 만드는 것입니다.</p>
+      <div class="flow reveal">
+        <span class="node">비교</span><span class="arrow">→</span>
+        <span class="node">자격 의식</span><span class="arrow">→</span>
+        <span class="node">은혜 상실</span>
+      </div>
+      <ul class="beats reveal">
+        <li>비교는 <strong>은혜로 받은 선물</strong>을 내 자격으로 얻은 것처럼 착각하게 만든다.</li>
+        <li>그 착각이 감사를 원망으로 바꾸고, 모든 성장을 가로막는다.</li>
+        <li>오직 <strong class="accent">주 예수의 은혜</strong>가 비교와 원망을 삼켜 버린다.</li>
+      </ul>
+    </div>
+    <div class="counter">02 / 08</div>
+  </section>
+
+  <!-- 3 · 비교 -->
+  <section class="page parchment" data-label="비교">
+    <div class="inner">
+      <span class="tag reveal">말씀 ①</span>
+      <h2 class="reveal">비교가 감사를<br />원망으로 바꾼다</h2>
+      <p class="reveal">한 달란트 받은 종은 "누구는 다섯, 누구는 둘, 난 겨우 하나" 하는 순간, 그 귀한 달란트를 땅에 묻어 버립니다. 아침부터 기쁘게 일하던 포도원 품꾼도, 늦게 온 사람이 똑같이 받는 걸 본 순간 하루 종일 노래하던 감사를 원망으로 바꿉니다.</p>
+      <div class="verse reveal">
+        <span class="ref">마태복음 19:30</span>
+        <p class="scripture">그러나 먼저 된 자로서 나중 되고 나중 된 자로서 먼저 될 자가 많으니라</p>
+      </div>
+
+      <h3 class="reveal" style="margin-top:26px">나의 비교 지수는?</h3>
+      <p class="reveal muted" style="font-size:15px">요즘 다른 사람과 나를 견주며 마음이 흔들린 적, 얼마나 잦은가요?</p>
+      <div class="scale reveal" data-store="compare" role="group" aria-label="비교 지수">
+        <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
+      </div>
+      <div class="scale-legend reveal"><span>거의 없다</span><span>자주 그렇다</span></div>
+      <p class="savednote reveal" id="compare-note"></p>
+    </div>
+    <div class="counter">03 / 08</div>
+  </section>
+
+  <!-- 4 · 자격의식 -->
+  <section class="page light" data-label="자격">
+    <div class="inner">
+      <span class="tag reveal">말씀 ②</span>
+      <h2 class="reveal">위기는<br />교회 안에서 온다</h2>
+      <p class="reveal">바울과 바나바가 핍박을 견디며 복음을 전해 부흥이 일어났습니다. 그 길을 정면으로 가로막은 위기는 바깥이 아니라 <strong>교회 안에서</strong> 터졌습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 15:1–2</span>
+        <p class="scripture"><span class="vn">1</span>어떤 사람들이 유대로부터 내려와서 형제들을 가르치되 너희가 모세의 법대로 할례를 받지 아니하면 능히 구원을 받지 못하리라 하니 <span class="vn">2</span>바울 및 바나바와 그들 사이에 적지 아니한 다툼과 변론이 일어난지라 형제들이 이 문제에 대하여 바울과 바나바와 및 그 중의 몇 사람을 예루살렘에 있는 사도와 장로들에게 보내기로 작정하니라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <ul class="beats reveal">
+        <li>"먼저 됐다"는 자격 의식이 받은 은혜를 잃게 만든다.</li>
+        <li>자격 있는 사람이 받는 게 아니다. <strong>자격 없는 사람이 받는 것이 은혜</strong>다.</li>
+        <li>"저 사람은 자격 없다" 여겨진다면, 내 속에 "나는 자격 있다"가 있을 가능성이 크다.</li>
+      </ul>
+    </div>
+    <div class="counter">04 / 08</div>
+  </section>
+
+  <!-- 5 · 습관 / 외식 -->
+  <section class="page dark" data-label="습관">
+    <div class="inner">
+      <span class="tag reveal">말씀 ③</span>
+      <h2 class="reveal">습관은<br />믿음보다 질기다</h2>
+      <p class="reveal">베드로는 고넬료 사건에서 "하나님은 외모로 차별하지 않으신다"를 직접 배웠습니다. 그런 베드로조차 할례자들이 두려워 이방인과의 식탁에서 일어났고, 바나바마저 휩쓸렸습니다. 사람의 습관이 이토록 무섭습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">갈라디아서 2:11–14</span>
+        <p class="scripture"><span class="vn">11</span>게바가 안디옥에 이르렀을 때에 책망받을 일이 있기로 내가 그를 대면하여 책망하였노라 <span class="vn">12</span>야고보에게서 온 어떤 이들이 이르기 전에 게바가 이방인과 함께 먹다가 그들이 오매 그가 할례자들을 두려워하여 떠나 물러가매 <span class="vn">13</span>남은 유대인들도 그와 같이 외식하므로 바나바도 그들의 외식에 유혹되었느니라 <span class="vn">14</span>그러므로 나는 그들이 복음의 진리를 따라 바르게 행하지 아니함을 보고 모든 자 앞에서 게바에게 이르되 네가 유대인으로서 이방인을 따르고 유대인답게 살지 아니하면서 어찌하여 억지로 이방인을 유대인답게 살게 하려느냐 하였노라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 10:34–35</span>
+        <p class="scripture"><span class="vn">34</span>베드로가 입을 열어 말하되 내가 참으로 하나님은 사람의 외모를 보지 아니하시고 <span class="vn">35</span>각 나라 중 하나님을 경외하며 의를 행하는 사람은 다 받으시는 줄 깨달았도다</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+    </div>
+    <div class="counter">05 / 08</div>
+  </section>
+
+  <!-- 6 · 예수님으로 충분 -->
+  <section class="page light" data-label="충분">
+    <div class="inner">
+      <span class="tag reveal">말씀 ④ · 본문의 심장</span>
+      <h2 class="reveal">예수님으로 충분하다</h2>
+      <p class="reveal">믿음 외에 무언가 <strong>더 필요하다</strong>는 말은, 예수님의 보혈이 불완전하다는 말입니다. "다 이루었다"가 "거의 다 이루었다"로 바뀌는 것이지요. 공개적으로 망신당한 베드로는 바울을 미워하지 않고, 책망받은 그대로를 자기 간증으로 선포합니다.</p>
+      <div class="verse expandable open reveal">
+        <span class="ref">사도행전 15:7–11</span>
+        <p class="scripture"><span class="vn">7</span>많은 변론이 있은 후에 베드로가 일어나 말하되 형제들아 너희도 알거니와 하나님이 이방인들로 내 입에서 복음의 말씀을 들어 믿게 하시려고 오래 전부터 너희 가운데서 나를 택하시고 <span class="vn">8</span>또 마음을 아시는 하나님이 우리에게와 같이 그들에게도 성령을 주어 증언하시고 <span class="vn">9</span>믿음으로 그들의 마음을 깨끗이 하사 그들이나 우리나 차별하지 아니하셨느니라 <span class="vn">10</span>그런데 지금 너희가 어찌하여 하나님을 시험하여 우리 조상과 우리도 능히 메지 못하던 멍에를 제자들의 목에 두려느냐 <span class="vn">11</span>그러나 우리는 그들이 우리와 동일하게 주 예수의 은혜로 구원 받는 줄을 믿노라 하니라</p>
+      </div>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.01em">"우리에게와 같이 그들에게도" — 그 중심에 주 예수의 은혜가 너무 커서, 편견과 자존심의 장벽을 다 삼켜 버립니다.</p>
+    </div>
+    <div class="counter">06 / 08</div>
+  </section>
+
+  <!-- 7 · 실천 -->
+  <section class="page parchment" data-label="실천">
+    <div class="inner">
+      <p class="eyebrow reveal">삶으로</p>
+      <h2 class="reveal">이번 주 실천</h2>
+      <p class="reveal muted" style="font-size:15px">체크한 내용은 이 기기에 저장됩니다. 한 주 동안 다시 열어 보세요.</p>
+      <ul class="check reveal" id="checklist">
+        <li><input type="checkbox" id="c1" /><label for="c1"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">비교가 올라올 때, 멈추고 "이건 은혜로 받은 선물"이라 고백하기</span></label></li>
+        <li><input type="checkbox" id="c2" /><label for="c2"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">"자격 없다" 여겨지던 한 사람을 떠올리고, 그를 위해 기도하기</span></label></li>
+        <li><input type="checkbox" id="c3" /><label for="c3"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">바꾸기 힘든 옛 습관 하나를, 은혜를 의지해 한 걸음 내려놓기</span></label></li>
+        <li><input type="checkbox" id="c4" /><label for="c4"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">옳은 책망 앞에서 자존심 대신 "아멘"으로 수용해 보기</span></label></li>
+        <li><input type="checkbox" id="c5" /><label for="c5"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">사도행전 15:11을 외워, 하루 한 번 소리 내어 고백하기</span></label></li>
+      </ul>
+      <label class="field-label reveal" for="reflect">묵상 — 오늘 내 마음을 찌른 한 구절은?</label>
+      <textarea id="reflect" class="reveal" data-store="reflect" placeholder="여기에 적어 보세요…"></textarea>
+      <p class="savednote reveal" id="reflect-note"></p>
+    </div>
+    <div class="counter">07 / 08</div>
+  </section>
+
+  <!-- 8 · 결단 -->
+  <section class="page void" data-label="결단">
+    <div class="inner">
+      <p class="eyebrow reveal">나의 결단</p>
+      <h2 class="reveal">한 순간 한 순간이<br />선물입니다</h2>
+      <p class="reveal muted">은혜를 따라 살면, 지금 나의 한 순간 한 순간이 그 자체로 선물이 됩니다. 비교가 사라진 자리에 감사가, 자격을 내려놓은 자리에 은혜가 차오릅니다.</p>
+      <div class="verse reveal">
+        <span class="ref">암송 · 사도행전 15:11</span>
+        <p class="scripture">그러나 우리는 그들이 우리와 동일하게 주 예수의 은혜로 구원 받는 줄을 믿노라</p>
+      </div>
+      <label class="field-label reveal" for="prayer" style="color:var(--body-muted)">한 줄 기도 / 결단</label>
+      <textarea id="prayer" class="reveal" data-store="prayer" placeholder="주님, 이번 주 저는…"></textarea>
+      <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+        <button class="btn" id="shareBtn">결단 나누기 / 공유</button>
+        <button class="btn ghost" onclick="go(0)">처음으로</button>
+      </div>
+      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 우리와 같이 그들에게도 (행 15:6) · 성경: 개역개정</p>
+    </div>
+    <div class="counter">08 / 08</div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var deck=document.getElementById("deck");
+  var pages=Array.prototype.slice.call(document.querySelectorAll(".page"));
+  var dotsWrap=document.getElementById("dots");
+  var bar=document.getElementById("progress");
+  var KEY="sermon_260531_v1";
+
+  /* ── build dots ── */
+  pages.forEach(function(p,i){
+    var b=document.createElement("button");
+    b.setAttribute("aria-label",(p.dataset.label||("페이지 "+(i+1))));
+    b.addEventListener("click",function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  window.go=function(i){
+    if(pages[i]) pages[i].scrollIntoView({behavior:"smooth"});
+  };
+
+  /* ── progress bar + active dot + reveal via scroll ── */
+  function onScroll(){
+    var st=deck.scrollTop, h=deck.clientHeight;
+    var max=deck.scrollHeight-h;
+    bar.style.width=(max>0?(st/max*100):0)+"%";
+    var idx=Math.round(st/h);
+    dots.forEach(function(d,i){d.classList.toggle("active",i===idx);});
+  }
+  deck.addEventListener("scroll",onScroll,{passive:true});
+
+  /* ── reveal on enter ── */
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add("in");
+    });
+  },{root:deck,threshold:.35});
+  pages.forEach(function(p){io.observe(p);});
+  // ensure first page shows immediately
+  pages[0].classList.add("in");
+  onScroll();
+
+  /* ── verse expand/collapse ── */
+  document.querySelectorAll(".verse .toggle").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var card=btn.closest(".verse");
+      var open=card.classList.toggle("open");
+      btn.textContent=open?"본문 접기 ▴":"본문 펼치기 ▾";
+    });
+  });
+
+  /* ── storage helpers ── */
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}
+  var state=load();
+
+  /* ── toast ── */
+  var toast=document.getElementById("toast"),tt;
+  function showToast(msg){
+    toast.textContent=msg;toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1600);
+  }
+
+  /* ── self-check scale ── */
+  document.querySelectorAll(".scale").forEach(function(sc){
+    var key=sc.dataset.store;
+    var note=document.getElementById(key+"-note");
+    var labels={1:"감사가 깊군요. 그 은혜를 더 크게 누리세요.",2:"잘 지키고 있어요.",3:"가끔 흔들리는군요. 멈추고 고백해 보세요.",4:"비교가 자주 찾아오네요. 은혜를 의지하세요.",5:"비교가 무겁네요. 오직 주 예수의 은혜가 다 삼킵니다."};
+    function paint(v){
+      sc.querySelectorAll("button").forEach(function(b){b.classList.toggle("sel",b.dataset.v===String(v));});
+      if(note) note.textContent=v?labels[v]:"";
+    }
+    if(state[key]) paint(state[key]);
+    sc.querySelectorAll("button").forEach(function(b){
+      b.addEventListener("click",function(){
+        state[key]=b.dataset.v;save(state);paint(b.dataset.v);
+      });
+    });
+  });
+
+  /* ── checklist ── */
+  document.querySelectorAll("#checklist input").forEach(function(box){
+    if(state["chk_"+box.id]) box.checked=true;
+    box.addEventListener("change",function(){
+      state["chk_"+box.id]=box.checked;save(state);
+      if(box.checked) showToast("저장됐어요 ✓");
+    });
+  });
+
+  /* ── textareas ── */
+  document.querySelectorAll("textarea[data-store]").forEach(function(ta){
+    var key=ta.dataset.store;
+    var note=document.getElementById(key+"-note");
+    if(state[key]) ta.value=state[key];
+    var t;
+    ta.addEventListener("input",function(){
+      state[key]=ta.value;
+      clearTimeout(t);
+      t=setTimeout(function(){save(state);if(note){note.textContent="저장됨 · "+new Date().toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"});note.style.opacity=1;}},500);
+    });
+  });
+
+  /* ── share ── */
+  document.getElementById("shareBtn").addEventListener("click",function(){
+    var prayer=(state.prayer||"").trim();
+    var text="우리와 같이 그들에게도 (행 15:6)\n\n\"그러나 우리는 그들이 우리와 동일하게 주 예수의 은혜로 구원 받는 줄을 믿노라\" (행 15:11)\n\n"+(prayer?("나의 결단: "+prayer+"\n\n"):"")+"비교를 내려놓고, 오직 주 예수의 은혜로.";
+    if(navigator.share){
+      navigator.share({title:"우리와 같이 그들에게도",text:text}).catch(function(){});
+    }else if(navigator.clipboard){
+      navigator.clipboard.writeText(text).then(function(){showToast("복사됐어요. 붙여넣어 나누세요 ✓");});
+    }else{
+      showToast("길게 눌러 복사해 주세요");
+    }
+  });
+
+  /* ── keyboard arrows (desktop) ── */
+  document.addEventListener("keydown",function(e){
+    var idx=Math.round(deck.scrollTop/deck.clientHeight);
+    if(e.key==="ArrowDown"||e.key==="PageDown"){e.preventDefault();go(Math.min(idx+1,pages.length-1));}
+    if(e.key==="ArrowUp"||e.key==="PageUp"){e.preventDefault();go(Math.max(idx-1,0));}
+  });
+})();
+</script>
+</body>
+</html>
