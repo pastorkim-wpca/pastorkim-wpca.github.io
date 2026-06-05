@@ -3,230 +3,257 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>LET'S GO 야유회 · 미주서부장로교회 전교인 야유회</title>
-<meta property="og:title" content="LET'S GO 야유회 · 미주서부장로교회 전교인 야유회">
-<meta property="og:description" content="06.07 SUN · 2부 예배 직후 · TORRANCE PARK — 함께라서 더 즐거운 우리 교회. 이웃과 친구를 초대해 주세요.">
-<meta property="og:image" content="https://pastorkim-wpca.github.io/picnic/picnic_hero.jpg">
+<title>함께라서 더 즐거운 우리 교회! · 미주서부장로교회 전교인 야유회</title>
+<meta property="og:title" content="함께라서 더 즐거운 우리 교회! · 전교인 야유회">
+<meta property="og:description" content="6월 7일 주일 · 2부 예배 직후 · Torrance Park — Let's Go 야유회! 이웃과 친구를 초대해 주세요 🌿">
+<meta property="og:image" content="https://pastorkim-wpca.github.io/picnic/hero_group.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#ffb733">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gaegu:wght@700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --canvas:#000000;
-    --surface:#1a1a1a;
-    --soft:#0d0d0d;
-    --elevated:#262626;
-    --hairline:#3c3c3c;
-    --ink:#ffffff;
-    --body:#bbbbbb;
-    --body-strong:#e6e6e6;
-    --muted:#7e7e7e;
-    /* 교회 4색 시그니처 스트라이프 (로고에서 추출) */
-    --c-purple:#b5a1c7;
-    --c-orange:#df812f;
-    --c-green:#c6cc4e;
-    --c-red:#ca3f26;
+    --cream:#fff7e9;
+    --paper:#fffdf8;
+    --ink:#33291f;
+    --muted:#8a7a66;
+    /* 교회 로고 4색 (경쾌 버전) */
+    --purple:#9b7ec9;
+    --orange:#f0892a;
+    --green:#86b73c;
+    --red:#e24a2e;
+    --sky:#3fb6e6;
+    --sun:#ffc233;
+    --sun2:#ff9e2e;
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-text-size-adjust:100%;}
-  html,body{background:#000;}
+  html,body{background:#ffeccb;}
   body{
-    font-family:"Inter","Apple SD Gothic Neo","Pretendard",system-ui,-apple-system,sans-serif;
-    color:var(--ink);
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-    display:flex;justify-content:center;
+    font-family:"Apple SD Gothic Neo","Pretendard",system-ui,-apple-system,sans-serif;
+    color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased;
+    display:flex;justify-content:center;padding:0;
   }
-  .wrap{width:100%;max-width:480px;background:var(--canvas);min-height:100vh;}
+  .ko-round{font-family:"Jua","Apple SD Gothic Neo",sans-serif;}
+  .wrap{width:100%;max-width:470px;background:var(--cream);min-height:100vh;
+    box-shadow:0 0 60px rgba(0,0,0,.12);overflow:hidden;position:relative;}
 
-  .stripe{height:4px;width:100%;display:flex;}
-  .stripe i{flex:1;height:100%;}
-  .stripe .s1{background:var(--c-purple);}
-  .stripe .s2{background:var(--c-orange);}
-  .stripe .s3{background:var(--c-green);}
-  .stripe .s4{background:var(--c-red);}
+  /* ===== TOP LOGO ===== */
+  .topbar{padding:18px 20px 10px;text-align:center;background:var(--paper);}
+  .topbar img{height:34px;width:auto;}
 
-  /* ===== TOP BAR ===== */
-  .topbar{
-    height:60px;display:flex;align-items:center;justify-content:center;
-    border-bottom:1px solid var(--hairline);padding:0 20px;
-  }
-  .topbar img{height:26px;width:auto;}
+  /* rainbow stripe */
+  .rainbow{height:7px;display:flex;}
+  .rainbow i{flex:1;}
+  .rainbow .a{background:var(--purple);}
+  .rainbow .b{background:var(--orange);}
+  .rainbow .c{background:var(--green);}
+  .rainbow .d{background:var(--red);}
 
-  /* ===== HERO PHOTO BAND ===== */
+  /* ===== HERO ===== */
   .hero{
-    position:relative;
-    aspect-ratio:4/5;
-    background:#000 url('picnic_hero.jpg') center 22% / cover no-repeat;
-    display:flex;flex-direction:column;justify-content:flex-end;
+    position:relative;overflow:hidden;text-align:center;
+    padding:30px 22px 26px;
+    background:
+      radial-gradient(120% 80% at 85% 8%, #ffe487 0%, rgba(255,228,135,0) 42%),
+      radial-gradient(120% 70% at 12% 2%, #bdeaff 0%, rgba(189,234,255,0) 46%),
+      linear-gradient(180deg,#eafaff 0%, var(--cream) 70%);
   }
-  .hero::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 26%, rgba(0,0,0,.30) 52%, rgba(0,0,0,.92) 100%);
+  .hero .sun{position:absolute;top:-22px;right:-20px;width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle at 38% 38%,#fff0b0,var(--sun) 60%,var(--sun2));
+    box-shadow:0 0 0 12px rgba(255,194,51,.22);}
+  .hero .cloud{position:absolute;font-size:30px;opacity:.9;}
+  .badge{
+    position:relative;z-index:2;display:inline-flex;align-items:center;gap:7px;
+    font-size:15px;font-weight:800;color:#fff;
+    background:linear-gradient(100deg,var(--orange),var(--red));
+    padding:8px 18px;border-radius:999px;
+    box-shadow:0 6px 16px rgba(226,74,46,.32);transform:rotate(-2deg);
+    margin-bottom:18px;
   }
-  .hero .inner{position:relative;z-index:2;padding:0 22px 30px;}
-  .kicker{
-    font-size:11.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--body-strong);margin-bottom:14px;
+  .hero .lets{
+    position:relative;z-index:2;
+    font-family:"Jua",sans-serif;font-size:30px;color:var(--sky);
+    text-shadow:2px 2px 0 #fff, 3px 3px 0 rgba(63,182,230,.25);
+    margin-bottom:6px;letter-spacing:.01em;
   }
+  .hero .lets em{font-style:normal;color:var(--orange);}
   .hero h1{
-    font-size:62px;font-weight:800;line-height:.92;letter-spacing:-.02em;
-    text-transform:uppercase;color:#fff;
+    position:relative;z-index:2;font-family:"Jua",sans-serif;
+    font-size:46px;line-height:1.18;letter-spacing:-.01em;color:var(--ink);font-weight:400;
   }
-  .hero h1 .ko{
-    display:block;font-family:"Apple SD Gothic Neo","Pretendard",sans-serif;
-    font-size:58px;font-weight:800;letter-spacing:-.01em;margin-top:4px;
+  .hero h1 .hl{color:var(--red);position:relative;white-space:nowrap;}
+  .hero h1 .hl::after{
+    content:"";position:absolute;left:-2px;right:-2px;bottom:4px;height:13px;z-index:-1;
+    background:rgba(255,194,51,.6);border-radius:6px;transform:rotate(-1deg);
   }
-  .hero .sub{
-    margin-top:16px;font-size:17px;font-weight:300;color:var(--body-strong);
-    letter-spacing:.01em;
+  .hero h1 .bang{color:var(--orange);}
+
+  .photo{
+    position:relative;z-index:2;margin-top:22px;
+    border-radius:22px;overflow:hidden;
+    border:5px solid #fff;
+    box-shadow:0 14px 30px rgba(51,41,31,.22);
+  }
+  .photo img{width:100%;display:block;aspect-ratio:16/10;object-fit:cover;object-position:center 30%;}
+  .photo .cap{
+    position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(transparent,rgba(0,0,0,.55));
+    color:#fff;font-size:13px;font-weight:700;letter-spacing:.04em;
+    padding:22px 14px 10px;text-align:left;
   }
 
-  /* ===== SPEC GRID ===== */
-  .specs{border-top:1px solid var(--hairline);}
-  .spec{
-    padding:24px 22px;border-bottom:1px solid var(--hairline);
-    background:var(--soft);
-    display:flex;align-items:baseline;gap:16px;
+  /* ===== INFO CARDS ===== */
+  .info{padding:26px 20px 6px;display:flex;flex-direction:column;gap:13px;}
+  .ic{
+    display:flex;align-items:center;gap:15px;
+    background:var(--paper);border-radius:20px;padding:16px 18px;
+    box-shadow:0 6px 16px rgba(51,41,31,.08);
+    border:1.5px solid rgba(255,194,51,.25);
   }
-  .spec .lab{
-    flex:0 0 92px;
-    font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--muted);padding-top:6px;
+  .ic .em{
+    flex:0 0 auto;width:52px;height:52px;border-radius:16px;
+    display:flex;align-items:center;justify-content:center;font-size:26px;
   }
-  .spec .val{flex:1;}
-  .spec .big{
-    font-size:34px;font-weight:800;line-height:1.04;letter-spacing:-.01em;color:#fff;
+  .ic.d1 .em{background:rgba(155,126,201,.16);}
+  .ic.d2 .em{background:rgba(240,137,42,.16);}
+  .ic.d3 .em{background:rgba(134,183,60,.18);}
+  .ic .k{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.04em;}
+  .ic .v{font-size:22px;font-weight:800;color:var(--ink);line-height:1.3;margin-top:1px;}
+  .ic .v small{display:block;font-size:14.5px;font-weight:600;color:var(--muted);margin-top:3px;}
+  .ic .v .hot{color:var(--red);}
+
+  /* ===== JOY GALLERY ===== */
+  .joy{padding:30px 20px 8px;}
+  .joy .title{
+    font-family:"Jua",sans-serif;font-size:25px;color:var(--ink);text-align:center;
+    margin-bottom:6px;
   }
-  .spec .ko{font-size:19px;font-weight:600;color:#fff;line-height:1.3;}
-  .spec .small{
-    display:block;margin-top:6px;font-size:14px;font-weight:300;color:var(--body);line-height:1.5;
-  }
-  .spec .pill{
-    display:inline-block;margin-top:2px;
-    font-size:18px;font-weight:700;color:#fff;
-    border:1px solid var(--c-red);padding:6px 14px;
-  }
+  .joy .title .g{color:var(--green);} .joy .title .o{color:var(--orange);} .joy .title .r{color:var(--red);}
+  .joy .desc{text-align:center;font-size:16px;font-weight:600;color:var(--muted);margin-bottom:18px;line-height:1.6;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .grid figure{border-radius:18px;overflow:hidden;border:4px solid #fff;box-shadow:0 8px 18px rgba(51,41,31,.16);}
+  .grid img{width:100%;height:100%;display:block;object-fit:cover;}
+  .grid .wide{grid-column:1 / -1;aspect-ratio:16/9;}
+  .grid .sq{aspect-ratio:1/1;}
 
   /* ===== LEAD ===== */
   .lead{
-    padding:40px 24px;border-bottom:1px solid var(--hairline);
-    font-size:18px;font-weight:300;line-height:1.7;color:var(--body-strong);
+    margin:30px 20px 4px;text-align:center;
+    background:linear-gradient(120deg, rgba(134,183,60,.14), rgba(255,194,51,.18));
+    border:2px dashed rgba(240,137,42,.4);border-radius:22px;
+    padding:24px 22px;
+    font-size:18.5px;font-weight:700;line-height:1.7;color:#4a3b27;
   }
-  .lead b{font-weight:700;color:#fff;}
+  .lead b{color:var(--red);}
 
   /* ===== INVITE ===== */
-  .invite{padding:40px 24px;border-bottom:1px solid var(--hairline);}
-  .invite .tag{
-    font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--c-orange);margin-bottom:14px;
-  }
-  .invite h2{
-    font-size:28px;font-weight:800;line-height:1.25;letter-spacing:-.01em;color:#fff;
-    margin-bottom:14px;
-  }
-  .invite p{font-size:16.5px;font-weight:300;line-height:1.7;color:var(--body);}
-  .invite p b{font-weight:700;color:var(--body-strong);}
+  .invite{padding:30px 24px 6px;text-align:center;}
+  .invite .tag{font-family:"Jua",sans-serif;font-size:26px;color:var(--orange);margin-bottom:12px;}
+  .invite p{font-size:17.5px;font-weight:500;line-height:1.75;color:#4a3b32;}
+  .invite p b{font-weight:800;color:var(--green);}
+  .invite .emoji{font-size:30px;margin-top:10px;}
 
   /* ===== ACTIONS ===== */
-  .actions{padding:34px 24px 10px;display:flex;flex-direction:column;gap:14px;}
+  .actions{padding:26px 22px 6px;display:flex;flex-direction:column;gap:13px;}
   .btn{
-    width:100%;border:none;cursor:pointer;font-family:inherit;
-    border-radius:0;height:56px;
-    font-size:14px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
-    display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;
-    transition:transform .12s ease, background .15s ease, color .15s ease;
+    width:100%;border:none;cursor:pointer;font-family:"Jua",sans-serif;
+    border-radius:18px;padding:18px;font-size:20px;
+    display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;
+    transition:transform .12s ease;
   }
-  .btn:active{transform:scale(.97);}
-  .btn-share{background:#fff;color:#000;}
-  .btn-map{background:transparent;color:#fff;border:1px solid #fff;}
+  .btn:active{transform:scale(.96);}
+  .btn-share{background:linear-gradient(100deg,var(--orange),var(--red));color:#fff;
+    box-shadow:0 10px 24px rgba(226,74,46,.34);}
+  .btn-map{background:#fff;color:var(--green);border:2.5px solid var(--green);}
 
   /* ===== FOOTER ===== */
-  .footer{padding:38px 24px 46px;text-align:center;}
-  .footer img{height:40px;width:auto;margin-bottom:16px;opacity:.96;}
-  .footer .tagline{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
-  .footer .url{font-size:14px;font-weight:600;letter-spacing:.1em;color:var(--body);}
-  .footer .fine{margin-top:18px;font-size:12px;font-weight:300;color:var(--muted);line-height:1.6;}
+  .footer{padding:30px 24px 40px;text-align:center;}
+  .footer img{height:40px;margin-bottom:12px;}
+  .footer .tagline{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.03em;}
+  .footer .url{display:inline-block;margin-top:8px;font-family:"Jua",sans-serif;font-size:17px;color:var(--orange);}
 
   @media (max-width:380px){
-    .hero h1{font-size:52px;} .hero h1 .ko{font-size:48px;}
-    .spec .big{font-size:29px;}
-    .invite h2{font-size:24px;}
+    .hero h1{font-size:39px;} .hero .lets{font-size:26px;}
+    .ic .v{font-size:20px;}
   }
 </style>
 </head>
 <body>
   <div class="wrap">
 
-    <div class="topbar"><img src="logo_white.png" alt="미주서부장로교회 West Presbyterian Church of America"></div>
-    <div class="stripe"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i></div>
+    <div class="topbar"><img src="logo_color.png" alt="미주서부장로교회 West Presbyterian Church of America"></div>
+    <div class="rainbow"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
 
     <header class="hero">
-      <div class="inner">
-        <div class="kicker">West Presbyterian Church · All-Church Picnic</div>
-        <h1>LET'S GO<span class="ko">야유회!</span></h1>
-        <p class="sub">함께라서 더 즐거운 우리 교회</p>
+      <div class="sun"></div>
+      <span class="cloud" style="top:60px;left:16px;">☁️</span>
+      <span class="cloud" style="top:120px;right:18px;font-size:22px;">🦋</span>
+
+      <span class="badge">🧺 전교인 야유회 · 야외예배</span>
+      <div class="lets">Let's Go <em>야유회!</em></div>
+      <h1>함께라서<br><span class="hl">더 즐거운</span><br>우리 교회<span class="bang">!</span></h1>
+
+      <div class="photo">
+        <img src="hero_group.jpg" alt="전교인 야유회 단체사진">
+        <div class="cap">🌳 우리 교회 전교인이 함께한 행복한 하루</div>
       </div>
     </header>
-    <div class="stripe"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i></div>
 
-    <section class="specs">
-      <div class="spec">
-        <div class="lab">Date</div>
-        <div class="val">
-          <div class="big">06.07 SUN</div>
-          <span class="small">6월 7일 주일</span>
-        </div>
+    <section class="info">
+      <div class="ic d1">
+        <div class="em">📅</div>
+        <div><div class="k">언제</div>
+          <div class="v">6월 7일 <span style="font-size:.8em;">주일</span><small class="hot">⛪ 2부 예배 직후 출발!</small></div></div>
       </div>
-      <div class="spec">
-        <div class="lab">Depart</div>
-        <div class="val">
-          <span class="pill">2부 예배 직후 출발</span>
-        </div>
+      <div class="ic d2">
+        <div class="em">📍</div>
+        <div><div class="k">어디서</div>
+          <div class="v">Torrance Park<small>2001 Santa Fe Ave, Torrance, CA 90501</small></div></div>
       </div>
-      <div class="spec">
-        <div class="lab">Venue</div>
-        <div class="val">
-          <div class="big">TORRANCE PARK</div>
-          <span class="small">2001 Santa Fe Ave, Torrance, CA 90501</span>
-        </div>
+      <div class="ic d3">
+        <div class="em">🎉</div>
+        <div><div class="k">무엇을</div>
+          <div class="v">친교 · 게임 · 맛있는 음식<small>온 세대가 함께 웃고 즐기는 하루 🌭🍉</small></div></div>
       </div>
-      <div class="spec">
-        <div class="lab">Program</div>
-        <div class="val">
-          <div class="ko">전교인 야외예배 · 친교 · 게임 · 나눔</div>
-          <span class="small">온 세대가 함께 웃고 즐기는 하루</span>
-        </div>
+    </section>
+
+    <section class="joy">
+      <div class="title">이렇게 <span class="o">웃고</span> <span class="g">먹고</span> <span class="r">나눠요</span></div>
+      <div class="desc">작년 야유회의 행복한 순간들 📸</div>
+      <div class="grid">
+        <figure class="wide"><img src="joy3.jpg" alt="다같이 친교"></figure>
+        <figure class="sq"><img src="joy1.jpg" alt="함께 식사하며 웃는 성도들"></figure>
+        <figure class="sq"><img src="joy2.jpg" alt="환하게 웃는 성도들"></figure>
       </div>
     </section>
 
     <section class="lead">
       푸른 잔디밭에서 함께 먹고, 웃고, <b>나누는</b><br>
-      <b>은혜와 사랑의 하루</b>를 준비했습니다.
+      <b>은혜와 사랑의 하루</b>를 준비했습니다 🌿
     </section>
 
     <section class="invite">
-      <div class="tag">Invitation</div>
-      <h2>이웃과 친구를<br>초대해 주세요</h2>
+      <div class="tag ko-round">이웃과 친구를 초대해 주세요!</div>
       <p>
-        교회에 처음 오시는 분도, 오랜만에 오시는 분도 <b>누구나 환영</b>합니다.
-        맛있는 음식과 따뜻한 사람들이 여러분을 기다리고 있습니다.
-        부담 없이 함께해요.
+        교회에 처음 오시는 분도, 오랜만에 오시는 분도<br>
+        <b>누구나 환영</b>합니다.<br>
+        맛있는 음식과 따뜻한 사람들이<br>
+        여러분을 기다리고 있어요.
       </p>
+      <div class="emoji">😊🤝🌳</div>
     </section>
 
     <section class="actions">
       <button class="btn btn-share" id="shareBtn">📤 카톡으로 초대하기</button>
-      <a class="btn btn-map" href="https://maps.google.com/?q=Torrance+Park,+2001+Santa+Fe+Ave,+Torrance,+CA+90501" target="_blank" rel="noopener">🗺️ 오시는 길 · MAP</a>
+      <a class="btn btn-map" href="https://maps.google.com/?q=Torrance+Park,+2001+Santa+Fe+Ave,+Torrance,+CA+90501" target="_blank" rel="noopener">🗺️ 오시는 길 (지도)</a>
     </section>
 
-    <div class="stripe" style="margin-top:34px;"><i class="s1"></i><i class="s2"></i><i class="s3"></i><i class="s4"></i></div>
+    <div class="rainbow" style="margin-top:26px;"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
     <footer class="footer">
-      <img src="logo_white.png" alt="미주서부장로교회">
-      <div class="tagline">사람을 살리고 사람을 키우는</div>
-      <div class="url">wpca.org</div>
-      <div class="fine">미주서부장로교회 전교인 야유회<br>함께라서 더 즐거운 우리 교회</div>
+      <img src="logo_color.png" alt="미주서부장로교회">
+      <div class="tagline">사람을 살리고 사람을 키우는 미주서부장로교회</div>
+      <a class="url" href="https://wpca.org" target="_blank" rel="noopener">wpca.org</a>
     </footer>
 
   </div>
@@ -234,8 +261,8 @@
 <script>
   document.getElementById('shareBtn').addEventListener('click', async function(){
     var data={
-      title:"LET'S GO 야유회 · 미주서부장로교회 전교인 야유회",
-      text:'🧺 미주서부장로교회 전교인 야유회 · LET’S GO 야유회!\n📅 6월 7일 주일 · 2부 예배 직후\n📍 TORRANCE PARK\n\n함께라서 더 즐거운 우리 교회.\n이웃과 친구를 초대해 주세요.',
+      title:"함께라서 더 즐거운 우리 교회! · 전교인 야유회",
+      text:'🧺 미주서부장로교회 전교인 야유회 · Let’s Go 야유회!\n📅 6월 7일 주일 · 2부 예배 직후\n📍 Torrance Park\n\n함께라서 더 즐거운 우리 교회!\n이웃과 친구를 초대해 주세요 🌿',
       url:location.href
     };
     try{
