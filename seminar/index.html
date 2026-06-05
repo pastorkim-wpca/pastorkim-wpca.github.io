@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>전주노회 · KPC 연합세미나 — 살아 움직이는 교회</title>
+<meta property="og:title" content="전주노회 · KPC 연합세미나 — 살아 움직이는 교회">
+<meta property="og:description" content="6월 16일(화) 오전 10시 30분 · 토랜스제일장로교회 — 북미 선교적 교회의 흐름과 한국교회의 갱신 (강사: 이상훈 박사)">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#10243f">
+<style>
+  :root{
+    --navy:#10243f;
+    --navy2:#1c3a63;
+    --gold:#c89b3c;
+    --red:#c0392f;
+    --green:#1f8a6a;
+    --cream:#fbf7ef;
+    --ink:#1d2330;
+    --muted:#5b6473;
+    --line:rgba(16,36,63,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-text-size-adjust:100%;}
+  html,body{background:#e9eef5;}
+  body{
+    font-family:"Apple SD Gothic Neo","Pretendard",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding:18px 14px 40px;
+    display:flex;justify-content:center;
+  }
+  .card{
+    width:100%;max-width:480px;
+    background:var(--cream);
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 18px 60px rgba(16,36,63,.22);
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #28507f 0%, var(--navy2) 42%, var(--navy) 100%);
+    color:#fff;
+    padding:30px 26px 34px;
+    text-align:center;
+  }
+  .logos{
+    display:flex;align-items:center;justify-content:center;
+    gap:20px;margin-bottom:20px;
+  }
+  .logo-badge{
+    background:#fff;border-radius:50%;
+    width:78px;height:78px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    overflow:hidden;
+  }
+  .logo-badge img{width:84%;height:84%;object-fit:contain;}
+  .logo-x{font-size:22px;font-weight:300;opacity:.65;}
+
+  .kicker{
+    display:inline-block;
+    font-size:14.5px;font-weight:700;letter-spacing:.04em;
+    color:#dfe8f5;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.22);
+    padding:7px 16px;border-radius:999px;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:42px;font-weight:800;letter-spacing:-.02em;
+    line-height:1.18;
+    text-shadow:0 2px 14px rgba(0,0,0,.25);
+  }
+  .hero h1 .quote{color:var(--gold);}
+  .subtitle{
+    margin-top:14px;
+    font-size:18px;font-weight:500;
+    color:#e7eefa;line-height:1.5;
+  }
+
+  /* ===== DATE BLOCK (emphasis) ===== */
+  .when{
+    margin:-22px 20px 0;
+    position:relative;
+    background:#fff;
+    border-radius:22px;
+    box-shadow:0 12px 34px rgba(16,36,63,.16);
+    border:1px solid var(--line);
+    padding:22px 22px 24px;
+    text-align:center;
+  }
+  .when .label{
+    font-size:13.5px;font-weight:800;letter-spacing:.14em;
+    color:var(--gold);text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .when .date{
+    font-size:40px;font-weight:800;letter-spacing:-.01em;
+    color:var(--navy);line-height:1.12;
+  }
+  .when .time{
+    margin-top:8px;
+    display:inline-block;
+    font-size:26px;font-weight:800;
+    color:#fff;background:var(--red);
+    padding:8px 22px;border-radius:999px;
+    box-shadow:0 6px 16px rgba(192,57,47,.34);
+  }
+
+  /* ===== BODY ===== */
+  .body{padding:26px 24px 6px;}
+  .row{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .row:last-of-type{border-bottom:none;}
+  .ico{
+    flex:0 0 auto;
+    width:46px;height:46px;border-radius:13px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:23px;
+    background:rgba(28,58,99,.08);
+  }
+  .row .k{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.02em;}
+  .row .v{font-size:20px;font-weight:700;color:var(--ink);line-height:1.4;margin-top:2px;}
+  .row .v small{display:block;font-size:15.5px;font-weight:500;color:var(--muted);margin-top:3px;}
+
+  .meal{
+    margin:6px 24px 0;
+    background:rgba(31,138,106,.1);
+    border:1px solid rgba(31,138,106,.25);
+    color:#16624c;
+    border-radius:16px;
+    padding:14px 18px;
+    text-align:center;
+    font-size:17px;font-weight:700;
+  }
+
+  .invite{
+    padding:24px 26px 6px;
+    text-align:center;
+    font-size:18.5px;font-weight:500;
+    color:#33405a;line-height:1.66;
+  }
+  .invite b{color:var(--navy);font-weight:800;}
+
+  /* ===== HOSTS ===== */
+  .hosts{
+    margin:22px 18px 0;
+    background:var(--navy);
+    border-radius:22px;
+    padding:22px 22px 24px;
+    color:#eef3fb;
+    text-align:center;
+  }
+  .hosts .ht{
+    font-size:13px;font-weight:800;letter-spacing:.16em;
+    color:var(--gold);margin-bottom:14px;
+  }
+  .hosts .org{
+    font-size:18px;font-weight:700;line-height:1.5;
+    padding:8px 0;
+  }
+  .hosts .org span{display:block;font-size:14.5px;font-weight:500;color:#aebfda;margin-top:2px;}
+  .hosts .div{height:1px;background:rgba(255,255,255,.14);margin:6px 0;}
+
+  /* ===== SHARE ===== */
+  .actions{padding:24px 24px 30px;display:flex;flex-direction:column;gap:12px;}
+  .btn{
+    width:100%;border:none;cursor:pointer;
+    font-family:inherit;
+    border-radius:16px;
+    padding:17px;
+    font-size:18px;font-weight:800;
+    transition:transform .12s ease, box-shadow .12s ease;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+  }
+  .btn:active{transform:scale(.96);}
+  .btn-share{background:var(--navy);color:#fff;box-shadow:0 8px 22px rgba(16,36,63,.3);}
+  .btn-map{background:#fff;color:var(--navy);border:1.5px solid var(--line);}
+  .foot{
+    text-align:center;font-size:13.5px;color:#9aa3b2;
+    padding:0 24px 26px;line-height:1.6;
+  }
+  @media (max-width:360px){
+    .hero h1{font-size:36px;}
+    .when .date{font-size:34px;}
+    .when .time{font-size:23px;}
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+
+    <header class="hero">
+      <div class="logos">
+        <div class="logo-badge"><img src="logo_tonghap.png" alt="대한예수교장로회(통합)"></div>
+        <span class="logo-x">✕</span>
+        <div class="logo-badge"><img src="logo_pcusa.png" alt="미국장로교(PC USA)"></div>
+      </div>
+      <span class="kicker">전주노회 &amp; KPC 연합세미나</span>
+      <h1><span class="quote">“살아 움직이는<br>교회”</span></h1>
+      <p class="subtitle">북미 선교적 교회의 흐름과<br>한국교회의 갱신</p>
+    </header>
+
+    <section class="when">
+      <div class="label">SEMINAR · 세미나 일시</div>
+      <div class="date">6월 16일 <span style="font-size:.7em;">화요일</span></div>
+      <div class="time">오전 10:30</div>
+    </section>
+
+    <section class="body">
+      <div class="row">
+        <div class="ico">🎤</div>
+        <div>
+          <div class="k">강사</div>
+          <div class="v">이상훈 박사<small>AEU(America Evangelical University) 총장</small></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="ico">📍</div>
+        <div>
+          <div class="k">장소</div>
+          <div class="v">토랜스제일장로교회<small>담임 · 고창현 목사</small></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="meal">🍱 간식과 점심 식사가 제공됩니다</div>
+
+    <p class="invite">
+      한미 한인교회의 <b>연합과 기도</b>로<br>
+      새로운 <b>선교 시대</b>를 함께 열어가기 원하는<br>
+      모든 분들을 진심으로 초청합니다.
+    </p>
+
+    <section class="hosts">
+      <div class="ht">주최 · HOSTED BY</div>
+      <div class="org">대한예수교장로회(통합) 전주노회<span>한국</span></div>
+      <div class="div"></div>
+      <div class="org">미국장로교 남가주하와이대회 KPC<span>한인교회 협의체 · USA</span></div>
+    </section>
+
+    <section class="actions">
+      <button class="btn btn-share" id="shareBtn">📤 카톡으로 공유하기</button>
+      <a class="btn btn-map" href="https://maps.google.com/?q=토랜스제일장로교회" target="_blank" rel="noopener">🗺️ 오시는 길 (지도 보기)</a>
+    </section>
+
+    <p class="foot">전주노회 · 남가주하와이대회 KPC 연합세미나<br>함께 기도하며 준비합니다 🙏</p>
+  </div>
+
+<script>
+  document.getElementById('shareBtn').addEventListener('click', async function(){
+    var data={
+      title:'전주노회 · KPC 연합세미나 — 살아 움직이는 교회',
+      text:'6월 16일(화) 오전 10:30, 토랜스제일장로교회\n전주노회·KPC 연합세미나 “살아 움직이는 교회”\n함께해 주세요 🙏',
+      url:location.href
+    };
+    try{
+      if(navigator.share){ await navigator.share(data); }
+      else{
+        await navigator.clipboard.writeText(data.text+'\n'+location.href);
+        alert('링크가 복사되었습니다. 카톡에 붙여넣어 공유하세요!');
+      }
+    }catch(e){}
+  });
+</script>
+</body>
+</html>
