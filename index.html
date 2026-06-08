@@ -6,13 +6,12 @@
 <meta name="theme-color" content="#000000" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<title>우리와 같이 그들에게도 · 말씀 묵상과 실천</title>
+<title>다른 복음 · 말씀 묵상과 실천</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    /* ── Apple design tokens (getdesign.md/apple) ── */
     --primary:#0066cc;
     --primary-focus:#0071e3;
     --primary-on-dark:#2997ff;
@@ -52,7 +51,6 @@
     overscroll-behavior-y:none;
   }
 
-  /* ── Paged scroll-snap container ── */
   .deck{
     height:100svh;
     overflow-y:scroll;
@@ -74,14 +72,12 @@
   }
   .inner{width:100%;max-width:600px;margin:0 auto;}
 
-  /* surface modes */
   .light{background:var(--canvas);color:var(--ink);}
   .parchment{background:var(--parchment);color:var(--ink);}
   .dark{background:var(--tile-1);color:var(--on-dark);}
   .dark-2{background:var(--tile-2);color:var(--on-dark);}
   .void{background:var(--black);color:var(--on-dark);}
 
-  /* ── typography ── */
   .eyebrow{
     font-family:var(--font-text);
     font-size:15px;font-weight:600;letter-spacing:.13em;
@@ -119,7 +115,6 @@
   .dark .accent,.dark-2 .accent,.void .accent{color:var(--primary-on-dark);}
   strong{font-weight:600;}
 
-  /* ── verse card ── */
   .verse{
     border-radius:var(--r-lg);
     background:var(--pearl);
@@ -151,7 +146,6 @@
   }
   .dark .verse .scripture .vn,.void .verse .scripture .vn{color:var(--body-muted);}
 
-  /* expandable */
   .verse.expandable .scripture{
     max-height:5.4em;overflow:hidden;
     -webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);
@@ -169,7 +163,6 @@
   }
   .dark .verse .toggle,.void .verse .toggle{color:var(--primary-on-dark);}
 
-  /* ── key-truth pill / list ── */
   ul.beats{list-style:none;padding:0;margin:18px 0 0;}
   ul.beats li{
     position:relative;padding:15px 0 15px 32px;
@@ -194,7 +187,6 @@
   }
   .flow .arrow{color:var(--primary);font-weight:700;}
 
-  /* ── buttons ── */
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     font-family:var(--font-text);font-size:19px;font-weight:600;letter-spacing:-.01em;
@@ -208,7 +200,6 @@
   .dark .btn.ghost,.void .btn.ghost{color:var(--primary-on-dark);border-color:var(--primary-on-dark);}
   .btn.block{display:flex;width:100%;}
 
-  /* ── self-check scale ── */
   .scale{display:flex;justify-content:space-between;gap:8px;margin:18px 0 8px;}
   .scale button{
     flex:1;aspect-ratio:1;border-radius:var(--r-md);
@@ -220,7 +211,6 @@
   .scale button.sel{background:var(--primary);color:#fff;border-color:var(--primary);}
   .scale-legend{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted-48);}
 
-  /* ── checklist ── */
   ul.check{list-style:none;padding:0;margin:18px 0 0;}
   ul.check li{margin:0 0 10px;}
   ul.check label{
@@ -242,7 +232,6 @@
   ul.check input:checked + label .box{background:var(--primary);border-color:var(--primary);}
   ul.check input:checked + label .box svg{opacity:1;transform:scale(1);}
 
-  /* ── textarea ── */
   textarea{
     width:100%;font-family:var(--font-text);font-size:19px;line-height:1.5;color:var(--ink);
     background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-lg);
@@ -251,12 +240,10 @@
   textarea:focus{outline:2px solid var(--primary-focus);border-color:transparent;}
   .field-label{font-size:16px;font-weight:600;color:var(--ink-muted-80);margin-top:18px;display:block;}
 
-  /* ── progress bar (top) ── */
   #progress{
     position:fixed;top:0;left:0;height:3px;width:0;
     background:var(--primary);z-index:50;transition:width .15s ease;
   }
-  /* ── dots (right) ── */
   #dots{
     position:fixed;right:12px;top:50%;transform:translateY(-50%);
     display:flex;flex-direction:column;gap:11px;z-index:40;
@@ -268,10 +255,8 @@
   #dots button.active{background:var(--primary);transform:scale(1.5);}
   @media (max-width:380px){#dots{display:none;}}
 
-  /* ── page counter (bottom-left) ── */
   .counter{display:none;}
 
-  /* ── bottom nav bar (working prev / next) ── */
   #navbar{
     position:fixed;left:50%;transform:translateX(-50%);
     bottom:calc(16px + var(--safe-bottom));z-index:45;
@@ -295,7 +280,6 @@
     letter-spacing:.05em;min-width:64px;text-align:center;opacity:.92;
   }
 
-  /* scroll hint */
   .hint{
     position:absolute;left:0;right:0;bottom:calc(92px + var(--safe-bottom));
     text-align:center;font-size:14px;color:var(--body-muted);
@@ -303,7 +287,6 @@
   }
   @keyframes bob{0%,100%{transform:translateY(0);opacity:.7;}50%{transform:translateY(6px);opacity:1;}}
 
-  /* reveal on enter */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
   .page.in .reveal{opacity:1;transform:none;}
   .page.in .reveal:nth-child(2){transition-delay:.06s;}
@@ -346,17 +329,17 @@
   <section class="page void" data-label="표지">
     <div class="inner">
       <p class="eyebrow reveal">미주서부장로교회 · 주일 대예배</p>
-      <h1 class="reveal">우리와 같이<br />그들에게도</h1>
-      <p class="lead reveal muted" style="max-width:30ch">비교를 내려놓고, 오직 주 예수의 은혜로.</p>
+      <h1 class="reveal">다른 복음</h1>
+      <p class="lead reveal muted" style="max-width:30ch">내 노력을 더하지 마십시오. 구원은 오직 은혜로, 믿음으로.</p>
       <div class="verse reveal" style="margin-top:22px">
-        <span class="ref">사도행전 15:11</span>
-        <p class="scripture">그러나 우리는 그들이 우리와 동일하게 주 예수의 은혜로 구원 받는 줄을 믿노라</p>
+        <span class="ref">에베소서 2:8</span>
+        <p class="scripture">너희는 그 은혜에 의하여 믿음으로 말미암아 구원을 받았으니 이것은 너희에게서 난 것이 아니요 하나님의 선물이라</p>
       </div>
       <div class="reveal" style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
         <button class="btn" onclick="go(1)">묵상 시작하기 →</button>
         <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 보기</a>
       </div>
-      <p class="reveal muted" style="font-size:14px;margin-top:22px">사도행전 15:1–11 · 2026.05.31 설교 묵상노트</p>
+      <p class="reveal muted" style="font-size:14px;margin-top:22px">갈라디아서 1:6–10 · 2026.06.07 설교 묵상노트</p>
     </div>
     <div class="hint">아래로 넘기세요 ↓</div>
     <div class="counter">01 / 08</div>
@@ -366,128 +349,154 @@
   <section class="page light" data-label="한눈에">
     <div class="inner">
       <p class="eyebrow reveal">한 눈에 보기</p>
-      <h2 class="reveal">자라지 않는 믿음은<br />죽은 믿음이다</h2>
-      <p class="reveal">겨자씨가 큰 나무가 되고, 한 알의 밀이 땅에 떨어져 많은 열매를 맺습니다. 믿음은 반드시 자랍니다. 사탄의 가장 큰 공격은 성도를 <strong>그저 가만히 있게</strong> 만드는 것입니다.</p>
+      <h2 class="reveal">복음에 무언가를<br />더하면 변질된다</h2>
+      <p class="reveal">바울이 "저주"까지 선언한 <strong>다른 복음</strong>은 교회 밖 세상이 아니라, 교회 <strong>안</strong>으로 들어온 가짜였습니다. 구원의 조건으로 믿음 외에 율법을 <strong>더하는</strong> 것 — 비슷해 보이지만 은혜의 역사를 무효로 만드는 변질된 복음입니다.</p>
       <div class="flow reveal">
-        <span class="node">비교</span><span class="arrow">→</span>
-        <span class="node">자격 의식</span><span class="arrow">→</span>
-        <span class="node">은혜 상실</span>
+        <span class="node">은혜</span><span class="arrow">→</span>
+        <span class="node">마음의 믿음</span><span class="arrow">→</span>
+        <span class="node">순종의 능력</span>
       </div>
       <ul class="beats reveal">
-        <li>비교는 <strong>은혜로 받은 선물</strong>을 내 자격으로 얻은 것처럼 착각하게 만든다.</li>
-        <li>그 착각이 감사를 원망으로 바꾸고, 모든 성장을 가로막는다.</li>
-        <li>오직 <strong class="accent">주 예수의 은혜</strong>가 비교와 원망을 삼켜 버린다.</li>
+        <li>구원은 내 노력이 아니라 <strong>하나님의 선물</strong>이다.</li>
+        <li>율법은 "너는 죄인이다"를 알려 <strong class="accent">나를 그리스도께</strong> 이끈다.</li>
+        <li>은혜가 죄를 이긴다. <strong class="accent">은혜가 곧 순종할 수 있는 능력</strong>이다.</li>
       </ul>
     </div>
     <div class="counter">02 / 08</div>
   </section>
 
-  <!-- 3 · 비교 -->
-  <section class="page parchment" data-label="비교">
+  <!-- 3 · 말씀① "오직 예수"는 초청 -->
+  <section class="page parchment" data-label="초청">
     <div class="inner">
       <span class="tag reveal">말씀 ①</span>
-      <h2 class="reveal">비교가 감사를<br />원망으로 바꾼다</h2>
-      <p class="reveal">한 달란트 받은 종은 "누구는 다섯, 누구는 둘, 난 겨우 하나" 하는 순간, 그 귀한 달란트를 땅에 묻어 버립니다. 아침부터 기쁘게 일하던 포도원 품꾼도, 늦게 온 사람이 똑같이 받는 걸 본 순간 하루 종일 노래하던 감사를 원망으로 바꿉니다.</p>
+      <h2 class="reveal">"오직 예수"는<br />정죄가 아니라 초청</h2>
+      <p class="reveal">"오직 예수 이름으로"는 누군가를 지옥에 보내려는 구호가 아닙니다. 우리의 <strong>신앙고백</strong>이며, 믿음으로 나아오라는 <strong>생명의 초청</strong>입니다. 예수님이야말로 온갖 경계와 차별에 반대하시며, 경계를 허무시고, 선을 넘으시고, 차이를 품으신 분입니다.</p>
       <div class="verse reveal">
-        <span class="ref">마태복음 19:30</span>
-        <p class="scripture">그러나 먼저 된 자로서 나중 되고 나중 된 자로서 먼저 될 자가 많으니라</p>
+        <span class="ref">갈라디아서 1:6–7</span>
+        <p class="scripture"><span class="vn">6</span>그리스도의 은혜로 너희를 부르신 이를 이같이 속히 떠나 다른 복음을 따르는 것을 내가 이상하게 여기노라 <span class="vn">7</span>다른 복음은 없나니 다만 어떤 사람들이 너희를 교란하여 그리스도의 복음을 변하게 하려 함이라</p>
       </div>
-
-      <h3 class="reveal" style="margin-top:26px">나의 비교 지수는?</h3>
-      <p class="reveal muted" style="font-size:15px">요즘 다른 사람과 나를 견주며 마음이 흔들린 적, 얼마나 잦은가요?</p>
-      <div class="scale reveal" data-store="compare" role="group" aria-label="비교 지수">
-        <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
-      </div>
-      <div class="scale-legend reveal"><span>거의 없다</span><span>자주 그렇다</span></div>
-      <p class="savednote reveal" id="compare-note"></p>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.01em">십자가의 도(道)야말로 포용과 화해와 사랑의 진수입니다.</p>
     </div>
     <div class="counter">03 / 08</div>
   </section>
 
-  <!-- 4 · 자격의식 -->
-  <section class="page light" data-label="자격">
+  <!-- 4 · 말씀② 변질된 복음 vs 은혜의 선물 -->
+  <section class="page light" data-label="선물">
     <div class="inner">
       <span class="tag reveal">말씀 ②</span>
-      <h2 class="reveal">믿음의 위기를<br />가져오는 자격 의식</h2>
-      <p class="reveal">바울과 바나바가 핍박을 견디며 복음을 전해 부흥이 일어났습니다. 그 길을 정면으로 가로막은 위기는 바깥이 아니라 <strong>교회 안에서</strong> 터졌습니다.</p>
+      <h2 class="reveal">구원은 더할 수 없는<br />하나님의 선물</h2>
+      <p class="reveal">갈라디아 교회에 들어온 거짓 가르침은 이것이었습니다. "예수 믿는 것으로는 부족하다. 할례도 받고, 절기·제사·율법도 다 지켜야 구원받는다." 그러나 구원은 내 노력으로 <strong>더할 수 있는</strong> 것이 아닙니다.</p>
       <div class="verse expandable reveal">
-        <span class="ref">사도행전 15:1–2</span>
-        <p class="scripture"><span class="vn">1</span>어떤 사람들이 유대로부터 내려와서 형제들을 가르치되 너희가 모세의 법대로 할례를 받지 아니하면 능히 구원을 받지 못하리라 하니 <span class="vn">2</span>바울 및 바나바와 그들 사이에 적지 아니한 다툼과 변론이 일어난지라 형제들이 이 문제에 대하여 바울과 바나바와 및 그 중의 몇 사람을 예루살렘에 있는 사도와 장로들에게 보내기로 작정하니라</p>
+        <span class="ref">갈라디아서 1:8–9</span>
+        <p class="scripture"><span class="vn">8</span>그러나 우리나 혹은 하늘로부터 온 천사라도 우리가 너희에게 전한 복음 외에 다른 복음을 전하면 저주를 받을지어다 <span class="vn">9</span>우리가 전에 말하였거니와 내가 지금 다시 말하노니 만일 누구든지 너희가 받은 것 외에 다른 복음을 전하면 저주를 받을지어다</p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
       <ul class="beats reveal">
-        <li>"먼저 됐다"는 자격 의식이 받은 은혜를 잃게 만든다.</li>
-        <li>자격 있는 사람이 받는 게 아니다. <strong>자격 없는 사람이 받는 것이 은혜</strong>다.</li>
-        <li>"저 사람은 자격 없다" 여겨진다면, 내 속에 "나는 자격 있다"가 있을 가능성이 크다.</li>
+        <li><strong>첫째</strong> — 예수님의 구원의 은혜가 완전하고 충분하다.</li>
+        <li><strong>둘째</strong> — 우리는 죄인이라 율법을 완전히 지킬 수 없다.</li>
+        <li>그래서 율법 준수를 <strong class="accent">구원의 조건으로 더하는 것</strong>은 변질된 복음이다.</li>
       </ul>
     </div>
     <div class="counter">04 / 08</div>
   </section>
 
-  <!-- 5 · 습관 / 외식 -->
-  <section class="page dark" data-label="습관">
+  <!-- 5 · 말씀③ 하나님은 마음을 보신다 + 자가진단 -->
+  <section class="page dark" data-label="마음">
     <div class="inner">
       <span class="tag reveal">말씀 ③</span>
-      <h2 class="reveal">믿음보다 더 질긴<br />내 습관? NO!</h2>
-      <p class="reveal">베드로는 고넬료 사건에서 "하나님은 외모로 차별하지 않으신다"를 직접 배웠습니다. 그런 베드로조차 할례자들이 두려워 이방인과의 식탁에서 일어났고, 바나바마저 휩쓸렸습니다. 사람의 습관이 이토록 무섭습니다.</p>
+      <h2 class="reveal">하나님은<br />마음을 보신다</h2>
+      <p class="reveal">믿음은 육체의 행위가 아니라 <strong>마음</strong>에서 시작됩니다. 예수님은 율법의 본뜻을 푸셨습니다 — 살인은 형제를 향한 분노에서, 간음은 마음의 음욕에서 이미 시작됩니다. 이 잣대 앞에 떳떳할 사람이 누가 있습니까? 우리는 다 죄인입니다.</p>
       <div class="verse expandable reveal">
-        <span class="ref">갈라디아서 2:11–14</span>
-        <p class="scripture"><span class="vn">11</span>게바가 안디옥에 이르렀을 때에 책망받을 일이 있기로 내가 그를 대면하여 책망하였노라 <span class="vn">12</span>야고보에게서 온 어떤 이들이 이르기 전에 게바가 이방인과 함께 먹다가 그들이 오매 그가 할례자들을 두려워하여 떠나 물러가매 <span class="vn">13</span>남은 유대인들도 그와 같이 외식하므로 바나바도 그들의 외식에 유혹되었느니라 <span class="vn">14</span>그러므로 나는 그들이 복음의 진리를 따라 바르게 행하지 아니함을 보고 모든 자 앞에서 게바에게 이르되 네가 유대인으로서 이방인을 따르고 유대인답게 살지 아니하면서 어찌하여 억지로 이방인을 유대인답게 살게 하려느냐 하였노라</p>
+        <span class="ref">마태복음 5:21–22</span>
+        <p class="scripture"><span class="vn">21</span>옛 사람에게 말한 바 살인하지 말라 누구든지 살인하면 심판을 받게 되리라 하였다는 것을 너희가 들었으나 <span class="vn">22</span>나는 너희에게 이르노니 형제에게 노하는 자마다 심판을 받게 되고 형제를 대하여 라가라 하는 자는 공회에 잡혀가게 되고 미련한 놈이라 하는 자는 지옥 불에 들어가게 되리라</p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
       <div class="verse expandable reveal">
-        <span class="ref">사도행전 10:34–35</span>
-        <p class="scripture"><span class="vn">34</span>베드로가 입을 열어 말하되 내가 참으로 하나님은 사람의 외모를 보지 아니하시고 <span class="vn">35</span>각 나라 중 하나님을 경외하며 의를 행하는 사람은 다 받으시는 줄 깨달았도다</p>
+        <span class="ref">로마서 10:9–10</span>
+        <p class="scripture"><span class="vn">9</span>네가 만일 네 입으로 예수를 주로 시인하며 또 하나님께서 그를 죽은 자 가운데서 살리신 것을 네 마음에 믿으면 구원을 받으리라 <span class="vn">10</span>사람이 마음으로 믿어 의에 이르고 입으로 시인하여 구원에 이르느니라</p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
+
+      <h3 class="reveal" style="margin-top:26px">나의 은혜 체감 지수는?</h3>
+      <p class="reveal muted" style="font-size:15px">요즘 십자가 앞에서 내 마음이 얼마나 뜨거운가요? (냉담할수록 죄 깨달음이 옅어진 것일 수 있습니다)</p>
+      <div class="scale reveal" data-store="grace" role="group" aria-label="은혜 체감 지수">
+        <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
+      </div>
+      <div class="scale-legend reveal"><span>좀 냉담하다</span><span>매우 뜨겁다</span></div>
+      <p class="savednote reveal" id="grace-note"></p>
     </div>
     <div class="counter">05 / 08</div>
   </section>
 
-  <!-- 6 · 예수님으로 충분 -->
-  <section class="page light" data-label="충분">
+  <!-- 6 · 말씀④ 율법=초등교사, 실패는 기회 -->
+  <section class="page light" data-label="초등교사">
     <div class="inner">
-      <span class="tag reveal">말씀 ④ · 본문의 심장</span>
-      <h2 class="reveal">예수님으로 충분하다</h2>
-      <p class="reveal">믿음 외에 무언가(할례, 율법 준수 등) <strong>더 필요하다</strong>는 말은, 예수님의 보혈이 불완전하다는 말입니다. "다 이루었다"가 "거의 다 이루었다"로 바뀌는 것이지요. 공개적으로 망신당한 베드로는 바울을 미워하지 않고, 책망받은 그대로를 자기 간증으로 선포합니다.</p>
-      <div class="verse expandable open reveal">
-        <span class="ref">사도행전 15:7–11</span>
-        <p class="scripture"><span class="vn">7</span>많은 변론이 있은 후에 베드로가 일어나 말하되 형제들아 너희도 알거니와 하나님이 이방인들로 내 입에서 복음의 말씀을 들어 믿게 하시려고 오래 전부터 너희 가운데서 나를 택하시고 <span class="vn">8</span>또 마음을 아시는 하나님이 우리에게와 같이 그들에게도 성령을 주어 증언하시고 <span class="vn">9</span>믿음으로 그들의 마음을 깨끗이 하사 그들이나 우리나 차별하지 아니하셨느니라 <span class="vn">10</span>그런데 지금 너희가 어찌하여 하나님을 시험하여 우리 조상과 우리도 능히 메지 못하던 멍에를 제자들의 목에 두려느냐 <span class="vn">11</span>그러나 우리는 그들이 우리와 동일하게 주 예수의 은혜로 구원 받는 줄을 믿노라 하니라</p>
+      <span class="tag reveal">말씀 ④</span>
+      <h2 class="reveal">율법은 나를<br />그리스도께 이끈다</h2>
+      <p class="reveal">하나님은 왜 지킬 수 없는 율법을 주셨을까요? 내가 <strong>죄인임을 알게</strong> 하시려고입니다. 나의 불능을 모르면, 그 불능을 은혜로 바꾸시는 사랑이 얼마나 큰지 모릅니다. 그래서 <strong>실패는 기회</strong>입니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">로마서 7:13</span>
+        <p class="scripture">그런즉 선한 것이 내게 사망이 되었느냐 그럴 수 없느니라 오직 죄가 죄로 드러나기 위하여 선한 그것으로 말미암아 나를 죽게 만들었으니 이는 계명으로 말미암아 죄로 심히 죄 되게 하려 함이라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
       </div>
-      <p class="reveal accent" style="font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.01em">"우리에게와 같이 그들에게도" — 그 중심에 주 예수의 은혜가 너무 커서, 편견과 자존심의 장벽을 다 삼켜 버립니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">갈라디아서 3:24–25</span>
+        <p class="scripture"><span class="vn">24</span>이같이 율법이 우리를 그리스도께로 인도하는 초등교사가 되어 우리로 하여금 믿음으로 말미암아 의롭다 함을 얻게 하려 함이라 <span class="vn">25</span>믿음이 온 후로는 우리가 초등교사 아래에 있지 아니하도다</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <ul class="beats reveal">
+        <li>기회란 <strong>선택할 수 있다</strong>는 말이다. 무엇을 선택할까?</li>
+        <li>가룟 유다는 실패의 함정으로 더 들어갔다.</li>
+        <li>베드로는 똑같이 실패했으나 <strong class="accent">주님의 은혜로 나아갔다</strong>. 차이는 선택 하나였다.</li>
+      </ul>
     </div>
     <div class="counter">06 / 08</div>
   </section>
 
-  <!-- 7 · 실천 -->
+  <!-- 7 · 말씀⑤ 귀중한 은혜 = 순종의 능력 (본문의 심장) -->
+  <section class="page dark-2" data-label="능력">
+    <div class="inner">
+      <span class="tag reveal">말씀 ⑤ · 은혜의 심장</span>
+      <h2 class="reveal">귀중한 은혜는<br />순종을 부른다</h2>
+      <p class="reveal">본회퍼는 예수님의 은혜를 <strong>"값비싼 은혜"</strong>라 했습니다. 왜 귀합니까? 순종으로 이끄는 은혜이기 때문입니다. 거짓 복음은 말만 잘하는 가짜이지만, 바른 복음에는 <strong>능력</strong>이 있습니다. 은혜가 죄를 이깁니다. 은혜가 곧 순종할 수 있는 능력입니다.</p>
+      <div class="verse expandable open reveal">
+        <span class="ref">갈라디아서 4:13–14</span>
+        <p class="scripture"><span class="vn">13</span>내가 처음에 육체의 약함으로 말미암아 너희에게 복음을 전한 것을 너희가 아는 바라 <span class="vn">14</span>너희를 시험하는 것이 내 육체에 있으되 이것을 너희가 업신여기지도 아니하며 버리지도 아니하고 오직 나를 하나님의 천사와 같이 또는 그리스도 예수와 같이 영접하였도다</p>
+      </div>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.01em">바울의 연약함조차 아무것도 아니게 만든 그 소중한 마음 — 그것이 세상이 줄 수 없는 은혜의 능력입니다.</p>
+    </div>
+    <div class="counter">07 / 08</div>
+  </section>
+
+  <!-- 8 · 실천 -->
   <section class="page parchment" data-label="실천">
     <div class="inner">
       <p class="eyebrow reveal">삶으로</p>
       <h2 class="reveal">이번 주 실천</h2>
       <p class="reveal muted" style="font-size:15px">체크한 내용은 이 기기에 저장됩니다. 한 주 동안 다시 열어 보세요.</p>
       <ul class="check reveal" id="checklist">
-        <li><input type="checkbox" id="c1" /><label for="c1"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">비교가 올라올 때, 멈추고 "이건 은혜로 받은 선물"이라 고백하기</span></label></li>
-        <li><input type="checkbox" id="c2" /><label for="c2"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">"자격 없다" 여겨지던 한 사람을 떠올리고, 그를 위해 기도하기</span></label></li>
-        <li><input type="checkbox" id="c3" /><label for="c3"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">바꾸기 힘든 옛 습관 하나를, 은혜를 의지해 한 걸음 내려놓기</span></label></li>
-        <li><input type="checkbox" id="c4" /><label for="c4"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">옳은 책망 앞에서 자존심 대신 "아멘"으로 수용해 보기</span></label></li>
-        <li><input type="checkbox" id="c5" /><label for="c5"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">사도행전 15:11을 외워, 하루 한 번 소리 내어 고백하기</span></label></li>
+        <li><input type="checkbox" id="c1" /><label for="c1"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">"~해야 구원받는다"며 내 노력을 슬쩍 더하고 있진 않은지 점검하기</span></label></li>
+        <li><input type="checkbox" id="c2" /><label for="c2"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">마음속 분노·미움 한 가지를 주님 앞에 정직하게 내려놓기</span></label></li>
+        <li><input type="checkbox" id="c3" /><label for="c3"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">최근의 실패·좌절을 "주님께 나아갈 기회"로 다시 선택하기</span></label></li>
+        <li><input type="checkbox" id="c4" /><label for="c4"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">내 힘으로 못 했던 순종 하나를, 은혜를 의지해 한 걸음 시도하기</span></label></li>
+        <li><input type="checkbox" id="c5" /><label for="c5"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">에베소서 2:8을 외워, 하루 한 번 소리 내어 고백하기</span></label></li>
       </ul>
       <label class="field-label reveal" for="reflect">묵상 — 오늘 내 마음을 찌른 한 구절은?</label>
       <textarea id="reflect" class="reveal" data-store="reflect" placeholder="여기에 적어 보세요…"></textarea>
       <p class="savednote reveal" id="reflect-note"></p>
     </div>
-    <div class="counter">07 / 08</div>
+    <div class="counter">08 / 08</div>
   </section>
 
-  <!-- 8 · 결단 -->
+  <!-- 9 · 결단 -->
   <section class="page void" data-label="결단">
     <div class="inner">
       <p class="eyebrow reveal">나의 결단</p>
-      <h2 class="reveal">한 순간 한 순간이<br />선물입니다</h2>
-      <p class="reveal muted">은혜를 따라 살면, 지금 나의 한 순간 한 순간이 그 자체로 선물이 됩니다. 비교가 사라진 자리에 감사가, 자격을 내려놓은 자리에 은혜가 차오릅니다.</p>
+      <h2 class="reveal">오직 주의 은혜로<br />살아갑니다</h2>
+      <p class="reveal muted">좌절과 절망 속에 계십니까? 복음이 여기 있습니다. 육체의 연약함을 의지하던 교만을 내려놓고, 불능한 죄인임을 인정할 때, 그 은혜가 우리를 순종할 수 있는 능력으로 채우십니다.</p>
       <div class="verse reveal">
-        <span class="ref">암송 · 사도행전 15:11</span>
-        <p class="scripture">그러나 우리는 그들이 우리와 동일하게 주 예수의 은혜로 구원 받는 줄을 믿노라</p>
+        <span class="ref">암송 · 에베소서 2:8</span>
+        <p class="scripture">너희는 그 은혜에 의하여 믿음으로 말미암아 구원을 받았으니 이것은 너희에게서 난 것이 아니요 하나님의 선물이라</p>
       </div>
       <label class="field-label reveal" for="prayer" style="color:var(--body-muted)">한 줄 기도 / 결단</label>
       <textarea id="prayer" class="reveal" data-store="prayer" placeholder="주님, 이번 주 저는…"></textarea>
@@ -496,9 +505,9 @@
         <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 다시 보기</a>
         <button class="btn ghost" onclick="go(0)">처음으로</button>
       </div>
-      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 우리와 같이 그들에게도 (행 15:6) · 성경: 개역개정</p>
+      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 다른 복음 (갈 1:6–10) · 성경: 개역개정</p>
     </div>
-    <div class="counter">08 / 08</div>
+    <div class="counter">09 / 09</div>
   </section>
 
 </main>
@@ -510,15 +519,14 @@
   var pages=Array.prototype.slice.call(document.querySelectorAll(".page"));
   var dotsWrap=document.getElementById("dots");
   var bar=document.getElementById("progress");
-  var KEY="sermon_260531_v1";
+  var KEY="sermon_260607_v1";
 
-  /* ── 설교 영상 링크 (여기에 주소를 넣으면 버튼이 나타납니다) ── */
-  var SERMON_URL="https://youtu.be/wtrA4C54DpM";
+  /* ── 설교 영상 링크 ── */
+  var SERMON_URL="https://youtu.be/ZZxrUBqDZRo";
   document.querySelectorAll(".sermon-link").forEach(function(a){
     if(SERMON_URL){a.href=SERMON_URL;} else {a.style.display="none";}
   });
 
-  /* ── bottom nav (working prev / next) ── */
   var prevBtn=document.getElementById("prevBtn");
   var nextBtn=document.getElementById("nextBtn");
   var navcount=document.getElementById("navcount");
@@ -527,7 +535,6 @@
   prevBtn.addEventListener("click",function(){go(Math.max(curIdx()-1,0));});
   nextBtn.addEventListener("click",function(){go(Math.min(curIdx()+1,pages.length-1));});
 
-  /* ── build dots ── */
   pages.forEach(function(p,i){
     var b=document.createElement("button");
     b.setAttribute("aria-label",(p.dataset.label||("페이지 "+(i+1))));
@@ -540,7 +547,6 @@
     if(pages[i]) pages[i].scrollIntoView({behavior:"smooth"});
   };
 
-  /* ── progress bar + active dot + reveal via scroll ── */
   function onScroll(){
     var st=deck.scrollTop, h=deck.clientHeight;
     var max=deck.scrollHeight-h;
@@ -553,18 +559,15 @@
   }
   deck.addEventListener("scroll",onScroll,{passive:true});
 
-  /* ── reveal on enter ── */
   var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting) e.target.classList.add("in");
     });
   },{root:deck,threshold:.35});
   pages.forEach(function(p){io.observe(p);});
-  // ensure first page shows immediately
   pages[0].classList.add("in");
   onScroll();
 
-  /* ── verse expand/collapse ── */
   document.querySelectorAll(".verse .toggle").forEach(function(btn){
     btn.addEventListener("click",function(){
       var card=btn.closest(".verse");
@@ -573,23 +576,20 @@
     });
   });
 
-  /* ── storage helpers ── */
   function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
   function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}
   var state=load();
 
-  /* ── toast ── */
   var toast=document.getElementById("toast"),tt;
   function showToast(msg){
     toast.textContent=msg;toast.classList.add("show");
     clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1600);
   }
 
-  /* ── self-check scale ── */
   document.querySelectorAll(".scale").forEach(function(sc){
     var key=sc.dataset.store;
     var note=document.getElementById(key+"-note");
-    var labels={1:"감사가 깊군요. 그 은혜를 더 크게 누리세요.",2:"잘 지키고 있어요.",3:"가끔 흔들리는군요. 멈추고 고백해 보세요.",4:"비교가 자주 찾아오네요. 은혜를 의지하세요.",5:"비교가 무겁네요. 오직 주 예수의 은혜가 다 삼킵니다."};
+    var labels={1:"냉담함은 죄 깨달음이 옅어진 신호일 수 있어요. 십자가 앞에 다시 서 보세요.",2:"조금 메말랐네요. 내가 받은 은혜의 크기를 헤아려 보세요.",3:"가끔 뜨거워지는군요. 그 은혜를 더 깊이 묵상해 보세요.",4:"은혜가 살아 있군요. 그 은혜로 순종을 선택하세요.",5:"은혜가 충만하네요! 그 능력으로 기쁘게 순종합니다."};
     function paint(v){
       sc.querySelectorAll("button").forEach(function(b){b.classList.toggle("sel",b.dataset.v===String(v));});
       if(note) note.textContent=v?labels[v]:"";
@@ -602,7 +602,6 @@
     });
   });
 
-  /* ── checklist ── */
   document.querySelectorAll("#checklist input").forEach(function(box){
     if(state["chk_"+box.id]) box.checked=true;
     box.addEventListener("change",function(){
@@ -611,7 +610,6 @@
     });
   });
 
-  /* ── textareas ── */
   document.querySelectorAll("textarea[data-store]").forEach(function(ta){
     var key=ta.dataset.store;
     var note=document.getElementById(key+"-note");
@@ -624,12 +622,11 @@
     });
   });
 
-  /* ── share ── */
   document.getElementById("shareBtn").addEventListener("click",function(){
     var prayer=(state.prayer||"").trim();
-    var text="우리와 같이 그들에게도 (행 15:6)\n\n\"그러나 우리는 그들이 우리와 동일하게 주 예수의 은혜로 구원 받는 줄을 믿노라\" (행 15:11)\n\n"+(prayer?("나의 결단: "+prayer+"\n\n"):"")+"비교를 내려놓고, 오직 주 예수의 은혜로.";
+    var text="다른 복음 (갈 1:6–10)\n\n\"너희는 그 은혜에 의하여 믿음으로 말미암아 구원을 받았으니 이것은 너희에게서 난 것이 아니요 하나님의 선물이라\" (엡 2:8)\n\n"+(prayer?("나의 결단: "+prayer+"\n\n"):"")+"내 노력을 더하지 말고, 오직 주의 은혜로.";
     if(navigator.share){
-      navigator.share({title:"우리와 같이 그들에게도",text:text}).catch(function(){});
+      navigator.share({title:"다른 복음",text:text}).catch(function(){});
     }else if(navigator.clipboard){
       navigator.clipboard.writeText(text).then(function(){showToast("복사됐어요. 붙여넣어 나누세요 ✓");});
     }else{
@@ -637,7 +634,6 @@
     }
   });
 
-  /* ── keyboard arrows (desktop) ── */
   document.addEventListener("keydown",function(e){
     var idx=Math.round(deck.scrollTop/deck.clientHeight);
     if(e.key==="ArrowDown"||e.key==="PageDown"){e.preventDefault();go(Math.min(idx+1,pages.length-1));}
