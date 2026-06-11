@@ -7,6 +7,7 @@
 <meta property="og:title" content="전주노회 · KPC 연합세미나 — 살아 움직이는 교회">
 <meta property="og:description" content="6월 16일(화) 오전 10시 30분 · 토랜스제일장로교회 — 북미 선교적 교회의 흐름과 한국교회의 갱신 (강사: 이상훈 박사)">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://pastorkim-wpca.github.io/seminar/lecturer_lee.jpg">
 <meta name="theme-color" content="#10243f">
 <style>
   :root{
@@ -128,6 +129,16 @@
     font-size:23px;
     background:rgba(28,58,99,.08);
   }
+  /* 강사 사진 (원형 배지 — 로고와 동일 톤) */
+  .row.speaker{align-items:center;}
+  .spk-photo{
+    flex:0 0 auto;
+    width:78px;height:78px;border-radius:50%;
+    overflow:hidden;
+    border:2.5px solid var(--gold);
+    box-shadow:0 5px 15px rgba(16,36,63,.20);
+  }
+  .spk-photo img{width:100%;height:100%;object-fit:cover;display:block;}
   .row .k{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.02em;}
   .row .v{font-size:20px;font-weight:700;color:var(--ink);line-height:1.4;margin-top:2px;}
   .row .v small{display:block;font-size:15.5px;font-weight:500;color:var(--muted);margin-top:3px;}
@@ -220,10 +231,10 @@
     </section>
 
     <section class="body">
-      <div class="row">
-        <div class="ico">🎤</div>
+      <div class="row speaker">
+        <div class="spk-photo"><img src="lecturer_lee.jpg" alt="강사 이상훈 박사"></div>
         <div>
-          <div class="k">강사</div>
+          <div class="k">🎤 강사</div>
           <div class="v">이상훈 박사<small>AEU(America Evangelical University) 총장</small></div>
         </div>
       </div>
