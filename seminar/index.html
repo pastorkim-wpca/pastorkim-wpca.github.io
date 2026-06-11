@@ -130,13 +130,13 @@
     background:rgba(28,58,99,.08);
   }
   /* 강사 사진 (원형 배지 — 로고와 동일 톤) */
-  .row.speaker{align-items:center;}
+  .row.speaker{align-items:center;justify-content:space-between;gap:16px;}
   .spk-photo{
     flex:0 0 auto;
-    width:78px;height:78px;border-radius:50%;
+    width:156px;height:156px;border-radius:50%;
     overflow:hidden;
-    border:2.5px solid var(--gold);
-    box-shadow:0 5px 15px rgba(16,36,63,.20);
+    border:3px solid var(--gold);
+    box-shadow:0 6px 18px rgba(16,36,63,.22);
   }
   .spk-photo img{width:100%;height:100%;object-fit:cover;display:block;}
   .row .k{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.02em;}
@@ -232,11 +232,11 @@
 
     <section class="body">
       <div class="row speaker">
-        <div class="spk-photo"><img src="lecturer_lee.jpg" alt="강사 이상훈 박사"></div>
         <div>
           <div class="k">🎤 강사</div>
           <div class="v">이상훈 박사<small>AEU(America Evangelical University) 총장</small></div>
         </div>
+        <div class="spk-photo"><img src="lecturer_lee.jpg" alt="강사 이상훈 박사"></div>
       </div>
       <div class="row">
         <div class="ico">📍</div>
