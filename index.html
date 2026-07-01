@@ -69,7 +69,7 @@
     display:flex;
     flex-direction:column;
     justify-content:center;
-    padding:calc(34px + var(--safe-top)) 22px calc(104px + var(--safe-bottom));
+    padding:calc(34px + var(--safe-top)) 22px calc(48px + var(--safe-bottom));
   }
   .inner{width:100%;max-width:600px;margin:0 auto;}
 
@@ -260,31 +260,22 @@
 
   .counter{display:none;}
 
-  #navbar{
-    position:fixed;left:50%;transform:translateX(-50%);
-    bottom:calc(16px + var(--safe-bottom));z-index:45;
-    display:flex;align-items:center;gap:4px;
-    background:rgba(22,22,24,.74);
-    -webkit-backdrop-filter:saturate(180%) blur(20px);
-            backdrop-filter:saturate(180%) blur(20px);
-    border-radius:var(--r-pill);padding:6px;
-    box-shadow:0 8px 28px rgba(0,0,0,.22);
+  #pageind{
+    position:fixed;top:calc(12px + var(--safe-top));right:12px;z-index:46;
+    display:flex;align-items:center;justify-content:center;
+    min-width:34px;height:34px;padding:0 12px;
+    background:rgba(22,22,24,.55);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+            backdrop-filter:saturate(180%) blur(16px);
+    border-radius:var(--r-pill);pointer-events:none;
   }
-  #navbar button{
-    border:0;background:transparent;color:#fff;cursor:pointer;
-    font-family:var(--font-text);font-size:18px;font-weight:600;
-    padding:13px 22px;border-radius:var(--r-pill);min-height:50px;
-    transition:transform .12s ease,opacity .2s;
-  }
-  #navbar button:active{transform:scale(.92);}
-  #navbar button:disabled{opacity:.3;cursor:default;}
   #navcount{
-    color:#fff;font-family:var(--font-display);font-size:15px;font-weight:600;
-    letter-spacing:.05em;min-width:64px;text-align:center;opacity:.92;
+    color:#fff;font-family:var(--font-display);font-size:13px;font-weight:600;
+    letter-spacing:.06em;text-align:center;opacity:.95;
   }
 
   .hint{
-    position:absolute;left:0;right:0;bottom:calc(92px + var(--safe-bottom));
+    position:absolute;left:0;right:0;bottom:calc(30px + var(--safe-bottom));
     text-align:center;font-size:14px;color:var(--body-muted);
     animation:bob 1.8s ease-in-out infinite;
   }
@@ -320,11 +311,7 @@
 <body>
 <div id="progress"></div>
 <nav id="dots"></nav>
-<div id="navbar">
-  <button id="prevBtn" aria-label="이전 페이지">‹ 이전</button>
-  <span id="navcount">01 / 09</span>
-  <button id="nextBtn" aria-label="다음 페이지">다음 ›</button>
-</div>
+<div id="pageind"><span id="navcount">01 / 09</span></div>
 <div class="toast" id="toast"></div>
 
 <main class="deck" id="deck">
@@ -518,13 +505,9 @@
     if(SERMON_URL){a.href=SERMON_URL;} else {a.style.display="none";}
   });
 
-  var prevBtn=document.getElementById("prevBtn");
-  var nextBtn=document.getElementById("nextBtn");
   var navcount=document.getElementById("navcount");
   function curIdx(){return Math.round(deck.scrollTop/deck.clientHeight);}
   function pad(n){return (n<10?"0":"")+n;}
-  prevBtn.addEventListener("click",function(){go(Math.max(curIdx()-1,0));});
-  nextBtn.addEventListener("click",function(){go(Math.min(curIdx()+1,pages.length-1));});
 
   pages.forEach(function(p,i){
     var b=document.createElement("button");
@@ -545,8 +528,6 @@
     var idx=Math.round(st/h);
     dots.forEach(function(d,i){d.classList.toggle("active",i===idx);});
     navcount.textContent=pad(idx+1)+" / "+pad(pages.length);
-    prevBtn.disabled=idx<=0;
-    nextBtn.disabled=idx>=pages.length-1;
   }
   deck.addEventListener("scroll",onScroll,{passive:true});
 
