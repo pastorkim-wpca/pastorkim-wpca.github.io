@@ -9,7 +9,7 @@
 <title>씻어주고 차려주는 교회 — 말씀 묵상과 실천</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --primary:#0066cc;
@@ -306,6 +306,31 @@
     transition:opacity .3s,transform .3s;z-index:60;
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ═══ getdesign: claude (2026-08-04 적용) ═══ */
+/* ══ claude — 크림 배경 · 테라코타 · 명조 제목 ══ */
+:root{
+  --primary:#a9583e; --primary-focus:#cc785c; --primary-on-dark:#e0a48c;
+  --ink:#181715; --ink-muted-80:#3a3733; --ink-muted-48:#6b655c;
+  --hairline:#e6dfd8; --divider-soft:#efe9de;
+  --canvas:#faf9f5; --parchment:#f5f0e8; --pearl:#ffffff;
+  --tile-1:#252320; --tile-2:#2b2825; --tile-3:#1f1d1b;
+  --black:#141413; --body-muted:#d4ccc0;
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+  --font-serif:"Nanum Myeongjo",Georgia,"Times New Roman",serif;
+}
+h1,h2{font-family:var(--font-serif);font-weight:400;letter-spacing:-.02em;}
+h1{font-size:clamp(40px,10vw,62px);line-height:1.06;}
+h2{font-size:clamp(33px,8.5vw,48px);line-height:1.12;}
+h3{font-family:var(--font-serif);font-weight:700;}
+p.lead{font-family:var(--font-serif);font-weight:400;}
+.verse{background:var(--parchment);border:0;border-radius:var(--r-lg);}
+.dark .verse,.dark-2 .verse,.void .verse{background:rgba(255,255,255,.07);border:0;}
+.verse .scripture{font-family:var(--font-serif);}
+.btn{border-radius:var(--r-lg);font-weight:500;}
+.eyebrow{letter-spacing:.11em;}
+ul.check input:checked + label{background:#f5ece7;}
+
 </style>
 </head>
 <body>
