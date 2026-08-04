@@ -520,6 +520,7 @@ ul.check input:checked + label{background:#f5ece7;}
       <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
         <button class="btn" id="shareBtn">결단 나누기 / 공유</button>
         <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 다시 보기</a>
+        <a class="btn ghost photos-link" href="#" target="_blank" rel="noopener">📸 모임사진보기</a>
         <button class="btn ghost" onclick="go(0)">처음으로</button>
       </div>
       <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 씻어주고 차려주는 교회 (행 16:29–34) · 2026.08.02 김진주 목사 · 성경: 개역개정</p>
@@ -542,6 +543,12 @@ ul.check input:checked + label{background:#f5ece7;}
   var SERMON_URL="https://youtu.be/kivypwgE118";
   document.querySelectorAll(".sermon-link").forEach(function(a){
     if(SERMON_URL){a.href=SERMON_URL;} else {a.style.display="none";}
+  });
+
+  /* ── 그 주 모임사진 앨범 (없는 주는 빈 문자열로 두면 버튼이 자동 숨김) ── */
+  var PHOTOS_URL="https://pastorkim-wpca.github.io/gallery/2026-08-02/";
+  document.querySelectorAll(".photos-link").forEach(function(a){
+    if(PHOTOS_URL){a.href=PHOTOS_URL;} else {a.style.display="none";}
   });
 
   var navcount=document.getElementById("navcount");

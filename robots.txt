@@ -1,0 +1,26 @@
+# 미주서부장로교회 (wpca.org) — pastorkim-wpca.github.io
+#
+# 교회 사진첩(gallery/)은 성도님들의 얼굴이 담긴 사진이므로 검색엔진 색인을 금지한다.
+# 링크를 아는 성도만 보도록 하는 것이 목적. (2026-08-04 목사님 지시)
+# 각 앨범 페이지에도 <meta name="robots" content="noindex,nofollow,noimageindex"> 가 들어간다.
+#
+# 묵상노트(루트 index.html)·주보(jubo/)·선교소식(mission/)은 공개해도 되므로 차단하지 않는다.
+
+User-agent: *
+Disallow: /gallery/
+
+# 이미지 전용 크롤러도 함께 차단
+User-agent: Googlebot-Image
+Disallow: /gallery/
+
+User-agent: Yeti
+Disallow: /gallery/
+
+User-agent: Yeti-Image
+Disallow: /gallery/
+
+User-agent: Daumoa
+Disallow: /gallery/
+
+User-agent: Bingbot
+Disallow: /gallery/
