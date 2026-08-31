@@ -718,9 +718,15 @@ ul.check input:checked + label{background:#f5ece7;}
 
   document.getElementById("shareBtn").addEventListener("click",function(){
     var prayer=(state.prayer||"").trim();
-    var text="은혜는 열린 곳으로 흐릅니다 (행 18:1-11)\n\n\"두려워하지 말며 침묵하지 말고 말하라 내가 너와 함께 있으매 … 이는 이 성중에 내 백성이 많음이라\" (행 18:9-10)\n\n"+(prayer?("나의 결단: "+prayer+"\n\n"):"")+"은혜는 가까운 곳이 아니라 열린 곳으로 흐릅니다. 마음을 여는 것이 내 몫입니다.";
+    var SHARE_TITLE="다시 불일듯 하게";
+    var SHARE_LINK="https://wpca.org/묵상노트";
+    var text=SHARE_TITLE+" (딤후 1:3-9)\n\n"
+      +"\"하나님이 우리에게 주신 것은 두려워하는 마음이 아니요 오직 능력과 사랑과 절제하는 마음이니\" (딤후 1:7)\n\n"
+      +(prayer?("나의 결단: "+prayer+"\n\n"):"")
+      +"내 인생은 내 능력이 아니라 주의 은혜에 달려 있습니다.\n\n"
+      +"📖 묵상노트 "+SHARE_LINK;
     if(navigator.share){
-      navigator.share({title:"은혜는 열린 곳으로 흐릅니다",text:text}).catch(function(){});
+      navigator.share({title:SHARE_TITLE,text:text}).catch(function(){});
     }else if(navigator.clipboard){
       navigator.clipboard.writeText(text).then(function(){showToast("복사됐어요. 붙여넣어 나누세요 ✓");});
     }else{
