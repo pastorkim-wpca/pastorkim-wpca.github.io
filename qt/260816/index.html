@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>이제는 다 명하사 · 묵상노트 | 미주서부장로교회</title>
+<!-- 홈화면 아이콘 — 스마트폰 "홈 화면에 추가" 시 교회 로고가 뜨게 한다 (2026-08-16 목사님 요청).
+     절대경로라 어느 하위 폴더의 페이지에서도 동일하게 동작한다. apple-mobile-web-app-title 은
+     아이콘 아래 표시되는 이름(긴 <title> 이 잘려 나오는 것을 막는다). -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://pastorkim-wpca.github.io/icons/wpca-icon-180.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="https://pastorkim-wpca.github.io/icons/wpca-icon-192.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://pastorkim-wpca.github.io/icons/wpca-icon-32.png" />
+<meta name="apple-mobile-web-app-title" content="묵상노트" />
+<!-- Google Analytics 4 — wpca.org 와 같은 속성(G-LPBREQ97CZ). 묵상노트 조회수를 홈페이지와
+     한 화면에서 보기 위해 2026-08-09 추가. 개인 식별정보 미수집, IP 익명화. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPBREQ97CZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LPBREQ97CZ', {anonymize_ip:true, page_title:'묵상노트 · 이제는 다 명하사'});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --primary:#0066cc;
+    --primary-focus:#0071e3;
+    --primary-on-dark:#2997ff;
+    --ink:#1d1d1f;
+    --ink-muted-80:#333333;
+    --ink-muted-48:#7a7a7a;
+    --hairline:#e0e0e0;
+    --divider-soft:#f0f0f0;
+    --canvas:#ffffff;
+    --parchment:#f5f5f7;
+    --pearl:#fafafc;
+    --tile-1:#272729;
+    --tile-2:#2a2a2c;
+    --tile-3:#252527;
+    --black:#000000;
+    --body-muted:#cccccc;
+    --on-dark:#ffffff;
+
+    --font-display:"SF Pro Display","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-text:"SF Pro Text","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+
+    --r-sm:8px; --r-md:11px; --r-lg:18px; --r-pill:9999px;
+    --shadow-product:rgba(0,0,0,0.22) 3px 5px 30px 0;
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-text);
+    background:var(--black);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overscroll-behavior-y:none;
+    font-feature-settings:"ss03" 1;
+  }
+
+  .deck{
+    height:100svh;
+    overflow-y:scroll;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+  }
+  .deck::-webkit-scrollbar{display:none;}
+  .deck{scrollbar-width:none;}
+
+  section.page{
+    position:relative;
+    min-height:100svh;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:calc(34px + var(--safe-top)) 22px calc(48px + var(--safe-bottom));
+  }
+  .inner{width:100%;max-width:600px;margin:0 auto;}
+
+  .light{background:var(--canvas);color:var(--ink);}
+  .parchment{background:var(--parchment);color:var(--ink);}
+  .dark{background:var(--tile-1);color:var(--on-dark);}
+  .dark-2{background:var(--tile-2);color:var(--on-dark);}
+  .void{background:var(--black);color:var(--on-dark);}
+
+  .eyebrow{
+    font-family:var(--font-text);
+    font-size:15px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--primary);
+    margin:0 0 14px;
+  }
+  .dark .eyebrow,.dark-2 .eyebrow,.void .eyebrow{color:var(--primary-on-dark);}
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(40px,10.5vw,64px);
+    font-weight:600;line-height:1.07;letter-spacing:-.032em;
+    margin:0 0 20px;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-size:clamp(34px,9vw,50px);
+    font-weight:600;line-height:1.1;letter-spacing:-.02em;
+    margin:0 0 18px;
+  }
+  h3{
+    font-family:var(--font-display);
+    font-size:24px;font-weight:600;line-height:1.2;letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  p.lead{
+    font-family:var(--font-display);
+    font-size:clamp(23px,6.4vw,32px);font-weight:400;line-height:1.3;letter-spacing:0;
+    margin:0 0 14px;
+  }
+  p{font-size:19px;font-weight:400;line-height:1.56;letter-spacing:-.01em;margin:0 0 16px;}
+  .muted{color:var(--ink-muted-48);}
+  .dark .muted,.dark-2 .muted,.void .muted{color:var(--body-muted);}
+  .accent{color:var(--primary);}
+  .dark .accent,.dark-2 .accent,.void .accent{color:var(--primary-on-dark);}
+  strong{font-weight:600;}
+
+  .verse{
+    border-radius:var(--r-lg);
+    background:var(--pearl);
+    border:1px solid var(--hairline);
+    padding:20px 20px 18px;
+    margin:18px 0;
+  }
+  .dark .verse,.dark-2 .verse,.void .verse{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.14);
+  }
+  .verse .ref{
+    display:inline-block;
+    font-size:15px;font-weight:600;letter-spacing:.02em;
+    color:var(--primary);
+    margin-bottom:10px;
+  }
+  .dark .verse .ref,.dark-2 .verse .ref,.void .verse .ref{color:var(--primary-on-dark);}
+  .verse .scripture{
+    font-family:var(--font-display);
+    font-size:21px;line-height:1.66;font-weight:400;letter-spacing:-.005em;
+    margin:0;
+    color:var(--ink);
+  }
+  .dark .verse .scripture,.dark-2 .verse .scripture,.void .verse .scripture{color:#f2f2f4;}
+  .verse .scripture .vn{
+    font-size:12px;font-weight:600;color:var(--ink-muted-48);
+    vertical-align:super;margin-right:3px;
+  }
+  .dark .verse .scripture .vn,.void .verse .scripture .vn{color:var(--body-muted);}
+
+  .verse.expandable .scripture{
+    max-height:5.4em;overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);
+            mask-image:linear-gradient(180deg,#000 60%,transparent);
+    transition:max-height .4s ease;
+  }
+  .verse.expandable.open .scripture{
+    max-height:2000px;
+    -webkit-mask-image:none;mask-image:none;
+  }
+  .verse .toggle{
+    margin-top:12px;
+    font-size:14px;font-weight:600;color:var(--primary);
+    background:none;border:0;padding:6px 0;cursor:pointer;
+  }
+  .dark .verse .toggle,.void .verse .toggle{color:var(--primary-on-dark);}
+
+  ul.beats{list-style:none;padding:0;margin:18px 0 0;}
+  ul.beats li{
+    position:relative;padding:15px 0 15px 32px;
+    font-size:19px;line-height:1.5;
+    border-top:1px solid var(--divider-soft);
+  }
+  .dark ul.beats li,.dark-2 ul.beats li{border-top-color:rgba(255,255,255,.12);}
+  ul.beats li:first-child{border-top:0;}
+  ul.beats li::before{
+    content:"";position:absolute;left:4px;top:21px;
+    width:8px;height:8px;border-radius:var(--r-pill);background:var(--primary);
+  }
+  .dark ul.beats li::before,.void ul.beats li::before{background:var(--primary-on-dark);}
+
+  .flow{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    margin:22px 0 4px;font-family:var(--font-display);
+  }
+  .flow .node{
+    font-size:16px;font-weight:600;padding:10px 16px;border-radius:var(--r-pill);
+    background:var(--canvas);border:1px solid var(--hairline);color:var(--ink);
+  }
+  .flow .arrow{color:var(--primary);font-weight:700;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font-text);font-size:19px;font-weight:600;letter-spacing:-.01em;
+    background:var(--primary);color:#fff;border:0;
+    border-radius:var(--r-pill);padding:16px 30px;cursor:pointer;
+    transition:transform .15s ease,background .2s ease;
+    text-decoration:none;min-height:56px;
+  }
+  .btn:active{transform:scale(.95);}
+  .btn.ghost{background:transparent;color:var(--primary);border:1px solid var(--primary);}
+  .dark .btn.ghost,.void .btn.ghost{color:var(--primary-on-dark);border-color:var(--primary-on-dark);}
+  .btn.block{display:flex;width:100%;}
+
+  .scale{display:flex;justify-content:space-between;gap:8px;margin:18px 0 8px;}
+  .scale button{
+    flex:1;aspect-ratio:1;border-radius:var(--r-md);
+    border:1px solid var(--hairline);background:var(--canvas);
+    font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--ink-muted-48);
+    cursor:pointer;transition:transform .12s ease,background .2s,color .2s,border-color .2s;
+  }
+  .scale button:active{transform:scale(.93);}
+  .scale button.sel{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .scale-legend{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted-48);}
+  .dark .scale button{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:var(--body-muted);}
+  .dark .scale-legend{color:var(--body-muted);}
+
+  ul.check{list-style:none;padding:0;margin:18px 0 0;}
+  ul.check li{margin:0 0 10px;}
+  ul.check label{
+    display:flex;gap:13px;align-items:flex-start;
+    background:var(--canvas);border:1px solid var(--hairline);
+    border-radius:var(--r-lg);padding:15px 16px;cursor:pointer;
+    transition:border-color .2s,background .2s;
+  }
+  ul.check input{position:absolute;opacity:0;width:0;height:0;}
+  .box{
+    flex:0 0 24px;width:24px;height:24px;border-radius:var(--r-pill);
+    border:2px solid var(--hairline);margin-top:1px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,border-color .2s;
+  }
+  .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:.2s;}
+  ul.check label .txt{font-size:18px;line-height:1.5;color:var(--ink);}
+  ul.check input:checked + label{border-color:var(--primary);background:#f4f9ff;}
+  ul.check input:checked + label .box{background:var(--primary);border-color:var(--primary);}
+  ul.check input:checked + label .box svg{opacity:1;transform:scale(1);}
+
+  textarea{
+    width:100%;font-family:var(--font-text);font-size:19px;line-height:1.5;color:var(--ink);
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-lg);
+    padding:15px 16px;margin-top:14px;resize:vertical;min-height:104px;
+  }
+  textarea:focus{outline:2px solid var(--primary-focus);border-color:transparent;}
+  .field-label{font-size:16px;font-weight:600;color:var(--ink-muted-80);margin-top:18px;display:block;}
+
+  #progress{
+    position:fixed;top:0;left:0;height:3px;width:0;
+    background:var(--primary);z-index:50;transition:width .15s ease;
+  }
+  #dots{
+    position:fixed;right:12px;top:50%;transform:translateY(-50%);
+    display:flex;flex-direction:column;gap:11px;z-index:40;
+  }
+  #dots button{
+    width:8px;height:8px;border-radius:var(--r-pill);border:0;padding:0;cursor:pointer;
+    background:rgba(127,127,127,.4);transition:transform .2s,background .2s;
+  }
+  #dots button.active{background:var(--primary);transform:scale(1.5);}
+  @media (max-width:380px){#dots{display:none;}}
+
+  .counter{display:none;}
+
+  #pageind{
+    position:fixed;top:calc(12px + var(--safe-top));right:12px;z-index:46;
+    display:flex;align-items:center;justify-content:center;
+    min-width:34px;height:34px;padding:0 12px;
+    background:rgba(22,22,24,.55);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+            backdrop-filter:saturate(180%) blur(16px);
+    border-radius:var(--r-pill);pointer-events:none;
+  }
+  #navcount{
+    color:#fff;font-family:var(--font-display);font-size:13px;font-weight:600;
+    letter-spacing:.06em;text-align:center;opacity:.95;
+  }
+
+  .hint{
+    position:absolute;left:0;right:0;bottom:calc(30px + var(--safe-bottom));
+    text-align:center;font-size:14px;color:var(--body-muted);
+    animation:bob 1.8s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateY(0);opacity:.7;}50%{transform:translateY(6px);opacity:1;}}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .page.in .reveal{opacity:1;transform:none;}
+  .page.in .reveal:nth-child(2){transition-delay:.06s;}
+  .page.in .reveal:nth-child(3){transition-delay:.12s;}
+  .page.in .reveal:nth-child(4){transition-delay:.18s;}
+  .page.in .reveal:nth-child(5){transition-delay:.24s;}
+  .page.in .reveal:nth-child(6){transition-delay:.30s;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  .tag{
+    display:inline-block;font-size:14px;font-weight:600;letter-spacing:.02em;
+    padding:7px 14px;border-radius:var(--r-pill);
+    background:rgba(0,102,204,.1);color:var(--primary);margin-bottom:16px;
+  }
+  .dark .tag,.dark-2 .tag,.void .tag{background:rgba(41,151,255,.16);color:var(--primary-on-dark);}
+
+  .savednote{font-size:13px;color:var(--ink-muted-48);margin-top:10px;min-height:18px;transition:opacity .3s;}
+  .dark-2 .savednote{color:var(--body-muted);}
+  .toast{
+    position:fixed;left:50%;bottom:calc(28px + var(--safe-bottom));transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;font-size:14px;font-weight:600;
+    padding:12px 20px;border-radius:var(--r-pill);opacity:0;pointer-events:none;
+    transition:opacity .3s,transform .3s;z-index:60;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ═══ getdesign: claude (2026-08-04 적용) ═══ */
+/* ══ claude — 크림 배경 · 테라코타 · 명조 제목 ══ */
+:root{
+  --primary:#a9583e; --primary-focus:#cc785c; --primary-on-dark:#e0a48c;
+  --ink:#181715; --ink-muted-80:#3a3733; --ink-muted-48:#6b655c;
+  --hairline:#e6dfd8; --divider-soft:#efe9de;
+  --canvas:#faf9f5; --parchment:#f5f0e8; --pearl:#ffffff;
+  --tile-1:#252320; --tile-2:#2b2825; --tile-3:#1f1d1b;
+  --black:#141413; --body-muted:#d4ccc0;
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+  --font-serif:"Nanum Myeongjo",Georgia,"Times New Roman",serif;
+}
+h1,h2{font-family:var(--font-serif);font-weight:400;letter-spacing:-.02em;}
+h1{font-size:clamp(40px,10vw,62px);line-height:1.06;}
+h2{font-size:clamp(33px,8.5vw,48px);line-height:1.12;}
+h3{font-family:var(--font-serif);font-weight:700;}
+p.lead{font-family:var(--font-serif);font-weight:400;}
+.verse{background:var(--parchment);border:0;border-radius:var(--r-lg);}
+.dark .verse,.dark-2 .verse,.void .verse{background:rgba(255,255,255,.07);border:0;}
+.verse .scripture{font-family:var(--font-serif);}
+.btn{border-radius:var(--r-lg);font-weight:500;}
+.eyebrow{letter-spacing:.11em;}
+ul.check input:checked + label{background:#f5ece7;}
+
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav id="dots"></nav>
+<div id="pageind"><span id="navcount">01 / 08</span></div>
+<div class="toast" id="toast"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 1 · 표지 -->
+  <section class="page void" data-label="표지">
+    <div class="inner">
+      <p class="eyebrow reveal">미주서부장로교회 · 2026년 8월 16일 주일</p>
+      <h1 class="reveal">이제는<br /><span class="accent">다 명하사</span></h1>
+      <p class="lead reveal muted" style="max-width:32ch">보석을 손에 쥐고도 보리알 하나를 택하는 어리석음이 있습니다.</p>
+      <div class="verse expandable reveal" style="margin-top:22px">
+        <span class="ref">사도행전 17:30</span>
+        <p class="scripture">알지 못하던 시대에는 하나님이 간과하셨거니와 이제는 어디든지 사람에게 다 명하사 회개하라 하셨으니</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <div class="reveal" style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" onclick="go(1)">묵상 시작하기 →</button>
+        <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 보기</a>
+      </div>
+      <p class="reveal muted" style="font-size:14px;margin-top:22px">사도행전 17:22–34 · 2026.08.16 · 김진주 목사</p>
+    </div>
+    <div class="hint">아래로 넘기세요 ↓</div>
+    <div class="counter">01 / 08</div>
+  </section>
+
+  <!-- 2 · 한눈에 -->
+  <section class="page light" data-label="한눈에">
+    <div class="inner">
+      <p class="eyebrow reveal">한 눈에 보기</p>
+      <h2 class="reveal">우상은<br />하나님의 자리를<br />대신한 것입니다</h2>
+      <p class="reveal">수탉은 보석을 발견하고도 <strong>보리알 하나를 택했습니다.</strong> 가치를 모르면 보석도 아무 소용이 없습니다. 하나님이 쏟아부어 주신 은혜를 가볍게 여기는 자리에서 <strong class="accent">우상은 자랍니다.</strong> 바울은 우상으로 가득한 아덴에서, 제단을 부수는 대신 그들이 알지 못하던 참 하나님을 소개했습니다.</p>
+      <div class="flow reveal">
+        <span class="node">은혜를 가볍게</span><span class="arrow">→</span>
+        <span class="node">우상이 자리를</span><span class="arrow">→</span>
+        <span class="node">내 속의 우상</span><span class="arrow">→</span>
+        <span class="node">회개하라</span>
+      </div>
+      <ul class="beats reveal">
+        <li>에서가 잃은 것은 팥죽 한 그릇이 아니라 <strong class="accent">하나님이 주신 은혜</strong>였다.</li>
+        <li>우상은 나무나 돌이 아니라 <strong>하나님을 대신하여 그 자리에 있는 모든 것</strong>이다.</li>
+        <li>한계와 좌절은 <strong class="accent">하나님을 더듬어 찾게 하시는 자리</strong>다.</li>
+        <li>하나님을 믿지 않으면 아무것도 안 믿는 게 아니라 <strong>아무것이나 믿게 된다.</strong></li>
+        <li>이제는 증거가 있다 — <strong class="accent">부활하신 예수님.</strong> 그래서 다 명하사 회개하라 하신다.</li>
+      </ul>
+    </div>
+    <div class="counter">02 / 08</div>
+  </section>
+
+  <!-- 3 · 말씀① 수탉과 보석 + 에서 -->
+  <section class="page parchment" data-label="수탉과 보석">
+    <div class="inner">
+      <span class="tag reveal">말씀 ①</span>
+      <h2 class="reveal">보석보다<br />보리알을<br />택했습니다</h2>
+      <p class="reveal">이솝우화의 수탉 한 마리가 먹을 것을 찾아 부지런히 땅을 파헤치다가 주인이 잃어버린 <strong>귀중한 보석</strong>을 발견했습니다.</p>
+      <p class="reveal muted">"틀림없이 너는 아주 값비싼 물건일 테고, 너를 잃어버린 사람은 너를 찾기 위해 많은 것을 내놓을 것이다. 하지만 나는 세상의 모든 보석보다 지금 당장 먹을 수 있는 <strong>보리알 하나</strong>를 택하겠다."</p>
+      <p class="reveal">아무리 소중한 것이라도 <strong class="accent">그 가치를 모르는 사람에게는 아무 소용이 없습니다.</strong></p>
+      <p class="reveal">물건이라면 조롱하고 끝낼 이야기입니다. 그런데 사랑하는 사람이 마음을 다해 준비한 선물을 가볍게 여겨 팔아버린다면요? 씻을 수 없는 상처가 되고, 때로는 관계의 파탄이 됩니다. <strong>이것이 하나님과 우리 사이의 이야기라면 어떻겠습니까?</strong></p>
+      <div class="verse expandable reveal">
+        <span class="ref">창세기 25:34</span>
+        <p class="scripture">야곱이 떡과 팥죽을 에서에게 주매 에서가 먹으며 마시고 일어나 갔으니 에서가 장자의 명분을 가볍게 여김이었더라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">인간적인 상식으로 보면 에서가 무슨 잘못을 했습니까? 숨이 넘어갈 것 같은데 눈앞의 팥죽을 놓고 타협할 시간이 어디 있습니까? <strong class="accent">그러나 장자의 명분은 하나님이 쏟아부어 주시는 축복과 은혜였습니다.</strong> 에서가 버린 것은 팥죽 한 그릇 값의 무엇이 아니라, 하나님이 주신 선물이었습니다.</p>
+    </div>
+    <div class="counter">03 / 08</div>
+  </section>
+
+  <!-- 4 · 말씀② 우상 -->
+  <section class="page dark" data-label="우상">
+    <div class="inner">
+      <span class="tag reveal">말씀 ②</span>
+      <h2 class="reveal">바울이<br />격분한<br />이유</h2>
+      <p class="reveal">복음이 서방으로 전파되던 무렵, 바울은 데살로니가와 베뢰아를 지나 아덴, 지금의 아테네에 도착합니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 17:16</span>
+        <p class="scripture">바울이 아덴에서 그들을 기다리다가 그 성에 우상이 가득한 것을 보고 마음에 격분하여</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">"격분"은 속이 뒤집어지는 충격을 말합니다. 그런데 이것은 인간적인 감정이 아닙니다. 여기 "마음"은 <strong>프뉴마, 곧 영혼</strong>입니다. 중심에서부터 일어난 충격이었습니다.</p>
+      <p class="reveal">하나님을 안 믿는 것이야 선교지라면 당연한 일입니다. 그래서 바울이 간 것입니다. 바울이 격분한 것은 <strong class="accent">우상</strong> 때문이었습니다.</p>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">우상은 하나님을 대신하여 그 자리에 있는 것입니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">마가복음 11:17</span>
+        <p class="scripture">내 집은 만민이 기도하는 집이라 칭함을 받으리라고 하지 아니하였느냐 너희는 강도의 소굴을 만들었도다</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal muted">온유하신 예수님이 성전에서 상을 뒤엎으신 이유도 같습니다. 기도해야 할 하나님의 백성이 <strong>돈을 위해 사는 강도로 바뀌어버린 것</strong>, 하나님의 은총의 자리가 더러운 돈으로 바꿔치기된 것에 격분하셨습니다.</p>
+      <p class="reveal">하나님은 사람에게 행복하라고 보석을 주셨는데, 사람들은 보석의 주인이 아니라 <strong>그 귀한 걸 모르는 수탉</strong>으로 살아갑니다.</p>
+    </div>
+    <div class="counter">04 / 08</div>
+  </section>
+
+  <!-- 5 · 말씀③ 알지 못하는 신에게 + 자가진단 -->
+  <section class="page light" data-label="알지 못하는 신">
+    <div class="inner">
+      <span class="tag reveal">말씀 ③</span>
+      <h2 class="reveal">알지 못하는<br />신에게</h2>
+      <p class="reveal">아덴 사람들은 진리를 찾으려던 것이 아니었습니다. "가장 새로운 것을 말하고 듣는 것 이외에는 달리 시간을 쓰지 않던"(21절) 지적 호기심으로 바울을 아레오바고 법정에 세웠습니다.</p>
+      <p class="reveal muted">아레오바고는 파르테논 신전 아래 언덕, 최고 법정과 제단이 함께 있는 자리입니다. 신에게 묻고 재판하는 곳입니다. 여기서 바울은 <strong>제단을 부수라 하지 않았습니다.</strong> "너희가 다 틀렸다"고 몰아세우지도 않았습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 17:23</span>
+        <p class="scripture">내가 두루 다니며 너희가 위하는 것들을 보다가 알지 못하는 신에게라고 새긴 단도 보았으니 그런즉 너희가 알지 못하고 위하는 그것을 내가 너희에게 알게 하리라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">그들이 세운 제단 하나를 붙들고, 바울은 그 빈자리에 <strong class="accent">참 하나님</strong>을 놓아 드립니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 17:24~25</span>
+        <p class="scripture">우주와 그 가운데 있는 만물을 지으신 하나님께서는 천지의 주재시니 손으로 지은 전에 계시지 아니하시고 또 무엇이 부족한 것처럼 사람의 손으로 섬김을 받으시는 것이 아니니 이는 만민에게 생명과 호흡과 만물을 친히 주시는 이심이라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">우리는 <strong>내가 만든 신이 아니라 나를 만드신 하나님</strong>을 믿는 사람들입니다. 하나님이 사람들의 연대를 정하시고 거주의 경계를 한정하신 데는 이유가 있습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 17:27</span>
+        <p class="scripture">이는 사람으로 혹 하나님을 더듬어 찾아 발견하게 하려 하심이로되 그는 우리 각 사람에게서 멀리 계시지 아니하도다</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">고통과 한계를 경험하는 그 자리 — 죽음이든 관계이든 절망과 상실이든 — 그 시간이 <strong class="accent">"내가 너희 가까이 있노라"</strong> 말씀하시는 시간입니다.</p>
+
+      <h3 class="reveal" style="margin-top:26px">요즘 내 마음을 가장 많이 차지하는 것은 무엇인가요?</h3>
+      <p class="reveal muted" style="font-size:15px">하나님인가요, 아니면 다른 무엇인가요?</p>
+      <div class="scale reveal" data-store="practice" role="group" aria-label="내 마음의 자리 자가진단">
+        <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
+      </div>
+      <div class="scale-legend reveal"><span>다른 것에 빼앗겼다</span><span>하나님이 계신다</span></div>
+      <p class="savednote reveal" id="practice-note"></p>
+    </div>
+    <div class="counter">05 / 08</div>
+  </section>
+
+  <!-- 6 · 말씀④ 내 속의 우상 찾기 -->
+  <section class="page dark-2" data-label="내 속의 우상">
+    <div class="inner">
+      <span class="tag reveal">말씀 ④</span>
+      <h2 class="reveal">내 속의<br />우상을<br />찾는 네 가지</h2>
+      <p class="reveal">G. K. 체스터턴은 이렇게 말했습니다. <strong class="accent">"사람들이 하나님을 믿지 않게 되면 아무것도 믿지 않는 것이 아니라, 아무것이나 믿게 된다."</strong></p>
+      <p class="reveal muted">고대 사람들은 그것을 신이라 불렀고 우리는 그렇게 부르지 않을 뿐입니다. 돈, 돈 하면 돈이 내 삶을 이끌어갑니다. 사람, 사람 하면 사람이 내 삶을 이끌어갑니다. 출세와 만족과 추앙이 하나님의 자리를 대신하면 <strong>나는 그것의 종이 되고 맙니다.</strong></p>
+      <p class="reveal">팀 켈러 목사님이 『거짓 신들의 세상』에서 나도 잘 모르는 내 속의 우상을 찾는 방법을 네 가지로 정리했습니다.</p>
+      <ul class="beats reveal">
+        <li><strong class="accent">몽상을 살펴보라</strong> — 잠들기 전, 기쁨과 위안을 얻고 싶을 때 습관적으로 떠올리는 생각은 무엇입니까?</li>
+        <li><strong class="accent">돈 쓰는 것을 살펴보라</strong> — 음식에, 사치품에, 명성에… 내 물질이 어디로 흘러가고 있습니까?</li>
+        <li><strong class="accent">응답 없을 때를 살펴보라</strong> — 기도가 응답되지 않았을 때 분노와 원망이 너무 오래간다면, 그 간구가 우상과 관련 있을 수 있습니다.</li>
+        <li><strong class="accent">통제 못 하는 감정을 살펴보라</strong> — 내가 무엇 때문에 화내는지, 왜 이것만은 인내하지 못하는지. 그 이유 속에 우상이 있습니다.</li>
+      </ul>
+      <div class="verse expandable reveal">
+        <span class="ref">마태복음 6:21</span>
+        <p class="scripture">네 보물 있는 그 곳에는 네 마음도 있느니라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal muted">믿음을 가지고 있으면서도 나도 모르게 마음을 빼앗길 때가 많습니다. 그때 하나님이 너무도 안타까워하십니다. <strong>이미 충분한 것을 다 주셨는데 내가 그것을 외면해 버리기 때문입니다.</strong></p>
+    </div>
+    <div class="counter">06 / 08</div>
+  </section>
+
+  <!-- 7 · 실천 -->
+  <section class="page light" data-label="실천">
+    <div class="inner">
+      <p class="eyebrow reveal">삶으로</p>
+      <h2 class="reveal">이번 주 실천</h2>
+      <p class="reveal">우상 숭배를 어떻게 이길 수 있습니까? <strong class="accent">이제는 증거가 있습니다.</strong></p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 17:30~31</span>
+        <p class="scripture">알지 못하던 시대에는 하나님이 간과하셨거니와 이제는 어디든지 사람에게 다 명하사 회개하라 하셨으니 이는 정하신 사람으로 하여금 천하를 공의로 심판할 날을 작정하시고 이에 그를 죽은 자 가운데서 다시 살리신 것으로 모든 사람에게 믿을 만한 증거를 주셨음이니라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">우상들은 다 죽었습니다. 헛것입니다. 그 모든 욕망이 나에게 생명을 주지 못한다는 것을 살아가면서 경험합니다. 참 신이시고 살아 계신 하나님의 증거는 <strong>부활하신 예수님</strong>입니다.</p>
+      <p class="reveal muted" style="font-size:15px">체크한 내용은 이 기기에 저장됩니다. 한 주 동안 다시 열어 보세요.</p>
+      <ul class="check reveal" id="checklist">
+        <li><input type="checkbox" id="c1" /><label for="c1"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">잠들기 전 떠오르는 생각 하나를 적어 보고 <b>그것이 무엇의 자리인지</b> 물어보기</span></label></li>
+        <li><input type="checkbox" id="c2" /><label for="c2"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">이번 달 <b>지출 내역을 한 번 훑어보며</b> 내 마음이 어디에 있는지 살피기</span></label></li>
+        <li><input type="checkbox" id="c3" /><label for="c3"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">요즘 <b>가장 참기 어려운 감정</b> 하나를 놓고 그 이유를 하나님께 아뢰기</span></label></li>
+        <li><input type="checkbox" id="c4" /><label for="c4"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">하루 한 번 <b>감사 한 가지</b>를 소리 내어 하나님께 올려 드리기</span></label></li>
+        <li><input type="checkbox" id="c5" /><label for="c5"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">미뤄 두었던 회개 하나를 <b>오늘 주님께 가져가기</b> — "이제는" 미루지 않기</span></label></li>
+      </ul>
+      <label class="field-label reveal" for="reflect">묵상 — 지금 내 삶에서 하나님의 자리를 대신하고 있는 것은 무엇인가요?</label>
+      <textarea id="reflect" class="reveal" data-store="reflect" placeholder="여기에 적어 보세요…"></textarea>
+      <p class="savednote reveal" id="reflect-note"></p>
+    </div>
+    <div class="counter">07 / 08</div>
+  </section>
+
+  <!-- 8 · 결단 -->
+  <section class="page void" data-label="결단">
+    <div class="inner">
+      <p class="eyebrow reveal">나의 결단</p>
+      <h2 class="reveal">더 이상<br />증명하지<br />않아도</h2>
+      <p class="reveal muted">부당해고를 당해 직장을 잃었던 분이 상담을 청했습니다. 상사도 용서했고 더 좋은 직장도 얻어 잘 살고 있는데, 마음속 증오와 냉소가 가시지 않는다는 것이었습니다. "믿음으로 용서까지 했으면 끝나는 줄 알았는데, 끊임없이 불안하고 좌절됩니다."</p>
+      <p class="reveal">목사님의 대답은 이것이었습니다. <strong class="accent">"사실 당신 안에 바로 그것이 우상이기 때문에 그렇습니다."</strong> 내 커리어로 내 존재가 증명되어야 하는 것 — 그가 잘 몰랐던 그의 우상이었습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">마태복음 3:16~17</span>
+        <p class="scripture">예수께서 세례를 받으시고 곧 물에서 올라오실새 하늘이 열리고 하나님의 성령이 비둘기 같이 내려 자기 위에 임하심을 보시더니 하늘로부터 소리가 있어 말씀하시되 이는 내 사랑하는 아들이요 내 기뻐하는 자라 하시니라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">내 경력이나 환경으로 나를 증명해야 할 필요가 없습니다. 증명은 이미 십자가에서 끝났습니다.</p>
+      <p class="reveal muted">다른 사람이 안 기뻐해도 주님이 기뻐하십니다. 그것이 중요한 것 아닙니까? 살아 계신 하나님이 나를 너무나도 사랑하셔서 자기 아들을 죽이시고 보내셨습니다. 우상 숭배의 오류를 범하지 않으려면, <strong>말씀과 기도로 주님과 교제하고 감사하고 예배하는 신앙 훈련이 계속되어야 합니다.</strong> 은혜를 아는 사람만이 보석을 보석으로 알아봅니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">암송 · 사도행전 17:30</span>
+        <p class="scripture">알지 못하던 시대에는 하나님이 간과하셨거니와 이제는 어디든지 사람에게 다 명하사 회개하라 하셨으니</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <label class="field-label reveal" for="prayer" style="color:var(--body-muted)">한 줄 기도 / 결단</label>
+      <textarea id="prayer" class="reveal" data-store="prayer" placeholder="주님, 이번 주 저는…"></textarea>
+      <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+        <button class="btn" id="shareBtn">결단 나누기 / 공유</button>
+        <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 다시 보기</a>
+        <a class="btn ghost photos-link" href="#" target="_blank" rel="noopener">📸 모임사진보기</a>
+        <button class="btn ghost" onclick="go(0)">처음으로</button>
+      </div>
+      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 이제는 다 명하사 (행 17:22–34) · 2026.08.16 김진주 목사 · 성경: 개역개정</p>
+    </div>
+    <div class="counter">08 / 08</div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var deck=document.getElementById("deck");
+  var pages=Array.prototype.slice.call(document.querySelectorAll(".page"));
+  var dotsWrap=document.getElementById("dots");
+  var bar=document.getElementById("progress");
+  var KEY="sermon_260816_v1";
+
+  /* ── 설교 영상 링크 (URL 한 곳만 채우면 됩니다. 빈 값이면 버튼 자동 숨김) ── */
+  var SERMON_URL="https://youtu.be/4_AWDQ9rL14";
+  document.querySelectorAll(".sermon-link").forEach(function(a){
+    if(SERMON_URL){a.href=SERMON_URL;} else {a.style.display="none";}
+  });
+
+  /* ── 그 주 모임사진 앨범 (없는 주는 빈 문자열로 두면 버튼이 자동 숨김) ── */
+  var PHOTOS_URL="";
+  document.querySelectorAll(".photos-link").forEach(function(a){
+    if(PHOTOS_URL){a.href=PHOTOS_URL;} else {a.style.display="none";}
+  });
+
+  var navcount=document.getElementById("navcount");
+  function curIdx(){return Math.round(deck.scrollTop/deck.clientHeight);}
+  function pad(n){return (n<10?"0":"")+n;}
+
+  pages.forEach(function(p,i){
+    var b=document.createElement("button");
+    b.setAttribute("aria-label",(p.dataset.label||("페이지 "+(i+1))));
+    b.addEventListener("click",function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  window.go=function(i){
+    if(pages[i]) pages[i].scrollIntoView({behavior:"smooth"});
+  };
+
+  function onScroll(){
+    var st=deck.scrollTop, h=deck.clientHeight;
+    var max=deck.scrollHeight-h;
+    bar.style.width=(max>0?(st/max*100):0)+"%";
+    var idx=Math.round(st/h);
+    dots.forEach(function(d,i){d.classList.toggle("active",i===idx);});
+    navcount.textContent=pad(idx+1)+" / "+pad(pages.length);
+  }
+  deck.addEventListener("scroll",onScroll,{passive:true});
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add("in");
+    });
+  },{root:deck,threshold:.35});
+  pages.forEach(function(p){io.observe(p);});
+  pages[0].classList.add("in");
+  onScroll();
+
+  document.querySelectorAll(".verse .toggle").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var card=btn.closest(".verse");
+      var open=card.classList.toggle("open");
+      btn.textContent=open?"본문 접기 ▴":"본문 펼치기 ▾";
+    });
+  });
+
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}
+  var state=load();
+
+  var toast=document.getElementById("toast"),tt;
+  function showToast(msg){
+    toast.textContent=msg;toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1600);
+  }
+
+  document.querySelectorAll(".scale").forEach(function(sc){
+    var key=sc.dataset.store;
+    var note=document.getElementById(key+"-note");
+    var labels={1:"마음이 많이 빼앗겨 있군요. 오늘 잠들기 전 떠오르는 생각 하나를 주님께 아뢰어 보세요.",2:"조금 흔들리고 있네요. 요즘 가장 참기 어려운 감정 하나를 살펴보세요.",3:"보통이군요. 이번 주 감사 한 가지를 매일 올려 드려 보세요.",4:"하나님이 중심에 계시네요. 그 은혜를 한 사람에게 나누어 보세요.",5:"보석을 보석으로 알아보고 계시는군요! 그 자리를 끝까지 지키시기 바랍니다."};
+    function paint(v){
+      sc.querySelectorAll("button").forEach(function(b){b.classList.toggle("sel",b.dataset.v===String(v));});
+      if(note) note.textContent=v?labels[v]:"";
+    }
+    if(state[key]) paint(state[key]);
+    sc.querySelectorAll("button").forEach(function(b){
+      b.addEventListener("click",function(){
+        state[key]=b.dataset.v;save(state);paint(b.dataset.v);
+      });
+    });
+  });
+
+  document.querySelectorAll("#checklist input").forEach(function(box){
+    if(state["chk_"+box.id]) box.checked=true;
+    box.addEventListener("change",function(){
+      state["chk_"+box.id]=box.checked;save(state);
+      if(box.checked) showToast("저장됐어요 ✓");
+    });
+  });
+
+  document.querySelectorAll("textarea[data-store]").forEach(function(ta){
+    var key=ta.dataset.store;
+    var note=document.getElementById(key+"-note");
+    if(state[key]) ta.value=state[key];
+    var t;
+    ta.addEventListener("input",function(){
+      state[key]=ta.value;
+      clearTimeout(t);
+      t=setTimeout(function(){save(state);if(note){note.textContent="저장됨 · "+new Date().toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"});note.style.opacity=1;}},500);
+    });
+  });
+
+  document.getElementById("shareBtn").addEventListener("click",function(){
+    var prayer=(state.prayer||"").trim();
+    var text="이제는 다 명하사 (행 17:22-34)\n\n\"알지 못하던 시대에는 하나님이 간과하셨거니와 이제는 어디든지 사람에게 다 명하사 회개하라 하셨으니\" (행 17:30)\n\n"+(prayer?("나의 결단: "+prayer+"\n\n"):"")+"우상은 하나님을 대신하여 그 자리에 있는 것입니다. 은혜를 아는 사람만이 보석을 보석으로 알아봅니다.";
+    if(navigator.share){
+      navigator.share({title:"이제는 다 명하사",text:text}).catch(function(){});
+    }else if(navigator.clipboard){
+      navigator.clipboard.writeText(text).then(function(){showToast("복사됐어요. 붙여넣어 나누세요 ✓");});
+    }else{
+      showToast("길게 눌러 복사해 주세요");
+    }
+  });
+
+  document.addEventListener("keydown",function(e){
+    var idx=Math.round(deck.scrollTop/deck.clientHeight);
+    if(e.key==="ArrowDown"||e.key==="PageDown"){e.preventDefault();go(Math.min(idx+1,pages.length-1));}
+    if(e.key==="ArrowUp"||e.key==="PageUp"){e.preventDefault();go(Math.max(idx-1,0));}
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>루디아의 집 사람들 3 · 꼭 해야 할 질문 — 말씀 묵상과 실천</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --primary:#0066cc;
+    --primary-focus:#0071e3;
+    --primary-on-dark:#2997ff;
+    --ink:#1d1d1f;
+    --ink-muted-80:#333333;
+    --ink-muted-48:#7a7a7a;
+    --hairline:#e0e0e0;
+    --divider-soft:#f0f0f0;
+    --canvas:#ffffff;
+    --parchment:#f5f5f7;
+    --pearl:#fafafc;
+    --tile-1:#272729;
+    --tile-2:#2a2a2c;
+    --tile-3:#252527;
+    --black:#000000;
+    --body-muted:#cccccc;
+    --on-dark:#ffffff;
+
+    --font-display:"SF Pro Display","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-text:"SF Pro Text","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+
+    --r-sm:8px; --r-md:11px; --r-lg:18px; --r-pill:9999px;
+    --shadow-product:rgba(0,0,0,0.22) 3px 5px 30px 0;
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-text);
+    background:var(--black);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overscroll-behavior-y:none;
+    font-feature-settings:"ss03" 1;
+  }
+
+  .deck{
+    height:100svh;
+    overflow-y:scroll;
+    scroll-snap-type:y mandatory;
+    scroll-behavior:smooth;
+  }
+  .deck::-webkit-scrollbar{display:none;}
+  .deck{scrollbar-width:none;}
+
+  section.page{
+    position:relative;
+    min-height:100svh;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:calc(34px + var(--safe-top)) 22px calc(48px + var(--safe-bottom));
+  }
+  .inner{width:100%;max-width:600px;margin:0 auto;}
+
+  .light{background:var(--canvas);color:var(--ink);}
+  .parchment{background:var(--parchment);color:var(--ink);}
+  .dark{background:var(--tile-1);color:var(--on-dark);}
+  .dark-2{background:var(--tile-2);color:var(--on-dark);}
+  .void{background:var(--black);color:var(--on-dark);}
+
+  .eyebrow{
+    font-family:var(--font-text);
+    font-size:15px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--primary);
+    margin:0 0 14px;
+  }
+  .dark .eyebrow,.dark-2 .eyebrow,.void .eyebrow{color:var(--primary-on-dark);}
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(40px,10.5vw,64px);
+    font-weight:600;line-height:1.07;letter-spacing:-.032em;
+    margin:0 0 20px;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-size:clamp(34px,9vw,50px);
+    font-weight:600;line-height:1.1;letter-spacing:-.02em;
+    margin:0 0 18px;
+  }
+  h3{
+    font-family:var(--font-display);
+    font-size:24px;font-weight:600;line-height:1.2;letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  p.lead{
+    font-family:var(--font-display);
+    font-size:clamp(23px,6.4vw,32px);font-weight:400;line-height:1.3;letter-spacing:0;
+    margin:0 0 14px;
+  }
+  p{font-size:19px;font-weight:400;line-height:1.56;letter-spacing:-.01em;margin:0 0 16px;}
+  .muted{color:var(--ink-muted-48);}
+  .dark .muted,.dark-2 .muted,.void .muted{color:var(--body-muted);}
+  .accent{color:var(--primary);}
+  .dark .accent,.dark-2 .accent,.void .accent{color:var(--primary-on-dark);}
+  strong{font-weight:600;}
+
+  .verse{
+    border-radius:var(--r-lg);
+    background:var(--pearl);
+    border:1px solid var(--hairline);
+    padding:20px 20px 18px;
+    margin:18px 0;
+  }
+  .dark .verse,.dark-2 .verse,.void .verse{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.14);
+  }
+  .verse .ref{
+    display:inline-block;
+    font-size:15px;font-weight:600;letter-spacing:.02em;
+    color:var(--primary);
+    margin-bottom:10px;
+  }
+  .dark .verse .ref,.dark-2 .verse .ref,.void .verse .ref{color:var(--primary-on-dark);}
+  .verse .scripture{
+    font-family:var(--font-display);
+    font-size:21px;line-height:1.66;font-weight:400;letter-spacing:-.005em;
+    margin:0;
+    color:var(--ink);
+  }
+  .dark .verse .scripture,.dark-2 .verse .scripture,.void .verse .scripture{color:#f2f2f4;}
+  .verse .scripture .vn{
+    font-size:12px;font-weight:600;color:var(--ink-muted-48);
+    vertical-align:super;margin-right:3px;
+  }
+  .dark .verse .scripture .vn,.void .verse .scripture .vn{color:var(--body-muted);}
+
+  .verse.expandable .scripture{
+    max-height:5.4em;overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);
+            mask-image:linear-gradient(180deg,#000 60%,transparent);
+    transition:max-height .4s ease;
+  }
+  .verse.expandable.open .scripture{
+    max-height:2000px;
+    -webkit-mask-image:none;mask-image:none;
+  }
+  .verse .toggle{
+    margin-top:12px;
+    font-size:14px;font-weight:600;color:var(--primary);
+    background:none;border:0;padding:6px 0;cursor:pointer;
+  }
+  .dark .verse .toggle,.void .verse .toggle{color:var(--primary-on-dark);}
+
+  ul.beats{list-style:none;padding:0;margin:18px 0 0;}
+  ul.beats li{
+    position:relative;padding:15px 0 15px 32px;
+    font-size:19px;line-height:1.5;
+    border-top:1px solid var(--divider-soft);
+  }
+  .dark ul.beats li,.dark-2 ul.beats li{border-top-color:rgba(255,255,255,.12);}
+  ul.beats li:first-child{border-top:0;}
+  ul.beats li::before{
+    content:"";position:absolute;left:4px;top:21px;
+    width:8px;height:8px;border-radius:var(--r-pill);background:var(--primary);
+  }
+  .dark ul.beats li::before,.void ul.beats li::before{background:var(--primary-on-dark);}
+
+  .flow{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    margin:22px 0 4px;font-family:var(--font-display);
+  }
+  .flow .node{
+    font-size:16px;font-weight:600;padding:10px 16px;border-radius:var(--r-pill);
+    background:var(--canvas);border:1px solid var(--hairline);color:var(--ink);
+  }
+  .flow .arrow{color:var(--primary);font-weight:700;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font-text);font-size:19px;font-weight:600;letter-spacing:-.01em;
+    background:var(--primary);color:#fff;border:0;
+    border-radius:var(--r-pill);padding:16px 30px;cursor:pointer;
+    transition:transform .15s ease,background .2s ease;
+    text-decoration:none;min-height:56px;
+  }
+  .btn:active{transform:scale(.95);}
+  .btn.ghost{background:transparent;color:var(--primary);border:1px solid var(--primary);}
+  .dark .btn.ghost,.void .btn.ghost{color:var(--primary-on-dark);border-color:var(--primary-on-dark);}
+  .btn.block{display:flex;width:100%;}
+
+  .scale{display:flex;justify-content:space-between;gap:8px;margin:18px 0 8px;}
+  .scale button{
+    flex:1;aspect-ratio:1;border-radius:var(--r-md);
+    border:1px solid var(--hairline);background:var(--canvas);
+    font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--ink-muted-48);
+    cursor:pointer;transition:transform .12s ease,background .2s,color .2s,border-color .2s;
+  }
+  .scale button:active{transform:scale(.93);}
+  .scale button.sel{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .scale-legend{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted-48);}
+  .dark .scale button{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:var(--body-muted);}
+  .dark .scale-legend{color:var(--body-muted);}
+
+  ul.check{list-style:none;padding:0;margin:18px 0 0;}
+  ul.check li{margin:0 0 10px;}
+  ul.check label{
+    display:flex;gap:13px;align-items:flex-start;
+    background:var(--canvas);border:1px solid var(--hairline);
+    border-radius:var(--r-lg);padding:15px 16px;cursor:pointer;
+    transition:border-color .2s,background .2s;
+  }
+  ul.check input{position:absolute;opacity:0;width:0;height:0;}
+  .box{
+    flex:0 0 24px;width:24px;height:24px;border-radius:var(--r-pill);
+    border:2px solid var(--hairline);margin-top:1px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,border-color .2s;
+  }
+  .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:.2s;}
+  ul.check label .txt{font-size:18px;line-height:1.5;color:var(--ink);}
+  ul.check input:checked + label{border-color:var(--primary);background:#f4f9ff;}
+  ul.check input:checked + label .box{background:var(--primary);border-color:var(--primary);}
+  ul.check input:checked + label .box svg{opacity:1;transform:scale(1);}
+
+  textarea{
+    width:100%;font-family:var(--font-text);font-size:19px;line-height:1.5;color:var(--ink);
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-lg);
+    padding:15px 16px;margin-top:14px;resize:vertical;min-height:104px;
+  }
+  textarea:focus{outline:2px solid var(--primary-focus);border-color:transparent;}
+  .field-label{font-size:16px;font-weight:600;color:var(--ink-muted-80);margin-top:18px;display:block;}
+
+  #progress{
+    position:fixed;top:0;left:0;height:3px;width:0;
+    background:var(--primary);z-index:50;transition:width .15s ease;
+  }
+  #dots{
+    position:fixed;right:12px;top:50%;transform:translateY(-50%);
+    display:flex;flex-direction:column;gap:11px;z-index:40;
+  }
+  #dots button{
+    width:8px;height:8px;border-radius:var(--r-pill);border:0;padding:0;cursor:pointer;
+    background:rgba(127,127,127,.4);transition:transform .2s,background .2s;
+  }
+  #dots button.active{background:var(--primary);transform:scale(1.5);}
+  @media (max-width:380px){#dots{display:none;}}
+
+  .counter{display:none;}
+
+  #pageind{
+    position:fixed;top:calc(12px + var(--safe-top));right:12px;z-index:46;
+    display:flex;align-items:center;justify-content:center;
+    min-width:34px;height:34px;padding:0 12px;
+    background:rgba(22,22,24,.55);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+            backdrop-filter:saturate(180%) blur(16px);
+    border-radius:var(--r-pill);pointer-events:none;
+  }
+  #navcount{
+    color:#fff;font-family:var(--font-display);font-size:13px;font-weight:600;
+    letter-spacing:.06em;text-align:center;opacity:.95;
+  }
+
+  .hint{
+    position:absolute;left:0;right:0;bottom:calc(30px + var(--safe-bottom));
+    text-align:center;font-size:14px;color:var(--body-muted);
+    animation:bob 1.8s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateY(0);opacity:.7;}50%{transform:translateY(6px);opacity:1;}}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .page.in .reveal{opacity:1;transform:none;}
+  .page.in .reveal:nth-child(2){transition-delay:.06s;}
+  .page.in .reveal:nth-child(3){transition-delay:.12s;}
+  .page.in .reveal:nth-child(4){transition-delay:.18s;}
+  .page.in .reveal:nth-child(5){transition-delay:.24s;}
+  .page.in .reveal:nth-child(6){transition-delay:.30s;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  .tag{
+    display:inline-block;font-size:14px;font-weight:600;letter-spacing:.02em;
+    padding:7px 14px;border-radius:var(--r-pill);
+    background:rgba(0,102,204,.1);color:var(--primary);margin-bottom:16px;
+  }
+  .dark .tag,.dark-2 .tag,.void .tag{background:rgba(41,151,255,.16);color:var(--primary-on-dark);}
+
+  .savednote{font-size:13px;color:var(--ink-muted-48);margin-top:10px;min-height:18px;transition:opacity .3s;}
+  .dark-2 .savednote{color:var(--body-muted);}
+  .toast{
+    position:fixed;left:50%;bottom:calc(28px + var(--safe-bottom));transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;font-size:14px;font-weight:600;
+    padding:12px 20px;border-radius:var(--r-pill);opacity:0;pointer-events:none;
+    transition:opacity .3s,transform .3s;z-index:60;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav id="dots"></nav>
+<div id="pageind"><span id="navcount">01 / 08</span></div>
+<div class="toast" id="toast"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 1 · 표지 -->
+  <section class="page void" data-label="표지">
+    <div class="inner">
+      <p class="eyebrow reveal">미주서부장로교회 · 주일예배설교</p>
+      <h1 class="reveal">루디아의<br />집 사람들<br /><span class="accent">3 · 꼭 해야 할<br />질문</span></h1>
+      <p class="lead reveal muted" style="max-width:32ch">바른 질문에 바른 답이 있습니다. 빌립보 간수가 던진 인생의 질문 앞에 함께 서 봅니다.</p>
+      <div class="verse expandable reveal" style="margin-top:22px">
+        <span class="ref">사도행전 16:30~31</span>
+        <p class="scripture">그들을 데리고 나가 이르되 선생들이여 내가 어떻게 하여야 구원을 받으리이까 하거늘 이르되 주 예수를 믿으라 그리하면 너와 네 집이 구원을 받으리라 하고</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <div class="reveal" style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" onclick="go(1)">묵상 시작하기 →</button>
+        <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 보기</a>
+      </div>
+      <p class="reveal muted" style="font-size:14px;margin-top:22px">사도행전 16:24–34 · 2026.07.12 설교 묵상노트</p>
+    </div>
+    <div class="hint">아래로 넘기세요 ↓</div>
+    <div class="counter">01 / 08</div>
+  </section>
+
+  <!-- 2 · 한눈에 -->
+  <section class="page light" data-label="한눈에">
+    <div class="inner">
+      <p class="eyebrow reveal">한 눈에 보기</p>
+      <h2 class="reveal">무엇을(What)이<br />아니라 누구를(Who)</h2>
+      <p class="reveal">빌립보 감옥의 간수가 던진 인생의 질문 — "내가 <strong>어떻게 하여야</strong> 구원을 받으리이까". 주님의 대답은 우리의 예상을 뒤집습니다. 무엇을 <em>행하라</em>가 아니라, <strong class="accent">주 예수를 믿으라</strong>. 답은 행위가 아니라 한 <strong>인격</strong>, 곧 주님을 만나는 것이었습니다.</p>
+      <div class="flow reveal">
+        <span class="node">바른 질문</span><span class="arrow">→</span>
+        <span class="node">간수의 물음</span><span class="arrow">→</span>
+        <span class="node">주님을 만남</span><span class="arrow">→</span>
+        <span class="node">동행의 시작</span>
+      </div>
+      <ul class="beats reveal">
+        <li>바른 질문에 <strong class="accent">바른 답</strong>이 있다.</li>
+        <li>이해할 수 없는 환경 앞에서 <strong>주의 뜻을 묻는</strong> 것이 믿음이다.</li>
+        <li>구원의 답은 행위(What)가 아니라 <strong class="accent">주님(Who)</strong>을 만나는 것.</li>
+        <li>성도는 답을 가진 사람이 아니라 <strong>답을 가진 분을 아는</strong> 사람이다.</li>
+      </ul>
+    </div>
+    <div class="counter">02 / 08</div>
+  </section>
+
+  <!-- 3 · 말씀① 착고에 매여서도 -->
+  <section class="page parchment" data-label="기도와 찬송">
+    <div class="inner">
+      <span class="tag reveal">말씀 ①</span>
+      <h2 class="reveal">차꼬에 매인<br />한밤중에도</h2>
+      <p class="reveal">복음을 전하다 억울하게 모함받아 매를 맞고 깊은 옥에 갇힌 바울과 실라. 발은 차꼬에 매였고 때는 한밤중입니다. 그런데 그들은 절망하지 않았습니다. <strong class="accent">기도하며 하나님을 찬송했고</strong>, 죄수들이 그 소리를 들었습니다. 그 중심에는 "이 자리에 저를 두신 주의 뜻이 무엇입니까"라는 물음이 있었습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 16:24~25</span>
+        <p class="scripture">그가 이러한 명령을 받아 그들을 깊은 옥에 가두고 그 발을 차꼬에 든든히 채웠더니 한밤중에 바울과 실라가 기도하고 하나님을 찬송하매 죄수들이 듣더라</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:20px;font-weight:600;letter-spacing:-.01em">환경이 나를 가둘 수는 있어도, 찬송을 가둘 수는 없습니다.</p>
+    </div>
+    <div class="counter">03 / 08</div>
+  </section>
+
+  <!-- 4 · 말씀② 옥문이 열려도 -->
+  <section class="page dark" data-label="바른 질문">
+    <div class="inner">
+      <span class="tag reveal">말씀 ②</span>
+      <h2 class="reveal">옥문이 열려도<br />도망가지 않다</h2>
+      <p class="reveal">큰 지진에 옥문이 다 열리고 매인 것이 다 풀렸습니다. 도망칠 절호의 순간. 그러나 바울은 자결하려는 간수를 향해 <strong class="accent">"우리가 다 여기 있노라"</strong> 외칩니다. 처음부터 도망칠 생각이 없었던 것입니다. 차꼬가 풀렸다고 제 살길만 찾은 것이 아니라, <strong>이 자리에 담긴 주의 뜻</strong>을 묻고 있었기 때문입니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 16:26~28</span>
+        <p class="scripture">이에 갑자기 큰 지진이 나서 옥터가 움직이고 문이 곧 다 열리며 모든 사람의 매인 것이 다 벗어진지라 간수가 자다가 깨어 옥문들이 열린 것을 보고 죄수들이 도망한 줄 생각하고 칼을 빼어 자결하려 하거늘 바울이 크게 소리 질러 이르되 네 몸을 상하지 말라 우리가 다 여기 있노라 하니</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal muted">이해할 수 없는 환경 앞에서 "주님, 이 뜻이 무엇입니까" 여쭙는 것 — 그것이 그를 <strong class="accent">은혜의 도구</strong>로 쓰이게 했습니다.</p>
+    </div>
+    <div class="counter">04 / 08</div>
+  </section>
+
+  <!-- 5 · 말씀③ 간수의 근원적 질문 + 자가진단 -->
+  <section class="page light" data-label="꼭 해야 할 질문">
+    <div class="inner">
+      <span class="tag reveal">말씀 ③</span>
+      <h2 class="reveal">내가 어떻게 하여야<br />구원을 받으리이까</h2>
+      <p class="reveal">간수는 무서워 떨며 엎드려 두 사람을 "주여"라 부르며 묻습니다. "내가 어떻게 하여야 구원을 받으리이까." 긴박한 상황에 뜬금없어 보이지만, 그는 감옥에서 인생의 마지막 자리에 온 이들을 숱하게 보며 <strong class="accent">근원적 질문</strong>을 품어 온 사람이었습니다. 학식도 권세도 부요함도 채우지 못한 그 공허 앞에서, 그는 참된 답을 갈망했습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 16:29~30</span>
+        <p class="scripture">간수가 등불을 달라고 하며 뛰어 들어가 무서워 떨며 바울과 실라 앞에 엎드리고 그들을 데리고 나가 이르되 선생들이여 내가 어떻게 하여야 구원을 받으리이까 하거늘</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <div class="verse reveal">
+        <span class="ref">잠언 8:17</span>
+        <p class="scripture">나를 사랑하는 자들이 나의 사랑을 입으며 나를 간절히 찾는 자가 나를 만날 것이니라</p>
+      </div>
+
+      <h3 class="reveal" style="margin-top:26px">나는 인생의 바른 질문을 품고 사나요?</h3>
+      <p class="reveal muted" style="font-size:15px">그냥 사는 대로 흘러가고 있나요, 주님께 뜻을 여쭈며 걷고 있나요?</p>
+      <div class="scale reveal" data-store="ask" role="group" aria-label="바른 질문 자가진단">
+        <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
+      </div>
+      <div class="scale-legend reveal"><span>사는 대로 흘러간다</span><span>늘 주님께 여쭙는다</span></div>
+      <p class="savednote reveal" id="ask-note"></p>
+    </div>
+    <div class="counter">05 / 08</div>
+  </section>
+
+  <!-- 6 · 말씀④ 위대한 대답 + 얼음 비유 -->
+  <section class="page dark-2" data-label="위대한 대답">
+    <div class="inner">
+      <span class="tag reveal">말씀 ④</span>
+      <h2 class="reveal">주 예수를<br />믿으라</h2>
+      <p class="reveal">"무엇을 하여야" 구원을 얻느냐는 물음에, 주님은 질문을 바꿔 답하십니다. 행위(What)가 아니라 <strong class="accent">한 인격, 곧 주님(Who)을 만나는 것</strong>이라고요. 예수님을 만나면 인생의 답을 다 알게 되는 것이 아니라, 답이신 주님과 <strong>동행하는 여행</strong>이 비로소 시작됩니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사도행전 16:31</span>
+        <p class="scripture">이르되 주 예수를 믿으라 그리하면 너와 네 집이 구원을 받으리라 하고</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">믿음의 확실성은 내 확신의 크기가 아니라, 내가 믿는 <strong class="accent">그분의 신실하심</strong>에서 옵니다. 두꺼운 얼음 위를 떨며 건넌 사람이, 살얼음을 확신에 차 건넌 사람보다 안전합니다. 나를 살리는 것은 확신의 크기가 아니라 <strong>얼음의 두께</strong>이기 때문입니다. 떨면서라도 붙드는 분이 예수 그리스도이시면, 우리는 이미 믿음의 길 위에 있습니다.</p>
+      <div class="verse reveal">
+        <span class="ref">요한복음 3:14</span>
+        <p class="scripture">모세가 광야에서 뱀을 든 것 같이 인자도 들려야 하리니</p>
+      </div>
+    </div>
+    <div class="counter">06 / 08</div>
+  </section>
+
+  <!-- 7 · 실천 -->
+  <section class="page light" data-label="실천">
+    <div class="inner">
+      <p class="eyebrow reveal">삶으로</p>
+      <h2 class="reveal">이번 주 실천</h2>
+      <p class="reveal muted" style="font-size:15px">체크한 내용은 이 기기에 저장됩니다. 한 주 동안 다시 열어 보세요.</p>
+      <ul class="check reveal" id="checklist">
+        <li><input type="checkbox" id="c1" /><label for="c1"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">지금 내 삶의 자리에서 <b>"주님, 이 자리에 저를 두신 뜻이 무엇입니까"</b> 여쭈기</span></label></li>
+        <li><input type="checkbox" id="c2" /><label for="c2"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">이해되지 않는 환경 하나를 놓고, <b>도망치기보다 기도로 주의 뜻 묻기</b></span></label></li>
+        <li><input type="checkbox" id="c3" /><label for="c3"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">확신이 흔들릴 때, 내 확신이 아니라 <b>신실하신 예수님을 바라보기</b></span></label></li>
+        <li><input type="checkbox" id="c4" /><label for="c4"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">"예수님을 만나면 끝"이 아니라, 오늘도 주님께 <b>물으며 동행하기</b></span></label></li>
+        <li><input type="checkbox" id="c5" /><label for="c5"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">사도행전 16:31을 외워, 한 사람에게 <b>구원의 답</b>을 전하기</span></label></li>
+      </ul>
+      <label class="field-label reveal" for="reflect">묵상 — 내가 꼭 해야 할 질문은 무엇인가요?</label>
+      <textarea id="reflect" class="reveal" data-store="reflect" placeholder="여기에 적어 보세요…"></textarea>
+      <p class="savednote reveal" id="reflect-note"></p>
+    </div>
+    <div class="counter">07 / 08</div>
+  </section>
+
+  <!-- 8 · 결단 -->
+  <section class="page void" data-label="결단">
+    <div class="inner">
+      <p class="eyebrow reveal">나의 결단</p>
+      <h2 class="reveal">답을 가진 분과<br />동행하는 삶</h2>
+      <p class="reveal muted">성도는 답을 다 아는 사람이 아니라, 답이신 주님을 아는 사람입니다. 다 이해되지 않아도 그분께 물으며 걷는 것 — 그때 삶의 모든 자리가 의미를 얻습니다. 주님, 제 인생의 바른 질문을 품고 신실하신 주님을 끝까지 붙들게 하옵소서.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">암송 · 사도행전 16:31</span>
+        <p class="scripture">이르되 주 예수를 믿으라 그리하면 너와 네 집이 구원을 받으리라 하고</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <label class="field-label reveal" for="prayer" style="color:var(--body-muted)">한 줄 기도 / 결단</label>
+      <textarea id="prayer" class="reveal" data-store="prayer" placeholder="주님, 이번 주 저는…"></textarea>
+      <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+        <button class="btn" id="shareBtn">결단 나누기 / 공유</button>
+        <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 다시 보기</a>
+        <button class="btn ghost" onclick="go(0)">처음으로</button>
+      </div>
+      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 루디아의 집 사람들 3 · 꼭 해야 할 질문 (행 16:24–34) · 성경: 개역개정</p>
+    </div>
+    <div class="counter">08 / 08</div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+  var deck=document.getElementById("deck");
+  var pages=Array.prototype.slice.call(document.querySelectorAll(".page"));
+  var dotsWrap=document.getElementById("dots");
+  var bar=document.getElementById("progress");
+  var KEY="sermon_260712_v1";
+
+  /* ── 설교 영상 링크 (URL 한 곳만 채우면 됩니다. 빈 값이면 버튼 자동 숨김) ── */
+  var SERMON_URL="https://youtu.be/6aNOv73_3C8";
+  document.querySelectorAll(".sermon-link").forEach(function(a){
+    if(SERMON_URL){a.href=SERMON_URL;} else {a.style.display="none";}
+  });
+
+  var navcount=document.getElementById("navcount");
+  function curIdx(){return Math.round(deck.scrollTop/deck.clientHeight);}
+  function pad(n){return (n<10?"0":"")+n;}
+
+  pages.forEach(function(p,i){
+    var b=document.createElement("button");
+    b.setAttribute("aria-label",(p.dataset.label||("페이지 "+(i+1))));
+    b.addEventListener("click",function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  window.go=function(i){
+    if(pages[i]) pages[i].scrollIntoView({behavior:"smooth"});
+  };
+
+  function onScroll(){
+    var st=deck.scrollTop, h=deck.clientHeight;
+    var max=deck.scrollHeight-h;
+    bar.style.width=(max>0?(st/max*100):0)+"%";
+    var idx=Math.round(st/h);
+    dots.forEach(function(d,i){d.classList.toggle("active",i===idx);});
+    navcount.textContent=pad(idx+1)+" / "+pad(pages.length);
+  }
+  deck.addEventListener("scroll",onScroll,{passive:true});
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add("in");
+    });
+  },{root:deck,threshold:.35});
+  pages.forEach(function(p){io.observe(p);});
+  pages[0].classList.add("in");
+  onScroll();
+
+  document.querySelectorAll(".verse .toggle").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var card=btn.closest(".verse");
+      var open=card.classList.toggle("open");
+      btn.textContent=open?"본문 접기 ▴":"본문 펼치기 ▾";
+    });
+  });
+
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}
+  var state=load();
+
+  var toast=document.getElementById("toast"),tt;
+  function showToast(msg){
+    toast.textContent=msg;toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1600);
+  }
+
+  document.querySelectorAll(".scale").forEach(function(sc){
+    var key=sc.dataset.store;
+    var note=document.getElementById(key+"-note");
+    var labels={1:"사는 대로 흘러가고 있다면, 오늘 하나님께 첫 질문을 드려 보세요.",2:"조금 머뭇거리고 있네요. 주님은 그 질문을 기다리고 계십니다.",3:"보통이군요. 오늘 인생의 근원 질문 하나를 주님께 여쭤 보세요.",4:"주님께 뜻을 여쭈며 걷고 계시네요. 그 걸음을 이어 가세요.",5:"늘 주님께 여쭈며 사시는군요! 그 동행이 삶의 모든 자리를 의미로 채웁니다."};
+    function paint(v){
+      sc.querySelectorAll("button").forEach(function(b){b.classList.toggle("sel",b.dataset.v===String(v));});
+      if(note) note.textContent=v?labels[v]:"";
+    }
+    if(state[key]) paint(state[key]);
+    sc.querySelectorAll("button").forEach(function(b){
+      b.addEventListener("click",function(){
+        state[key]=b.dataset.v;save(state);paint(b.dataset.v);
+      });
+    });
+  });
+
+  document.querySelectorAll("#checklist input").forEach(function(box){
+    if(state["chk_"+box.id]) box.checked=true;
+    box.addEventListener("change",function(){
+      state["chk_"+box.id]=box.checked;save(state);
+      if(box.checked) showToast("저장됐어요 ✓");
+    });
+  });
+
+  document.querySelectorAll("textarea[data-store]").forEach(function(ta){
+    var key=ta.dataset.store;
+    var note=document.getElementById(key+"-note");
+    if(state[key]) ta.value=state[key];
+    var t;
+    ta.addEventListener("input",function(){
+      state[key]=ta.value;
+      clearTimeout(t);
+      t=setTimeout(function(){save(state);if(note){note.textContent="저장됨 · "+new Date().toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"});note.style.opacity=1;}},500);
+    });
+  });
+
+  document.getElementById("shareBtn").addEventListener("click",function(){
+    var prayer=(state.prayer||"").trim();
+    var text="루디아의 집 사람들 3 · 꼭 해야 할 질문 (행 16:24–34)\n\n\"이르되 주 예수를 믿으라 그리하면 너와 네 집이 구원을 받으리라 하고\" (행 16:31)\n\n"+(prayer?("나의 결단: "+prayer+"\n\n"):"")+"바른 질문에 바른 답이 있습니다 — 답이신 주님과 동행하는 삶으로.";
+    if(navigator.share){
+      navigator.share({title:"루디아의 집 사람들 3 · 꼭 해야 할 질문",text:text}).catch(function(){});
+    }else if(navigator.clipboard){
+      navigator.clipboard.writeText(text).then(function(){showToast("복사됐어요. 붙여넣어 나누세요 ✓");});
+    }else{
+      showToast("길게 눌러 복사해 주세요");
+    }
+  });
+
+  document.addEventListener("keydown",function(e){
+    var idx=Math.round(deck.scrollTop/deck.clientHeight);
+    if(e.key==="ArrowDown"||e.key==="PageDown"){e.preventDefault();go(Math.min(idx+1,pages.length-1));}
+    if(e.key==="ArrowUp"||e.key==="PageUp"){e.preventDefault();go(Math.max(idx-1,0));}
+  });
+})();
+</script>
+</body>
+</html>
