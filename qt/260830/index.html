@@ -687,6 +687,19 @@ ul.check input:checked + label{background:#f5ece7;}
   pages[0].classList.add("in");
   onScroll();
 
+  /* ── 언제나 표지(1페이지)부터 열리게 한다 ──
+     브라우저가 지난 방문의 스크롤 위치를 되살려 중간 페이지가 먼저 보이는 일을 막는다.
+     (QR·짧은 링크로 들어오는 분들이 항상 첫 장부터 보도록) */
+  if("scrollRestoration" in history){ try{ history.scrollRestoration="manual"; }catch(e){} }
+  var userMoved=false;
+  ["touchstart","wheel","keydown","pointerdown"].forEach(function(ev){
+    window.addEventListener(ev,function(){userMoved=true;},{passive:true,once:true});
+  });
+  function toTop(){ if(userMoved) return; deck.scrollTop=0; onScroll(); }
+  toTop();
+  window.addEventListener("load",function(){ toTop(); setTimeout(toTop,60); setTimeout(toTop,300); });
+  window.addEventListener("pageshow",function(e){ if(e.persisted) toTop(); });
+
   document.querySelectorAll(".verse .toggle").forEach(function(btn){
     btn.addEventListener("click",function(){
       var card=btn.closest(".verse");
