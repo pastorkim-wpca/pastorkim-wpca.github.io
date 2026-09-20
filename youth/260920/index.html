@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0b1014" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>Injury Time · Youth Notes | WPCA</title>
+<link rel="apple-touch-icon" sizes="180x180" href="https://pastorkim-wpca.github.io/icons/wpca-icon-180.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="https://pastorkim-wpca.github.io/icons/wpca-icon-192.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://pastorkim-wpca.github.io/icons/wpca-icon-32.png" />
+<meta name="apple-mobile-web-app-title" content="Youth Notes" />
+<meta name="description" content="Injury Time · Acts 19:1-10 | Sunday sermon notes for students, West Presbyterian Church of America (미주서부장로교회)" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="미주서부장로교회 WPCA" />
+<meta property="og:title" content="Injury Time — the whistle hasn't blown yet" />
+<meta property="og:description" content="Acts 19:1-10 · Sunday sermon notes for students (English)" />
+<meta property="og:url" content="https://pastorkim-wpca.github.io/youth/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://pastorkim-wpca.github.io/og/youth-260920.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:alt" content="Injury Time · Acts 19:1-10 · WPCA Youth" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Injury Time — the whistle hasn't blown yet" />
+<meta name="twitter:description" content="Acts 19:1-10 · Sunday sermon notes for students" />
+<meta name="twitter:image" content="https://pastorkim-wpca.github.io/og/youth-260920.jpg" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPBREQ97CZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LPBREQ97CZ', {anonymize_ip:true, page_title:'Youth · Injury Time 260920'});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --night:#0b1014;
+    --panel:#141b21;
+    --panel-2:#1a232b;
+    --line:#26323c;
+    --ink:#f2f6f8;
+    --ink-soft:#a9b8c4;
+    --ink-dim:#7d8e9c;
+    --turf:#5ee08a;
+    --board:#ffc83d;
+    --alert:#ff6b5e;
+    --gutter:16px;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--night);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:17px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 var(--gutter) 72px}
+  h1,h2,h3,.display{font-family:'Archivo Black',Impact,sans-serif;font-weight:400;letter-spacing:-.01em;line-height:1.08}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:52px var(--gutter) 40px;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(94,224,138,.18), transparent 60%),
+      linear-gradient(180deg,#0e161c 0%, var(--night) 100%);
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:auto 0 -1px 0;height:120px;
+    background:repeating-linear-gradient(90deg, rgba(94,224,138,.055) 0 22px, transparent 22px 44px);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:640px;margin:0 auto;position:relative;z-index:1}
+  .hero-top{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;margin-bottom:26px;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-dim);
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--turf)}
+  .board{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#0a0d10;border:1px solid #33404a;border-radius:10px;
+    padding:8px 14px;
+    font-family:'Archivo Black',sans-serif;font-size:19px;letter-spacing:.06em;
+  }
+  .board .clock{color:#e6edf2}
+  .board .plus{color:var(--board)}
+  h1{font-size:clamp(40px,12vw,62px);margin:0 0 14px;text-transform:uppercase}
+  h1 .accent{color:var(--turf)}
+  .tagline{font-size:19px;color:var(--ink-soft);margin:0 0 26px;line-height:1.5}
+  .meta{border-top:1px solid var(--line);padding-top:18px;font-size:14px;color:var(--ink-dim);line-height:1.85}
+  .meta b{color:var(--ink);font-weight:600}
+  .meta .ko{color:#8fa0ad}
+
+  /* ---------- sections ---------- */
+  section{padding-top:44px}
+  .kicker{
+    font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--turf);margin-bottom:10px;
+  }
+  h2{font-size:clamp(26px,7vw,34px);margin:0 0 18px}
+  h3{font-family:'Inter',sans-serif;font-weight:800;font-size:19px;margin:28px 0 10px;letter-spacing:-.01em}
+  p{margin:0 0 18px}
+  .lead{font-size:19px;color:var(--ink-soft)}
+  strong{color:#fff;font-weight:600}
+
+  /* ---------- scripture ---------- */
+  .scripture{
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--turf);
+    border-radius:var(--radius);padding:20px 20px 16px;margin:22px 0;
+  }
+  .scripture .ref{
+    font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--turf);margin-bottom:12px;
+  }
+  .scripture p{font-size:16.5px;color:#dde7ee;margin:0 0 10px;line-height:1.75}
+  .scripture p:last-child{margin-bottom:0}
+  .scripture .v{
+    font-family:'Archivo Black',sans-serif;font-size:11px;color:var(--ink-dim);
+    vertical-align:2px;margin-right:6px;
+  }
+  .src{font-size:12px;color:var(--ink-dim);margin-top:12px;letter-spacing:.02em}
+
+  /* ---------- pull quote ---------- */
+  .pull{
+    margin:30px 0;padding:24px 20px;border-radius:var(--radius);
+    background:linear-gradient(135deg,#17242c,#131b21);
+    border:1px solid var(--line);
+  }
+  .pull p{
+    font-family:'Archivo Black',sans-serif;font-size:22px;line-height:1.32;
+    margin:0;color:#fff;
+  }
+  .pull .who{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--ink-dim);margin-top:12px;letter-spacing:.04em}
+
+  /* ---------- play cards ---------- */
+  .play{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px;margin:24px 0;
+  }
+  .play .num{
+    display:inline-block;font-family:'Archivo Black',sans-serif;font-size:12px;
+    color:var(--night);background:var(--turf);border-radius:6px;padding:3px 9px;letter-spacing:.1em;
+    margin-bottom:12px;
+  }
+  .play h3{margin-top:0}
+
+  /* ---------- verse card ---------- */
+  .memory{
+    margin:36px 0;padding:26px 22px;border-radius:var(--radius);
+    background:linear-gradient(160deg,#1d2b22,#121a16);
+    border:1px solid #2c4436;text-align:center;
+  }
+  .memory .label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--turf);font-weight:700}
+  .memory blockquote{
+    font-family:'Archivo Black',sans-serif;font-size:21px;line-height:1.4;
+    margin:14px 0 12px;color:#fff;
+  }
+  .memory .ref{font-size:13px;color:var(--ink-soft);letter-spacing:.04em}
+
+  /* ---------- questions ---------- */
+  ol.questions{counter-reset:q;list-style:none;padding:0;margin:20px 0 0}
+  ol.questions li{
+    counter-increment:q;position:relative;padding:18px 0 18px 46px;
+    border-top:1px solid var(--line);font-size:17px;color:#e2ebf1;
+  }
+  ol.questions li::before{
+    content:counter(q);position:absolute;left:0;top:18px;
+    width:30px;height:30px;border-radius:50%;
+    background:var(--panel-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Archivo Black',sans-serif;font-size:13px;color:var(--turf);
+  }
+
+  /* ---------- checklist ---------- */
+  .checklist{margin:22px 0 0;padding:0;list-style:none}
+  .checklist li{margin:0 0 10px}
+  .checklist label{
+    display:flex;gap:14px;align-items:flex-start;
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;
+    padding:16px 16px;cursor:pointer;transition:border-color .18s, background .18s;
+  }
+  .checklist label:active{background:var(--panel-2)}
+  .checklist input{
+    appearance:none;-webkit-appearance:none;flex:0 0 auto;
+    width:24px;height:24px;margin:1px 0 0;border-radius:7px;
+    border:2px solid #3a4a56;background:transparent;cursor:pointer;position:relative;transition:.18s;
+  }
+  .checklist input:checked{background:var(--turf);border-color:var(--turf)}
+  .checklist input:checked::after{
+    content:"";position:absolute;left:7px;top:2px;width:6px;height:12px;
+    border:solid var(--night);border-width:0 3px 3px 0;transform:rotate(45deg);
+  }
+  .checklist input:checked ~ span{color:var(--ink-dim);text-decoration:line-through}
+  .checklist span{font-size:16.5px;line-height:1.55;color:#e2ebf1;transition:color .18s}
+  .checklist label:has(input:checked){border-color:#2c4436}
+
+  /* ---------- share ---------- */
+  .share{margin:40px 0 0;display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    flex:1 1 150px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 18px;border-radius:14px;border:1px solid var(--line);
+    background:var(--panel);color:var(--ink);font-size:16px;font-weight:600;
+    text-decoration:none;cursor:pointer;font-family:'Inter',sans-serif;transition:.18s;
+  }
+  .btn:active{background:var(--panel-2)}
+  .btn.primary{background:var(--turf);border-color:var(--turf);color:#08120c}
+
+  footer{
+    margin-top:56px;padding-top:26px;border-top:1px solid var(--line);
+    font-size:13.5px;color:var(--ink-dim);line-height:1.9;text-align:center;
+  }
+  footer .name{color:var(--ink-soft);font-weight:600}
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+    background:#e9f2f7;color:#0b1014;padding:12px 20px;border-radius:999px;
+    font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;z-index:50;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media (max-width:380px){ body{font-size:16px} .wrap{--gutter:14px} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="eyebrow"><span class="dot"></span>WPCA Youth · Sunday Notes</div>
+      <div class="board"><span class="clock">90:00</span><span class="plus">+4</span></div>
+    </div>
+    <h1>Injury<br /><span class="accent">Time</span></h1>
+    <p class="tagline">Everyone thinks the game is over. The clock says it's over.<br />And then the best minutes of the match begin.</p>
+    <div class="meta">
+      <b>Acts 19:1&ndash;10</b><br />
+      Sunday, September 20, 2026 &middot; Rev. Jinju Kim<br />
+      <span class="ko">&ldquo;내 인생의 인저리 타임&rdquo; &middot; 사도행전 19:1&ndash;10</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <div class="kicker">Kickoff</div>
+    <h2>Twenty seconds left</h2>
+    <p class="lead">In soccer, when players get hurt or time gets wasted, the referee adds it back at the end. We call it <strong>injury time</strong> &mdash; or stoppage time. Ninety minutes are gone, and then you get a few more.</p>
+    <p>Here's the strange part: some of the most unforgettable moments in soccer happen in those extra minutes.</p>
+    <p>2018 World Cup, Russia. Korea had lost two of three group games. To advance, they had to beat <strong>Germany</strong> &mdash; ranked #1 in the world, the defending champions &mdash; by two goals. Nobody gave Korea a chance. Korea was ranked 57th.</p>
+    <p>Korea won 2&ndash;0. Both goals came in injury time, after the ninety minutes were already finished. The world called it the biggest upset of the tournament.</p>
+    <p>But the moment your pastor remembers most isn't either goal. With about twenty seconds left, a long ball was launched downfield, and <strong>Son Heung-min took off after it at full sprint</strong> &mdash; running like the game had just started.</p>
+    <p>Everyone else had already decided it was impossible. He ran anyway. That's what giving your best actually looks like.</p>
+
+    <div class="pull">
+      <p>The ugliest game to watch isn't a team that loses the score. It's a team that loses the effort.</p>
+      <div class="who">&mdash; Sometimes losing is more beautiful than winning</div>
+    </div>
+
+    <p>So injury time teaches us two things about life:</p>
+
+    <div class="play">
+      <span class="num">LESSON 1</span>
+      <h3>Play hard until the whistle</h3>
+      <p style="margin-bottom:0">Not until you feel like it. Not until it looks winnable. Until the whistle.</p>
+    </div>
+
+    <div class="play">
+      <span class="num">LESSON 2</span>
+      <h3>Your hurt can become your opening</h3>
+      <p style="margin-bottom:0">Injury time only exists <em>because</em> somebody got hurt. The pain created the extra minutes. In God's hands, the setback becomes the chance.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">The Pattern</div>
+    <h2>The guy who kept getting up</h2>
+    <p>The book of Acts reads like a highlight reel of people running in injury time. The church gets attacked, betrayed, wounded, knocked flat &mdash; and keeps getting up.</p>
+    <p>Not "never knocked down." Not "never stopped." They <em>do</em> get stopped. They <em>do</em> sit down in the dirt. They just don't stay there.</p>
+
+    <div class="scripture">
+      <div class="ref">Acts 14:19&ndash;21</div>
+      <p><span class="v">19</span>But some Jews from Antioch and Iconium came there, and having persuaded the multitudes, they stoned Paul, and dragged him out of the city, supposing that he was dead.</p>
+      <p><span class="v">20</span>But as the disciples stood around him, he rose up, and entered into the city. On the next day he went out with Barnabas to Derbe.</p>
+      <p><span class="v">21</span>When they had preached the Good News to that city, and had made many disciples, they returned to Lystra, Iconium, and Antioch,</p>
+    </div>
+
+    <p>They threw rocks at him until they were sure he was dead. And he <strong>got up and walked back into the same city</strong>. Then kept going. And a crowd of people became disciples through a man who looked finished.</p>
+    <p>Christians are like players sprinting in injury time on a field where the scoreboard says there's no point.</p>
+  </section>
+
+  <section>
+    <div class="kicker">Play 1</div>
+    <h2>Stay a learner</h2>
+    <p>Paul arrives in Ephesus on his third missionary trip and meets some disciples. They only knew John's baptism &mdash; basically, they knew the Old Testament part of the story. They hadn't even heard there <em>was</em> a Holy Spirit.</p>
+
+    <div class="scripture">
+      <div class="ref">Acts 19:2&ndash;5</div>
+      <p><span class="v">2</span>He said to them, &ldquo;Did you receive the Holy Spirit when you believed?&rdquo; They said to him, &ldquo;No, we haven't even heard that there is a Holy Spirit.&rdquo;</p>
+      <p><span class="v">5</span>When they heard this, they were baptized in the name of the Lord Jesus.</p>
+    </div>
+
+    <p>Look at the two words that changed everything: <strong>they heard</strong>.</p>
+    <p>If they hadn't been willing to listen, if they hadn't been willing to learn one more thing, they would have spent their whole lives carrying a Bible and never knowing Jesus or the Spirit in it.</p>
+    <p>Same with Apollos. He was a gifted speaker who already knew a lot &mdash; but Priscilla and Aquila, a couple who made tents for a living, saw a gap and offered to teach him. A person impressed with himself would never take notes from tentmakers. Apollos did. That's exactly why he grew.</p>
+
+    <div class="pull">
+      <p>We are not people who know everything. We are people who know the One who knows everything.</p>
+    </div>
+
+    <p>The worst posture a Christian can take is acting like there's nothing left to learn. Even when we share our faith, we're not handing people our knowledge &mdash; we're introducing them to the Source of it.</p>
+
+    <div class="scripture">
+      <div class="ref">1 Peter 2:2&ndash;3</div>
+      <p><span class="v">2</span>as newborn babies, long for the pure milk of the Word, that with it you may grow,</p>
+      <p><span class="v">3</span>if indeed you have tasted that the Lord is gracious:</p>
+    </div>
+
+    <p>Faith is something you <strong>taste</strong>. And you taste it by learning it and then actually living it. Imagine a kid who never moves past baby food &mdash; that's heartbreaking. So how are we doing? What are we actually doing to learn, and to live what we learn?</p>
+
+    <h3>A word about your phone</h3>
+    <p>On a podcast, Elon Musk was asked which invention has made us worse. He thought about it and said: <strong>short-form video</strong>. Strong hit, swipe, next one, swipe. It trains your brain not to think, not to work, not to learn anything new.</p>
+    <p>There's a real difference between hearing someone face to face and watching a screen &mdash; between learning alone and learning with people. You can't measure that difference in test scores. But it changes your life.</p>
+    <p>Listen. Learn. Then do something with it.</p>
+  </section>
+
+  <section>
+    <div class="kicker">Play 2</div>
+    <h2>If the door closes, find Tyrannus</h2>
+    <p>In Ephesus, Paul did what he always did: he went into the synagogue and gave it everything he had. Three months of bold, careful teaching.</p>
+    <p>And the response was&hellip; bad.</p>
+
+    <div class="scripture">
+      <div class="ref">Acts 19:8&ndash;9</div>
+      <p><span class="v">8</span>He entered into the synagogue, and spoke boldly for a period of three months, reasoning and persuading about the things concerning God's Kingdom.</p>
+      <p><span class="v">9</span>But when some were hardened and disobedient, speaking evil of the Way before the multitude, he departed from them, and separated the disciples, reasoning daily in the school of Tyrannus.</p>
+    </div>
+
+    <p>People got stubborn. They trash-talked the gospel publicly. The work was being blocked.</p>
+    <p>Here's what Paul did <em>not</em> do: quit. Here's what he <em>did</em> do: change the method. He moved down the street to a lecture hall &mdash; the school of Tyrannus &mdash; and taught there every single day.</p>
+
+    <div class="pull">
+      <p>He never gave up the gospel. He gave up the synagogue. He held on to the mission and changed the method.</p>
+    </div>
+
+    <p>Three months in the synagogue became <strong>two years</strong> in Tyrannus. And look what the blocked road turned into:</p>
+
+    <div class="scripture">
+      <div class="ref">Acts 19:10</div>
+      <p><span class="v">10</span>This continued for two years, so that all those who lived in Asia heard the word of the Lord Jesus, both Jews and Greeks.</p>
+    </div>
+
+    <p><strong>All</strong> of Asia. The opposition didn't shrink the mission &mdash; it scattered it wider.</p>
+
+    <h3>When you get blocked, ask</h3>
+    <p>The attitude to watch out for is this one: you start doing something good, you hit resistance, and you bail. "See? I guess this wasn't God's will." You never prayed about it. You just quit and blamed it on God.</p>
+
+    <div class="scripture">
+      <div class="ref">James 1:2&ndash;5</div>
+      <p><span class="v">2</span>Count it all joy, my brothers, when you fall into various temptations,</p>
+      <p><span class="v">3</span>knowing that the testing of your faith produces endurance.</p>
+      <p><span class="v">4</span>Let endurance have its perfect work, that you may be perfect and complete, lacking in nothing.</p>
+      <p><span class="v">5</span>But if any of you lacks wisdom, let him ask of God, who gives to all liberally and without reproach; and it will be given to him.</p>
+    </div>
+
+    <p>You don't have to figure out the new method by yourself. Ask God for wisdom &mdash; He gives it generously and He doesn't roll His eyes at you. He'll show you whether to go or stop. The problem is never the closed door. The problem is quitting without ever asking.</p>
+
+    <h3>God rewrites the bad stuff</h3>
+    <p>Can God really turn evil into good? That sounds impossible. Then listen to Joseph &mdash; sold by his own brothers, lied about, jailed for years:</p>
+
+    <div class="scripture">
+      <div class="ref">Genesis 50:20</div>
+      <p><span class="v">20</span>As for you, you meant evil against me, but God meant it for good, to bring to pass, as it is today, to save many people alive.</p>
+    </div>
+
+    <div class="scripture">
+      <div class="ref">Romans 8:28</div>
+      <p><span class="v">28</span>We know that all things work together for good for those who love God, to those who are called according to his purpose.</p>
+    </div>
+
+    <p>There is evil in a believer's life too. Sometimes it's our own fault, sometimes it's somebody else's. But what God does for people who love Him is take those broken pieces and work them into His purpose &mdash; saving lives.</p>
+    <p>Your head will never fully understand God's puzzle. Your heart can still trust the One putting it together.</p>
+    <p>Want to know whether you actually believe that? Check your prayers. If you don't believe it, you won't feel much like praying &mdash; you'll just say "God's got it" and move on. <strong>People who really believe, pray.</strong></p>
+  </section>
+
+  <section>
+    <div class="kicker">Final Whistle</div>
+    <h2>The game isn't over</h2>
+    <p>Are you in a season of hurt right now? A season where everything stopped?</p>
+    <p>Don't sit there too long. Tell yourself the truth: <strong>God is here, so it's going to be okay.</strong> Believe He's working. Pray. And give it everything you've got, all the way to the end.</p>
+    <p>None of us knows how many minutes are left. But we know one thing for sure &mdash; <strong>the final whistle hasn't blown.</strong></p>
+    <p>So listen again. Learn again. If you fell, get up. If the road is blocked, ask God for wisdom. <strong>If the synagogue is closed, find Tyrannus.</strong></p>
+    <p>Injury time is not wasted time. It may have been handed to you because of an injury &mdash; but in God's hands it becomes the time of new obedience and new fruit.</p>
+    <p class="lead" style="color:var(--turf);font-weight:600">Play hard to the very end. The game is not over.</p>
+
+    <div class="memory">
+      <div class="label">Memory Verse</div>
+      <blockquote>&ldquo;If any of you lacks wisdom, let him ask of God, who gives to all liberally and without reproach; and it will be given to him.&rdquo;</blockquote>
+      <div class="ref">James 1:5</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Talk it out</div>
+    <h2>Three questions</h2>
+    <ol class="questions">
+      <li>Where in your life does the scoreboard feel hopeless right now &mdash; a class, a friendship, a habit, something at home? What would "still sprinting" look like there this week?</li>
+      <li>Paul kept the mission and changed the method. Is there something good you gave up on that actually just needed a <em>different way</em>? What could the new way be?</li>
+      <li>Be honest about learning: are you growing, or are you coasting on what you already know? What is one thing you could learn on purpose this month &mdash; and who could teach you?</li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="kicker">This Week</div>
+    <h2>Your injury-time challenge</h2>
+    <p class="lead">Pick them off one at a time. Your progress is saved on this phone.</p>
+    <ul class="checklist" id="checklist">
+      <li><label><input type="checkbox" data-k="c1" /><span>Finish one thing I've been about to quit &mdash; even badly, even late.</span></label></li>
+      <li><label><input type="checkbox" data-k="c2" /><span>Pray once this week specifically for <em>wisdom</em>, not just for the problem to disappear.</span></label></li>
+      <li><label><input type="checkbox" data-k="c3" /><span>Trade 30 minutes of scrolling for 30 minutes of learning something real.</span></label></li>
+      <li><label><input type="checkbox" data-k="c4" /><span>Ask one person who is further along than me to teach me something.</span></label></li>
+      <li><label><input type="checkbox" data-k="c5" /><span>Memorize James 1:5.</span></label></li>
+      <li><label><input type="checkbox" data-k="c6" /><span>Encourage a friend who got knocked down &mdash; tell them the whistle hasn't blown.</span></label></li>
+    </ul>
+
+    <div class="share">
+      <button class="btn primary" id="shareBtn">Share with a friend</button>
+      <button class="btn" id="copyBtn">Copy link</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="name">West Presbyterian Church of America &middot; 미주서부장로교회</div>
+    Youth Sunday Notes &middot; September 20, 2026<br />
+    &ldquo;Injury Time&rdquo; &middot; Acts 19:1&ndash;10 &middot; Rev. Jinju Kim<br />
+    Scripture: World English Bible (public domain)
+  </footer>
+</div>
+
+<div class="toast" id="toast">Link copied</div>
+
+<script>
+(function(){
+  var KEY = 'wpca-youth-260920';
+
+  function load(){
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function save(state){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  var state = load();
+  var boxes = document.querySelectorAll('#checklist input[type=checkbox]');
+  Array.prototype.forEach.call(boxes, function(box){
+    if (state[box.dataset.k]) box.checked = true;
+    box.addEventListener('change', function(){
+      state[box.dataset.k] = box.checked;
+      save(state);
+    });
+  });
+
+  var toast = document.getElementById('toast');
+  function flash(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+  }
+
+  var url = location.href.split('#')[0];
+  var shareText = 'Injury Time — the whistle hasn\'t blown yet. (Acts 19:1-10, WPCA Youth)';
+
+  document.getElementById('shareBtn').addEventListener('click', function(){
+    if (navigator.share) {
+      navigator.share({ title: 'Injury Time · WPCA Youth', text: shareText, url: url })
+        .catch(function(){});
+    } else {
+      copy(url);
+    }
+  });
+  document.getElementById('copyBtn').addEventListener('click', function(){ copy(url); });
+
+  function copy(text){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ flash('Link copied'); },
+                                               function(){ fallback(text); });
+    } else {
+      fallback(text);
+    }
+  }
+  function fallback(text){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); flash('Link copied'); }
+    catch (e) { flash('Copy the link from your browser bar'); }
+    document.body.removeChild(ta);
+  }
+})();
+</script>
+</body>
+</html>
