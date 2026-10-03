@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#141413" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>3회차 요한복음 9:1–12, 35–41 · 주만나 말씀묵상 | 미주서부장로교회</title>
+<link rel="apple-touch-icon" sizes="180x180" href="https://pastorkim-wpca.github.io/icons/wpca-icon-180.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="https://pastorkim-wpca.github.io/icons/wpca-icon-192.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://pastorkim-wpca.github.io/icons/wpca-icon-32.png" />
+<meta name="apple-mobile-web-app-title" content="주만나묵상" />
+<meta name="description" content="주만나 아침 말씀묵상 3회차 · 요한복음 9:1–12, 35–41 | 미주서부장로교회 토요 말씀묵상" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="미주서부장로교회" />
+<meta property="og:title" content="미주서부장로교회 주만나 말씀묵상" />
+<meta property="og:description" content="3회차 · 요한복음 9장 · 한 가지 아는 것은, 내가 지금 본다는 것" />
+<meta property="og:url" content="https://pastorkim-wpca.github.io/juman/261003/" />
+<meta property="og:locale" content="ko_KR" />
+<meta property="og:image" content="https://pastorkim-wpca.github.io/og/juman-261003.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="675" />
+<meta property="og:image:alt" content="주만나 아침 말씀묵상 3회차 · 요한복음 9:1–12, 35–41 · 미주서부장로교회" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="미주서부장로교회 주만나 말씀묵상" />
+<meta name="twitter:description" content="3회차 · 요한복음 9장 · 한 가지 아는 것은, 내가 지금 본다는 것" />
+<meta name="twitter:image" content="https://pastorkim-wpca.github.io/og/juman-261003.jpg" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LPBREQ97CZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LPBREQ97CZ', {anonymize_ip:true, page_title:'주만나 말씀묵상 · 3회차 요 9:1-12,35-41'});
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --primary:#0066cc;
+    --primary-focus:#0071e3;
+    --primary-on-dark:#2997ff;
+    --ink:#1d1d1f;
+    --ink-muted-80:#333333;
+    --ink-muted-48:#7a7a7a;
+    --hairline:#e0e0e0;
+    --divider-soft:#f0f0f0;
+    --canvas:#ffffff;
+    --parchment:#f5f5f7;
+    --pearl:#fafafc;
+    --tile-1:#272729;
+    --tile-2:#2a2a2c;
+    --tile-3:#252527;
+    --black:#000000;
+    --body-muted:#cccccc;
+    --on-dark:#ffffff;
+
+    --font-display:"SF Pro Display","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-text:"SF Pro Text","Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+
+    --r-sm:8px; --r-md:11px; --r-lg:18px; --r-pill:9999px;
+    --shadow-product:rgba(0,0,0,0.22) 3px 5px 30px 0;
+    --safe-top:env(safe-area-inset-top,0px);
+    --safe-bottom:env(safe-area-inset-bottom,0px);
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-text);
+    background:var(--black);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overscroll-behavior-y:none;
+    font-feature-settings:"ss03" 1;
+  }
+
+  .deck{
+    height:100svh;
+    overflow-y:scroll;
+    scroll-snap-type:y proximity;
+    scroll-behavior:smooth;
+  }
+  /* 입력칸에 커서가 있는 동안에는 스냅을 완전히 끈다(키보드와 충돌 방지) */
+  .deck.nosnap{scroll-snap-type:none;}
+  .deck::-webkit-scrollbar{display:none;}
+  .deck{scrollbar-width:none;}
+
+  section.page{
+    position:relative;
+    min-height:100svh;
+    scroll-snap-align:start;
+    scroll-snap-stop:normal;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding:calc(34px + var(--safe-top)) 22px calc(48px + var(--safe-bottom));
+  }
+  .inner{width:100%;max-width:600px;margin:auto;}
+  /* 화면보다 내용이 긴 페이지는 스냅 대상에서 제외 — 끝까지 읽고 입력할 수 있다 */
+  section.page.tall{scroll-snap-align:none;}
+
+  .light{background:var(--canvas);color:var(--ink);}
+  .parchment{background:var(--parchment);color:var(--ink);}
+  .dark{background:var(--tile-1);color:var(--on-dark);}
+  .dark-2{background:var(--tile-2);color:var(--on-dark);}
+  .void{background:var(--black);color:var(--on-dark);}
+
+  .eyebrow{
+    font-family:var(--font-text);
+    font-size:15px;font-weight:600;letter-spacing:.13em;
+    text-transform:uppercase;
+    color:var(--primary);
+    margin:0 0 14px;
+  }
+  .dark .eyebrow,.dark-2 .eyebrow,.void .eyebrow{color:var(--primary-on-dark);}
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(40px,10.5vw,64px);
+    font-weight:600;line-height:1.07;letter-spacing:-.032em;
+    margin:0 0 20px;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-size:clamp(34px,9vw,50px);
+    font-weight:600;line-height:1.1;letter-spacing:-.02em;
+    margin:0 0 18px;
+  }
+  h3{
+    font-family:var(--font-display);
+    font-size:24px;font-weight:600;line-height:1.2;letter-spacing:-.01em;
+    margin:0 0 10px;
+  }
+  p.lead{
+    font-family:var(--font-display);
+    font-size:clamp(23px,6.4vw,32px);font-weight:400;line-height:1.3;letter-spacing:0;
+    margin:0 0 14px;
+  }
+  p{font-size:19px;font-weight:400;line-height:1.56;letter-spacing:-.01em;margin:0 0 16px;}
+  .muted{color:var(--ink-muted-48);}
+  .dark .muted,.dark-2 .muted,.void .muted{color:var(--body-muted);}
+  .accent{color:var(--primary);}
+  .dark .accent,.dark-2 .accent,.void .accent{color:var(--primary-on-dark);}
+  strong{font-weight:600;}
+
+  .verse{
+    border-radius:var(--r-lg);
+    background:var(--pearl);
+    border:1px solid var(--hairline);
+    padding:20px 20px 18px;
+    margin:18px 0;
+  }
+  .dark .verse,.dark-2 .verse,.void .verse{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.14);
+  }
+  .verse .ref{
+    display:inline-block;
+    font-size:15px;font-weight:600;letter-spacing:.02em;
+    color:var(--primary);
+    margin-bottom:10px;
+  }
+  .dark .verse .ref,.dark-2 .verse .ref,.void .verse .ref{color:var(--primary-on-dark);}
+  .verse .scripture{
+    font-family:var(--font-display);
+    font-size:21px;line-height:1.66;font-weight:400;letter-spacing:-.005em;
+    margin:0;
+    color:var(--ink);
+  }
+  .dark .verse .scripture,.dark-2 .verse .scripture,.void .verse .scripture{color:#f2f2f4;}
+  .verse .scripture .vn{
+    font-size:12px;font-weight:600;color:var(--ink-muted-48);
+    vertical-align:super;margin-right:3px;
+  }
+  .dark .verse .scripture .vn,.void .verse .scripture .vn{color:var(--body-muted);}
+
+  .verse.expandable .scripture{
+    max-height:5.4em;overflow:hidden;
+    -webkit-mask-image:linear-gradient(180deg,#000 60%,transparent);
+            mask-image:linear-gradient(180deg,#000 60%,transparent);
+    transition:max-height .4s ease;
+  }
+  .verse.expandable.open .scripture{
+    max-height:2000px;
+    -webkit-mask-image:none;mask-image:none;
+  }
+  .verse .toggle{
+    margin-top:12px;
+    font-size:14px;font-weight:600;color:var(--primary);
+    background:none;border:0;padding:6px 0;cursor:pointer;
+  }
+  .dark .verse .toggle,.void .verse .toggle{color:var(--primary-on-dark);}
+
+  ul.beats{list-style:none;padding:0;margin:18px 0 0;}
+  ul.beats li{
+    position:relative;padding:15px 0 15px 32px;
+    font-size:19px;line-height:1.5;
+    border-top:1px solid var(--divider-soft);
+  }
+  .dark ul.beats li,.dark-2 ul.beats li{border-top-color:rgba(255,255,255,.12);}
+  ul.beats li:first-child{border-top:0;}
+  ul.beats li::before{
+    content:"";position:absolute;left:4px;top:21px;
+    width:8px;height:8px;border-radius:var(--r-pill);background:var(--primary);
+  }
+  .dark ul.beats li::before,.void ul.beats li::before{background:var(--primary-on-dark);}
+
+  .flow{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    margin:22px 0 4px;font-family:var(--font-display);
+  }
+  .flow .node{
+    font-size:16px;font-weight:600;padding:10px 16px;border-radius:var(--r-pill);
+    background:var(--canvas);border:1px solid var(--hairline);color:var(--ink);
+  }
+  .flow .arrow{color:var(--primary);font-weight:700;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:var(--font-text);font-size:19px;font-weight:600;letter-spacing:-.01em;
+    background:var(--primary);color:#fff;border:0;
+    border-radius:var(--r-pill);padding:16px 30px;cursor:pointer;
+    transition:transform .15s ease,background .2s ease;
+    text-decoration:none;min-height:56px;
+  }
+  .btn:active{transform:scale(.95);}
+  .btn.ghost{background:transparent;color:var(--primary);border:1px solid var(--primary);}
+  .dark .btn.ghost,.void .btn.ghost{color:var(--primary-on-dark);border-color:var(--primary-on-dark);}
+  .btn.block{display:flex;width:100%;}
+
+  .scale{display:flex;justify-content:space-between;gap:8px;margin:18px 0 8px;}
+  .scale button{
+    flex:1;aspect-ratio:1;border-radius:var(--r-md);
+    border:1px solid var(--hairline);background:var(--canvas);
+    font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--ink-muted-48);
+    cursor:pointer;transition:transform .12s ease,background .2s,color .2s,border-color .2s;
+  }
+  .scale button:active{transform:scale(.93);}
+  .scale button.sel{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .scale-legend{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-muted-48);}
+  .dark .scale button{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:var(--body-muted);}
+  .dark .scale-legend{color:var(--body-muted);}
+
+  ul.check{list-style:none;padding:0;margin:18px 0 0;}
+  ul.check li{margin:0 0 10px;}
+  ul.check label{
+    display:flex;gap:13px;align-items:flex-start;
+    background:var(--canvas);border:1px solid var(--hairline);
+    border-radius:var(--r-lg);padding:15px 16px;cursor:pointer;
+    transition:border-color .2s,background .2s;
+  }
+  ul.check input{position:absolute;opacity:0;width:0;height:0;}
+  .box{
+    flex:0 0 24px;width:24px;height:24px;border-radius:var(--r-pill);
+    border:2px solid var(--hairline);margin-top:1px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s,border-color .2s;
+  }
+  .box svg{width:13px;height:13px;opacity:0;transform:scale(.5);transition:.2s;}
+  ul.check label .txt{font-size:18px;line-height:1.5;color:var(--ink);}
+  ul.check input:checked + label{border-color:var(--primary);background:#f4f9ff;}
+  ul.check input:checked + label .box{background:var(--primary);border-color:var(--primary);}
+  ul.check input:checked + label .box svg{opacity:1;transform:scale(1);}
+
+  textarea{
+    width:100%;font-family:var(--font-text);font-size:19px;line-height:1.5;color:var(--ink);
+    background:var(--canvas);border:1px solid var(--hairline);border-radius:var(--r-lg);
+    padding:15px 16px;margin-top:14px;resize:vertical;min-height:104px;
+  }
+  textarea:focus{outline:2px solid var(--primary-focus);border-color:transparent;}
+  .field-label{font-size:16px;font-weight:600;color:var(--ink-muted-80);margin-top:18px;display:block;}
+
+  #progress{
+    position:fixed;top:0;left:0;height:3px;width:0;
+    background:var(--primary);z-index:50;transition:width .15s ease;
+  }
+  #dots{
+    position:fixed;right:12px;top:50%;transform:translateY(-50%);
+    display:flex;flex-direction:column;gap:11px;z-index:40;
+  }
+  #dots button{
+    width:8px;height:8px;border-radius:var(--r-pill);border:0;padding:0;cursor:pointer;
+    background:rgba(127,127,127,.4);transition:transform .2s,background .2s;
+  }
+  #dots button.active{background:var(--primary);transform:scale(1.5);}
+  @media (max-width:380px){#dots{display:none;}}
+
+  .counter{display:none;}
+
+  #pageind{
+    position:fixed;top:calc(12px + var(--safe-top));right:12px;z-index:46;
+    display:flex;align-items:center;justify-content:center;
+    min-width:34px;height:34px;padding:0 12px;
+    background:rgba(22,22,24,.55);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);
+            backdrop-filter:saturate(180%) blur(16px);
+    border-radius:var(--r-pill);pointer-events:none;
+  }
+  #navcount{
+    color:#fff;font-family:var(--font-display);font-size:13px;font-weight:600;
+    letter-spacing:.06em;text-align:center;opacity:.95;
+  }
+
+  .hint{
+    position:absolute;left:0;right:0;bottom:calc(30px + var(--safe-bottom));
+    text-align:center;font-size:14px;color:var(--body-muted);
+    animation:bob 1.8s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateY(0);opacity:.7;}50%{transform:translateY(6px);opacity:1;}}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .page.in .reveal{opacity:1;transform:none;}
+  .page.in .reveal:nth-child(2){transition-delay:.06s;}
+  .page.in .reveal:nth-child(3){transition-delay:.12s;}
+  .page.in .reveal:nth-child(4){transition-delay:.18s;}
+  .page.in .reveal:nth-child(5){transition-delay:.24s;}
+  .page.in .reveal:nth-child(6){transition-delay:.30s;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  .tag{
+    display:inline-block;font-size:14px;font-weight:600;letter-spacing:.02em;
+    padding:7px 14px;border-radius:var(--r-pill);
+    background:rgba(0,102,204,.1);color:var(--primary);margin-bottom:16px;
+  }
+  .dark .tag,.dark-2 .tag,.void .tag{background:rgba(41,151,255,.16);color:var(--primary-on-dark);}
+
+  .savednote{font-size:13px;color:var(--ink-muted-48);margin-top:10px;min-height:18px;transition:opacity .3s;}
+  .dark-2 .savednote{color:var(--body-muted);}
+  .toast{
+    position:fixed;left:50%;bottom:calc(28px + var(--safe-bottom));transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;font-size:14px;font-weight:600;
+    padding:12px 20px;border-radius:var(--r-pill);opacity:0;pointer-events:none;
+    transition:opacity .3s,transform .3s;z-index:60;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ═══ getdesign: claude (2026-08-04 적용) ═══ */
+/* ══ claude — 크림 배경 · 테라코타 · 명조 제목 ══ */
+:root{
+  --primary:#a9583e; --primary-focus:#cc785c; --primary-on-dark:#e0a48c;
+  --ink:#181715; --ink-muted-80:#3a3733; --ink-muted-48:#6b655c;
+  --hairline:#e6dfd8; --divider-soft:#efe9de;
+  --canvas:#faf9f5; --parchment:#f5f0e8; --pearl:#ffffff;
+  --tile-1:#252320; --tile-2:#2b2825; --tile-3:#1f1d1b;
+  --black:#141413; --body-muted:#d4ccc0;
+  --r-sm:6px; --r-md:10px; --r-lg:14px;
+  --font-serif:"Nanum Myeongjo",Georgia,"Times New Roman",serif;
+}
+h1,h2{font-family:var(--font-serif);font-weight:400;letter-spacing:-.02em;}
+h1{font-size:clamp(40px,10vw,62px);line-height:1.06;}
+h2{font-size:clamp(33px,8.5vw,48px);line-height:1.12;}
+h3{font-family:var(--font-serif);font-weight:700;}
+p.lead{font-family:var(--font-serif);font-weight:400;}
+.verse{background:var(--parchment);border:0;border-radius:var(--r-lg);}
+.dark .verse,.dark-2 .verse,.void .verse{background:rgba(255,255,255,.07);border:0;}
+.verse .scripture{font-family:var(--font-serif);}
+.btn{border-radius:var(--r-lg);font-weight:500;}
+.eyebrow{letter-spacing:.11em;}
+ul.check input:checked + label{background:#f5ece7;}
+.verse .scripture b{font-weight:700;color:var(--primary);}
+.dark .verse .scripture b,.dark-2 .verse .scripture b,.void .verse .scripture b{color:var(--primary-on-dark);}
+
+
+/* ── 주만나 전용 ── */
+.praycard{background:var(--parchment);border-radius:var(--r-lg);padding:22px 20px;margin:18px 0;}
+.dark .praycard,.dark-2 .praycard,.void .praycard{background:rgba(255,255,255,.07);}
+.praycard p{font-family:var(--font-serif);font-size:20px;line-height:1.7;margin:0;}
+.readtable{width:100%;border-collapse:collapse;margin:18px 0 6px;font-size:17px;}
+.readtable th,.readtable td{padding:12px 8px;text-align:center;border-bottom:1px solid rgba(255,255,255,.14);}
+.light .readtable th,.light .readtable td,.parchment .readtable th,.parchment .readtable td{border-bottom-color:var(--hairline);}
+.readtable th{font-size:15px;font-weight:600;color:var(--primary-on-dark);letter-spacing:.04em;}
+.light .readtable th,.parchment .readtable th{color:var(--primary);}
+.readtable td{font-family:var(--font-serif);font-size:18px;}
+.qbox{border-left:3px solid var(--primary);padding:2px 0 2px 16px;margin:26px 0 0;}
+.dark .qbox,.dark-2 .qbox,.void .qbox{border-left-color:var(--primary-on-dark);}
+.qbox p{font-family:var(--font-serif);font-size:20px;line-height:1.55;margin:0;}
+.stepnum{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border-radius:var(--r-pill);background:var(--primary);color:#fff;font-size:14px;font-weight:700;margin-right:8px;}
+
+</style>
+<body>
+<div id="progress"></div>
+<nav id="dots"></nav>
+<div id="pageind"><span id="navcount">01 / 08</span></div>
+<div class="toast" id="toast"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 1 · 표지 -->
+  <section class="page void" data-label="표지">
+    <div class="inner">
+      <p class="eyebrow reveal">미주서부장로교회 · 주만나 아침 말씀묵상</p>
+      <h1 class="reveal">한 가지<br /><span class="accent">아는 것은</span></h1>
+      <p class="lead reveal muted" style="max-width:30ch">2026 가을 · 3회차<br />요한복음 9:1–12, 35–41</p>
+      <div class="verse reveal" style="margin-top:22px">
+        <span class="ref">요한복음 9:25 · 이번 주 암송 구절</span>
+        <p class="scripture">대답하되 그가 죄인인지 내가 알지 못하나 <b>한 가지 아는 것은 내가 맹인으로 있다가 지금 보는 그것이니이다</b></p>
+      </div>
+      <div class="reveal" style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" onclick="go(1)">묵상 시작하기 →</button>
+      </div>
+      <p class="reveal muted" style="font-size:14px;margin-top:22px">2026년 10월 3일 (토) 오전 9시 · 요한복음 7~21장 통독</p>
+    </div>
+    <div class="hint">아래로 넘기세요 ↓</div>
+    <div class="counter">01 / 08</div>
+  </section>
+
+  <!-- 2 · 기도로 시작합니다 -->
+  <section class="page parchment" data-label="기도">
+    <div class="inner">
+      <p class="eyebrow reveal">첫째 걸음 · 기도</p>
+      <h2 class="reveal">주님,<br />보게 하여 주십시오</h2>
+      <div class="praycard reveal">
+        <p>“주님, 오늘 제가 이 말씀을 읽습니다.<br />주의 말씀을 잘 듣고 깨달을 수 있도록 도와주세요.<br />예수님의 이름으로 기도드립니다. 아멘.”</p>
+      </div>
+      <p class="reveal muted">서두르지 않으셔도 됩니다. 이 네 걸음으로 함께 갑니다.</p>
+      <div class="flow reveal">
+        <span class="node">기도</span><span class="arrow">→</span>
+        <span class="node">관찰</span><span class="arrow">→</span>
+        <span class="node">묵상</span><span class="arrow">→</span>
+        <span class="node">결단</span>
+      </div>
+      <h3 class="reveal" style="margin-top:30px">이번 주, 요한복음 9장을 며칠이나 읽으셨나요?</h3>
+      <div class="scale reveal" data-store="practice" role="group" aria-label="통독 자가진단">
+        <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
+      </div>
+      <div class="scale-legend reveal"><span>하루</span><span>닷새 모두</span></div>
+      <p class="savednote reveal" id="practice-note"></p>
+    </div>
+    <div class="counter">02 / 08</div>
+  </section>
+
+  <!-- 3 · 말씀 ① 1–12 -->
+  <section class="page light" data-label="말씀 1–12">
+    <div class="inner">
+      <span class="tag reveal">오늘의 말씀 ①</span>
+      <h2 class="reveal">가서<br />씻으라</h2>
+      <p class="reveal muted">제자들은 “<strong>누구의 죄</strong>로 인함이니이까” 물었습니다. 예수님은 질문의 방향을 바꾸십니다 — “<strong class="accent">하나님이 하시는 일</strong>을 나타내고자 하심이라.”</p>
+      <div class="verse reveal">
+        <span class="ref">요한복음 9:1–12 · 개역개정</span>
+        <p class="scripture"><span class="vn">1</span>예수께서 길을 가실 때에 날 때부터 맹인 된 사람을 보신지라 <span class="vn">2</span>제자들이 물어 이르되 랍비여 이 사람이 맹인으로 난 것이 누구의 죄로 인함이니이까 자기니이까 그의 부모니이까 <span class="vn">3</span>예수께서 대답하시되 이 사람이나 그 부모의 죄로 인한 것이 아니라 그에게서 하나님이 하시는 일을 나타내고자 하심이라 <span class="vn">4</span>때가 아직 낮이매 나를 보내신 이의 일을 우리가 하여야 하리라 밤이 오리니 그 때는 아무도 일할 수 없느니라 <span class="vn">5</span>내가 세상에 있는 동안에는 세상의 빛이로라 <span class="vn">6</span>이 말씀을 하시고 땅에 침을 뱉어 진흙을 이겨 그의 눈에 바르시고 <span class="vn">7</span>이르시되 실로암 못에 가서 씻으라 하시니 (실로암은 번역하면 보냄을 받았다는 뜻이라) 이에 가서 씻고 밝은 눈으로 왔더라 <span class="vn">8</span>이웃 사람들과 전에 그가 걸인인 것을 보았던 사람들이 이르되 이는 앉아서 구걸하던 자가 아니냐 <span class="vn">9</span>어떤 사람은 그 사람이라 하며 어떤 사람은 아니라 그와 비슷하다 하거늘 자기 말은 내가 그라 하니 <span class="vn">10</span>그들이 묻되 그러면 네 눈이 어떻게 떠졌느냐 <span class="vn">11</span>대답하되 예수라 하는 그 사람이 진흙을 이겨 내 눈에 바르고 나더러 실로암에 가서 씻으라 하기에 가서 씻었더니 보게 되었노라 <span class="vn">12</span>그들이 이르되 그가 어디 있느냐 이르되 알지 못하노라 하니라</p>
+      </div>
+    </div>
+    <div class="counter">03 / 08</div>
+  </section>
+
+  <!-- 4 · 말씀 ② 35–41 -->
+  <section class="page dark" data-label="말씀 35–41">
+    <div class="inner">
+      <span class="tag reveal">오늘의 말씀 ②</span>
+      <h2 class="reveal">주여<br />내가<br />믿나이다</h2>
+      <p class="reveal muted">13–34절(주중 통독) — 눈을 뜬 사람은 심문을 받고, 정직하게 말했다가 <strong>쫓겨났습니다</strong>(34). 그때 예수님이 그를 <strong class="accent">찾아오십니다.</strong></p>
+      <div class="verse reveal">
+        <span class="ref">요한복음 9:35–41 · 개역개정</span>
+        <p class="scripture"><span class="vn">35</span>예수께서 그들이 그 사람을 쫓아냈다 하는 말을 들으셨더니 그를 만나사 이르시되 네가 인자를 믿느냐 <span class="vn">36</span>대답하여 이르되 주여 그가 누구시오니이까 내가 믿고자 하나이다 <span class="vn">37</span>예수께서 이르시되 네가 그를 보았거니와 지금 너와 말하는 자가 그이니라 <span class="vn">38</span>이르되 주여 내가 믿나이다 하고 절하는지라 <span class="vn">39</span>예수께서 이르시되 내가 심판하러 이 세상에 왔으니 보지 못하는 자들은 보게 하고 보는 자들은 맹인이 되게 하려 함이라 하시니 <span class="vn">40</span>바리새인 중에 예수와 함께 있던 자들이 이 말씀을 듣고 이르되 우리도 맹인인가 <span class="vn">41</span>예수께서 이르시되 너희가 맹인이 되었더라면 죄가 없으려니와 본다고 하니 너희 죄가 그대로 있느니라</p>
+      </div>
+      <p class="reveal muted">보지 못하던 사람은 보게 되었고, “우리는 본다”고 한 사람들에게는 죄가 그대로 남았습니다. <strong class="accent">문제는 보지 못함이 아니라, 본다고 자신하는 마음입니다.</strong></p>
+    </div>
+    <div class="counter">04 / 08</div>
+  </section>
+
+  <!-- 5 · 관찰 -->
+  <section class="page light" data-label="관찰">
+    <div class="inner">
+      <p class="eyebrow reveal">둘째 걸음 · 관찰</p>
+      <h2 class="reveal">읽으면서<br />표시합니다</h2>
+      <p class="reveal">강조되는 것, 반복되는 것, 서로 연관되는 것, 비슷한 것, 상반되는 것을 찾아 본문에 <strong class="accent">표시</strong>하며 읽습니다.</p>
+      <h3 class="reveal" style="margin-top:26px">이 본문에서 특별히 살펴볼 것</h3>
+      <ul class="beats reveal">
+        <li><strong>‘누구의 죄냐’</strong>는 질문과, <strong class="accent">방향을 바꾸시는</strong> 예수님의 대답(2–3)</li>
+        <li>반복되는 <strong>‘보다 / 보지 못하다’</strong> — 육의 눈과 영의 눈</li>
+        <li>고백이 자라나는 순서 — ‘예수라 하는 그 사람’(11) → ‘선지자’(17) → ‘하나님께로부터 온 자’(33) → <strong class="accent">‘주여 내가 믿나이다’</strong>(38)</li>
+        <li>눈뜬 자는 쫓겨나고, <strong>본다 하는 자에게는 죄가 남는</strong> 역설(34, 41)</li>
+      </ul>
+      <h3 class="reveal" style="margin-top:28px">고백이 자라는 길을 따라가 보세요</h3>
+      <div class="flow reveal">
+        <span class="node">11 그 사람</span><span class="arrow">→</span>
+        <span class="node">17 선지자</span><span class="arrow">→</span>
+        <span class="node">33 하나님께로부터</span><span class="arrow">→</span>
+        <span class="node">38 주여!</span>
+      </div>
+      <p class="reveal muted" style="font-size:16px;margin-top:12px">실로암은 “<strong>보냄을 받았다</strong>”는 뜻입니다(7). 그는 아직 보지 못한 채, 보내신 곳까지 걸어갔습니다.</p>
+      <label class="field-label reveal" for="observe">관찰 메모 — 눈에 걸리는 낱말이나 표현을 적어 보세요</label>
+      <textarea id="observe" class="reveal" data-store="observe" placeholder="반복되는 말, 마음에 걸리는 표현…"></textarea>
+      <p class="savednote reveal" id="observe-note"></p>
+    </div>
+    <div class="counter">05 / 08</div>
+  </section>
+
+  <!-- 6 · 묵상 -->
+  <section class="page dark-2" data-label="묵상">
+    <div class="inner">
+      <p class="eyebrow reveal">셋째 걸음 · 묵상</p>
+      <h2 class="reveal">나에게<br />무엇이라<br />말씀하십니까</h2>
+      <ul class="beats reveal">
+        <li><span class="stepnum">1</span>눈에 들어오는 구절을 주목합니다.</li>
+        <li><span class="stepnum">2</span>그 말씀이 눈에 들어온 이유를 생각합니다 — 내 삶의 어떤 상황과 닿아 있습니까.</li>
+        <li><span class="stepnum">3</span>하나님께서 나에게 무엇이라 말씀하시는 것 같은지 생각하고, <strong class="accent">한번 적어 봅니다.</strong></li>
+      </ul>
+
+      <div class="qbox reveal"><p>나는 어려움 앞에서 ‘누구 때문인가’를 먼저 묻습니까,<br />‘하나님이 여기서 무엇을 하시려는가’를 먼저 묻습니까?</p></div>
+      <textarea id="q1" class="reveal" data-store="q1" placeholder="여기에 적어 보세요…"></textarea>
+      <p class="savednote reveal" id="q1-note"></p>
+
+      <div class="qbox reveal"><p>“한 가지 아는 것은 내가 맹인으로 있다가 지금 보는 그것이니이다”(25).<br />내가 설명은 못 해도 분명히 아는 하나님의 은혜 한 가지는 무엇입니까?</p></div>
+      <textarea id="q2" class="reveal" data-store="q2" placeholder="한 가지 아는 것은…"></textarea>
+      <p class="savednote reveal" id="q2-note"></p>
+
+      <div class="qbox reveal"><p>이 사람은 정직하게 말했다가 쫓겨났습니다(34).<br />손해를 감수하고라도 말해야 할 진실이 나에게 있습니까?</p></div>
+      <textarea id="q3" class="reveal" data-store="q3" placeholder="여기에 적어 보세요…"></textarea>
+      <p class="savednote reveal" id="q3-note"></p>
+
+      <div class="qbox reveal"><p>“본다고 하니 너희 죄가 그대로 있느니라”(41).<br />나는 무엇을 <strong>‘이미 안다, 본다’</strong>고 자신하고 있습니까? 그 확신이 말씀을 막고 있지는 않습니까?</p></div>
+      <textarea id="q4" class="reveal" data-store="q4" placeholder="여기에 적어 보세요…"></textarea>
+      <p class="savednote reveal" id="q4-note"></p>
+    </div>
+    <div class="counter">06 / 08</div>
+  </section>
+
+  <!-- 7 · 결단 -->
+  <section class="page light" data-label="결단">
+    <div class="inner">
+      <p class="eyebrow reveal">넷째 걸음 · 결단</p>
+      <h2 class="reveal">오늘부터<br />할 것!</h2>
+      <p class="reveal">묵상한 내용과 관련해 실천 계획을 세웁니다. 주어는 <strong class="accent">언제나 ‘나’</strong>입니다.</p>
+      <div class="flow reveal">
+        <span class="node">나는</span><span class="arrow">·</span>
+        <span class="node">언제</span><span class="arrow">·</span>
+        <span class="node">무엇을</span><span class="arrow">·</span>
+        <span class="node">어떻게</span><span class="arrow">·</span>
+        <span class="node">누구에게</span>
+      </div>
+      <p class="reveal muted" style="margin-top:16px"><strong>예)</strong> 나는 이번 주 안에 ○○○를 만나, 내가 받은 은혜 한 가지를 3분 동안 이야기한다.</p>
+      <label class="field-label reveal" for="decide">나의 실천 계획</label>
+      <textarea id="decide" class="reveal" data-store="decide" placeholder="나는 …"></textarea>
+      <p class="savednote reveal" id="decide-note"></p>
+
+      <h3 class="reveal" style="margin-top:28px">이번 주 체크</h3>
+      <p class="reveal muted" style="font-size:15px">체크한 내용은 이 기기에 저장됩니다. 한 주 동안 다시 열어 보세요.</p>
+      <ul class="check reveal" id="checklist">
+        <li><input type="checkbox" id="c1x" /><label for="c1x"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">요한복음 <b>9:25 암송</b>하기</span></label></li>
+        <li><input type="checkbox" id="c2x" /><label for="c2x"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">다음 주 통독 분량 <b>월~금 나눠 읽기</b></span></label></li>
+        <li><input type="checkbox" id="c3x" /><label for="c3x"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">‘한 가지 아는 것’을 <b>한 사람에게 3분 나누기</b></span></label></li>
+        <li><input type="checkbox" id="c4x" /><label for="c4x"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">어려운 일 앞에서 <b>“하나님이 무엇을 하시려는가” 먼저 묻기</b></span></label></li>
+      </ul>
+    </div>
+    <div class="counter">07 / 08</div>
+  </section>
+
+  <!-- 8 · 한 마디 + 다음 주 통독 -->
+  <section class="page void" data-label="한 마디">
+    <div class="inner">
+      <p class="eyebrow reveal">오늘의 한 줄</p>
+      <h2 class="reveal">남기고<br />싶은<br />한 마디</h2>
+      <label class="field-label reveal" for="oneword" style="color:var(--body-muted)">오늘 내가 남기고 싶은 한 마디</label>
+      <textarea id="oneword" class="reveal" data-store="oneword" placeholder="한 줄이면 충분합니다…"></textarea>
+      <p class="savednote reveal" id="oneword-note"></p>
+      <label class="field-label reveal" for="apply" style="color:var(--body-muted)">오늘 나의 적용</label>
+      <textarea id="apply" class="reveal" data-store="apply" placeholder="오늘 하루, 이것 하나…"></textarea>
+      <p class="savednote reveal" id="apply-note"></p>
+
+      <h3 class="reveal" style="margin-top:32px">다음 주 통독과 묵상 <span class="muted" style="font-size:16px;font-weight:400">· 4회차 (10/10)</span></h3>
+      <table class="readtable reveal">
+        <tr><th>월 (5)</th><th>화 (6)</th><th>수 (7)</th><th>목 (8)</th><th>금 (9)</th></tr>
+        <tr><td>10:1–<br />10</td><td>10:11–<br />18</td><td>10:19–<br />30</td><td>10:31–<br />42</td><td>10장<br />전체</td></tr>
+      </table>
+      <p class="reveal muted" style="font-size:15px">하루 10~15절, 5분이면 됩니다. 못 읽은 날은 건너뛰고 <strong>그날 분량부터</strong> 이어 가세요.</p>
+
+      <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+        <button class="btn" id="shareBtn">한 마디 나누기 / 공유</button>
+        <button class="btn ghost" onclick="go(0)">처음으로</button>
+      </div>
+      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 주만나 아침 말씀묵상 3회차 (요 9:1–12, 35–41) · 2026.10.03 토 오전 9시 · 성경: 개역개정</p>
+    </div>
+    <div class="counter">08 / 08</div>
+  </section>
+
+</main>
+<script>
+(function(){
+  "use strict";
+  var deck=document.getElementById("deck");
+  var pages=Array.prototype.slice.call(document.querySelectorAll(".page"));
+  var dotsWrap=document.getElementById("dots");
+  var bar=document.getElementById("progress");
+  var KEY="juman_261003_v1";
+
+  /* ── 설교 영상 링크 (URL 한 곳만 채우면 됩니다. 빈 값이면 버튼 자동 숨김) ── */
+  var SERMON_URL="";
+  document.querySelectorAll(".sermon-link").forEach(function(a){
+    if(SERMON_URL){a.href=SERMON_URL;} else {a.style.display="none";}
+  });
+
+  /* ── 소그룹 함께 찬양 반주 링크 (빈 값이면 버튼 자동 숨김) ── */
+  var PRAISE_URL="";
+  document.querySelectorAll(".praise-link").forEach(function(a){
+    if(PRAISE_URL){a.href=PRAISE_URL;} else {a.style.display="none";}
+  });
+
+  /* ── 그 주 모임사진 앨범 (없는 주는 빈 문자열로 두면 버튼이 자동 숨김) ── */
+  var PHOTOS_URL="";
+  document.querySelectorAll(".photos-link").forEach(function(a){
+    if(PHOTOS_URL){a.href=PHOTOS_URL;} else {a.style.display="none";}
+  });
+
+  var navcount=document.getElementById("navcount");
+  function curIdx(){
+    var st=deck.scrollTop+8, best=0;
+    for(var i=0;i<pages.length;i++){
+      if((pages[i].offsetTop-deck.offsetTop)<=st) best=i;
+    }
+    return best;
+  }
+  function pad(n){return (n<10?"0":"")+n;}
+
+  pages.forEach(function(p,i){
+    var b=document.createElement("button");
+    b.setAttribute("aria-label",(p.dataset.label||("페이지 "+(i+1))));
+    b.addEventListener("click",function(){go(i);});
+    dotsWrap.appendChild(b);
+  });
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+
+  window.go=function(i){
+    if(pages[i]) pages[i].scrollIntoView({behavior:"smooth"});
+  };
+
+  function onScroll(){
+    var st=deck.scrollTop, h=deck.clientHeight;
+    var max=deck.scrollHeight-h;
+    bar.style.width=(max>0?(st/max*100):0)+"%";
+    var idx=curIdx();
+    dots.forEach(function(d,i){d.classList.toggle("active",i===idx);});
+    navcount.textContent=pad(idx+1)+" / "+pad(pages.length);
+  }
+  deck.addEventListener("scroll",onScroll,{passive:true});
+
+  /* ── 화면보다 내용이 긴 페이지는 스냅을 풀어, 아래까지 읽고 답을 적을 수 있게 한다 ── */
+  function markTallPages(){
+    var vh=deck.clientHeight;
+    pages.forEach(function(pg){ pg.classList.toggle("tall", pg.scrollHeight > vh+4); });
+  }
+  markTallPages();
+  window.addEventListener("resize",markTallPages);
+  window.addEventListener("orientationchange",markTallPages);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(markTallPages);
+  document.addEventListener("change",markTallPages);
+  document.querySelectorAll(".verse .toggle").forEach(function(b){
+    b.addEventListener("click",function(){setTimeout(markTallPages,260);});
+  });
+
+  /* ── 입력 중에는 스냅을 완전히 끈다 ── */
+  document.addEventListener("focusin",function(e){
+    if(e.target.closest("textarea,input,.scale")) deck.classList.add("nosnap");
+  });
+  document.addEventListener("focusout",function(){
+    setTimeout(function(){
+      if(!document.querySelector("textarea:focus,input:focus")) deck.classList.remove("nosnap");
+    },150);
+  });
+
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting) e.target.classList.add("in");
+    });
+  },{root:deck,threshold:.35});
+  pages.forEach(function(p){io.observe(p);});
+  pages[0].classList.add("in");
+  onScroll();
+
+  document.querySelectorAll(".verse .toggle").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var card=btn.closest(".verse");
+      var open=card.classList.toggle("open");
+      btn.textContent=open?"본문 접기 ▴":"본문 펼치기 ▾";
+    });
+  });
+
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
+  function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));}catch(e){}}
+  var state=load();
+
+  var toast=document.getElementById("toast"),tt;
+  function showToast(msg){
+    toast.textContent=msg;toast.classList.add("show");
+    clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show");},1600);
+  }
+
+  document.querySelectorAll(".scale").forEach(function(sc){
+    var key=sc.dataset.store;
+    var note=document.getElementById(key+"-note");
+    var labels={1:"괜찮습니다. 오늘 이 한 장이 시작입니다. 내일 한 단락만 읽어 보세요.",2:"시작하셨네요. 읽는 시간을 하루 중 한 자리에 정해 두면 훨씬 쉬워집니다.",3:"절반을 지나셨습니다. 못 읽은 날은 건너뛰고 오늘 분량부터 이어 가세요.",4:"거의 다 읽으셨습니다. 눈에 들어온 한 구절을 적어 두세요.",5:"한 주를 다 읽으셨습니다! 그 은혜를 한 사람에게 나누어 보세요."};
+    function paint(v){
+      sc.querySelectorAll("button").forEach(function(b){b.classList.toggle("sel",b.dataset.v===String(v));});
+      if(note) note.textContent=v?labels[v]:"";
+    }
+    if(state[key]) paint(state[key]);
+    sc.querySelectorAll("button").forEach(function(b){
+      b.addEventListener("click",function(){
+        state[key]=b.dataset.v;save(state);paint(b.dataset.v);
+      });
+    });
+  });
+
+  document.querySelectorAll("#checklist input").forEach(function(box){
+    if(state["chk_"+box.id]) box.checked=true;
+    box.addEventListener("change",function(){
+      state["chk_"+box.id]=box.checked;save(state);
+      if(box.checked) showToast("저장됐어요 ✓");
+    });
+  });
+
+  document.querySelectorAll("textarea[data-store]").forEach(function(ta){
+    var key=ta.dataset.store;
+    var note=document.getElementById(key+"-note");
+    if(state[key]) ta.value=state[key];
+    var t;
+    ta.addEventListener("input",function(){
+      state[key]=ta.value;
+      clearTimeout(t);
+      t=setTimeout(function(){save(state);if(note){note.textContent="저장됨 · "+new Date().toLocaleTimeString("ko-KR",{hour:"2-digit",minute:"2-digit"});note.style.opacity=1;}},500);
+    });
+  });
+
+  document.getElementById("shareBtn").addEventListener("click",function(){
+    var word=(state.oneword||"").trim();
+    var apply=(state.apply||"").trim();
+    var SHARE_LINK="https://pastorkim-wpca.github.io/juman/261003/";
+    var text="주만나 아침 말씀묵상 · 3회차 (요 9:1-12, 35-41)\n\n"
+      +"\"한 가지 아는 것은 내가 맹인으로 있다가 지금 보는 그것이니이다\" (요 9:25)\n\n"
+      +(word?("남기고 싶은 한 마디: "+word+"\n"):"")
+      +(apply?("오늘 나의 적용: "+apply+"\n"):"")
+      +(word||apply?"\n":"")
+      +"매주 토요일 오전 9시, 함께 요한복음을 읽습니다.\n\n"
+      +"📖 미주서부장로교회 주만나 말씀묵상";
+    if(navigator.share){
+      navigator.share({title:"미주서부장로교회 주만나 말씀묵상",text:text,url:SHARE_LINK}).catch(function(){});
+    }else if(navigator.clipboard){
+      navigator.clipboard.writeText(text+"\n"+SHARE_LINK).then(function(){showToast("복사됐어요. 붙여넣어 나누세요 ✓");});
+    }else{
+      showToast("길게 눌러 복사해 주세요");
+    }
+  });
+
+  document.addEventListener("keydown",function(e){
+    var idx=curIdx();
+    if(e.key==="ArrowDown"||e.key==="PageDown"){e.preventDefault();go(Math.min(idx+1,pages.length-1));}
+    if(e.key==="ArrowUp"||e.key==="PageUp"){e.preventDefault();go(Math.max(idx-1,0));}
+  });
+})();
+</script>
+</body>
+</html>
