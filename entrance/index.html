@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>WPCA 입구 화면</title>
+<style>
+html,body{margin:0;height:100%;background:#000;overflow:hidden;cursor:none}
+video{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:contain;background:#000}
+#msg{position:fixed;bottom:12px;right:16px;color:#555;font:14px sans-serif}
+</style></head>
+<body>
+<video id="v" muted autoplay playsinline></video>
+<div id="msg"></div>
+<script>
+// 윈도우7 구형 브라우저까지 고려해 ES5 문법만 사용
+var v = document.getElementById('v'), msg = document.getElementById('msg');
+var list = [], idx = 0, ver = null;
+function get(cb) {
+  var x = new XMLHttpRequest();
+  x.open('GET', 'playlist.json?t=' + new Date().getTime(), true);
+  x.onload = function () { try { cb(JSON.parse(x.responseText)); } catch (e) {} };
+  x.send();
+}
+function play(i) {
+  if (!list.length) return;
+  idx = i % list.length;
+  v.loop = (list.length === 1);
+  v.src = list[idx] + '?v=' + encodeURIComponent(ver);
+  var p = v.play(); if (p && p.catch) p.catch(function () {});
+}
+v.addEventListener('ended', function () { play(idx + 1); });
+v.addEventListener('error', function () { setTimeout(function () { play(idx + 1); }, 5000); });
+function check() {
+  get(function (d) {
+    if (d.version !== ver) {
+      if (ver !== null) { location.reload(); return; }   // 새 영상 → 새로고침
+      ver = d.version; list = d.videos || []; play(0);
+    }
+  });
+}
+check();
+setInterval(check, 3 * 60 * 1000);                       // 3분마다 새 영상 확인
+setTimeout(function () { location.reload(); }, 12 * 3600 * 1000); // 12시간마다 새로고침
+</script>
+</body></html>
