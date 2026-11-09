@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#000000" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<title>네가 박해하는 나사렛 예수 · 묵상노트 | 미주서부장로교회</title>
+<title>곁에 서신 예수님 · 묵상노트 | 미주서부장로교회</title>
 <!-- 홈화면 아이콘 — 스마트폰 "홈 화면에 추가" 시 교회 로고가 뜨게 한다 (2026-08-16 목사님 요청).
      절대경로라 어느 하위 폴더의 페이지에서도 동일하게 동작한다. apple-mobile-web-app-title 은
      아이콘 아래 표시되는 이름(긴 <title> 이 잘려 나오는 것을 막는다). -->
@@ -17,21 +17,21 @@
 <!-- 링크 미리보기(OG) — 결단/묵상 공유 시 카톡·문자에 "미주서부장로교회 묵상노트" 카드가
      예쁘게 붙게 한다 (2026-09-02 목사님 요청). og:title 은 매주 고정, 그 주 제목·본문은
      og:description 과 og:image 로 바꾼다. -->
-<meta name="description" content="네가 박해하는 나사렛 예수 · 사도행전 22:1–11 | 미주서부장로교회 주일 묵상노트" />
+<meta name="description" content="곁에 서신 예수님 · 사도행전 23:1–11 | 미주서부장로교회 주일 묵상노트" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="미주서부장로교회" />
 <meta property="og:title" content="미주서부장로교회 묵상노트" />
-<meta property="og:description" content="네가 박해하는 나사렛 예수 · 사도행전 22:1–11" />
+<meta property="og:description" content="곁에 서신 예수님 · 사도행전 23:1–11" />
 <meta property="og:url" content="https://wpca.org/qt" />
 <meta property="og:locale" content="ko_KR" />
-<meta property="og:image" content="https://pastorkim-wpca.github.io/og/qt-261101.jpg" />
+<meta property="og:image" content="https://pastorkim-wpca.github.io/og/qt-261108.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="675" />
-<meta property="og:image:alt" content="네가 박해하는 나사렛 예수 · 사도행전 22:1–11 · 미주서부장로교회" />
+<meta property="og:image:alt" content="곁에 서신 예수님 · 사도행전 23:1–11 · 미주서부장로교회" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="미주서부장로교회 묵상노트" />
-<meta name="twitter:description" content="네가 박해하는 나사렛 예수 · 사도행전 22:1–11" />
-<meta name="twitter:image" content="https://pastorkim-wpca.github.io/og/qt-261101.jpg" />
+<meta name="twitter:description" content="곁에 서신 예수님 · 사도행전 23:1–11" />
+<meta name="twitter:image" content="https://pastorkim-wpca.github.io/og/qt-261108.jpg" />
 <!-- Google Analytics 4 — wpca.org 와 같은 속성(G-LPBREQ97CZ). 묵상노트 조회수를 홈페이지와
      한 화면에서 보기 위해 2026-08-09 추가. 개인 식별정보 미수집, IP 익명화. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LPBREQ97CZ"></script>
@@ -39,7 +39,7 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-LPBREQ97CZ', {anonymize_ip:true, page_title:'묵상노트 · 네가 박해하는 나사렛 예수'});
+  gtag('config', 'G-LPBREQ97CZ', {anonymize_ip:true, page_title:'묵상노트 · 곁에 서신 예수님'});
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -371,23 +371,32 @@ ul.check input:checked + label{background:#f5ece7;}
 .verse .scripture b{font-weight:700;color:var(--primary);}
 .dark .verse .scripture b,.dark-2 .verse .scripture b,.void .verse .scripture b{color:var(--primary-on-dark);}
 
+
+/* 이야기 상자·묵상 질문 (2026-11-08) */
+.story{background:var(--pearl);border-left:3px solid var(--primary);border-radius:var(--r-md);padding:16px 18px;margin:18px 0;}
+.story p{margin:.4em 0;}
+.story .story-h{font-family:var(--font-serif);font-weight:700;color:var(--primary);font-size:17px;margin-bottom:6px;}
+.dark .story,.dark-2 .story,.void .story{background:rgba(255,255,255,.07);}
+.dark .story .story-h,.dark-2 .story .story-h{color:var(--primary-on-dark);}
+.ask{border-left:3px solid var(--primary);padding:6px 0 6px 16px;margin:18px 0;font-family:var(--font-serif);font-size:20px;line-height:1.6;}
 </style>
 </head>
 <body>
 <div id="progress"></div>
 <nav id="dots"></nav>
-<div id="pageind"><span id="navcount">01 / 08</span></div>
+<div id="pageind"><span id="navcount">01 / 09</span></div>
 <div class="toast" id="toast"></div>
 
 <main class="deck" id="deck">
+  <!-- 1 · 표지 -->
   <section class="page void" data-label="표지">
     <div class="inner">
-      <p class="eyebrow reveal">미주서부장로교회 · 2026년 11월 1일 주일</p>
-      <h1 class="reveal">네가 박해하는<br /><span class="accent">나사렛 예수</span></h1>
-      <p class="lead reveal muted" style="max-width:30ch">내가 원하는 예수가 아니라<br /><b>실제로 계신 그 예수님을 만나십시오</b></p>
+      <p class="eyebrow reveal">미주서부장로교회 · 2026년 11월 8일 주일</p>
+      <h1 class="reveal">곁에 서신<br /><span class="accent">예수님</span></h1>
+      <p class="lead reveal muted" style="max-width:30ch">계획이 무너진 그 밤에도<br /><b>주님은 곁에 서 계셨습니다</b></p>
       <div class="verse expandable reveal" style="margin-top:22px">
-        <span class="ref">사도행전 22:8</span>
-        <p class="scripture">내가 대답하되 <b>주님 누구시니이까</b> 하니 이르시되 <b>나는 네가 박해하는 나사렛 예수라</b> 하시더라</p>
+        <span class="ref">사도행전 23:11</span>
+        <p class="scripture">그 날 밤에 <b>주께서 바울 곁에 서서</b> 이르시되 <b>담대하라</b> 네가 예루살렘에서 나의 일을 증언한 것 같이 로마에서도 증언하여야 하리라 하시니라</p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
       <div class="reveal" style="margin-top:22px;display:flex;gap:10px;flex-wrap:wrap">
@@ -395,155 +404,186 @@ ul.check input:checked + label{background:#f5ece7;}
         <a class="btn ghost sermon-link" href="#" target="_blank" rel="noopener">📺 설교 영상 보기</a>
         <a class="btn ghost praise-link" href="#" target="_blank" rel="noopener">🎵 찬양하기</a>
       </div>
-      <p class="reveal muted" style="font-size:14px;margin-top:22px">사도행전 22:1–11 · 2026.11.01 · 김진주 목사</p>
+      <p class="reveal muted" style="font-size:14px;margin-top:22px">사도행전 23:1–11 · 2026.11.08 · 김진주 목사</p>
     </div>
     <div class="hint">아래로 넘기세요 ↓</div>
-    <div class="counter">01 / 08</div>
+    <div class="counter">01 / 09</div>
   </section>
 
   <!-- 2 · 한눈에 -->
   <section class="page light" data-label="한눈에">
     <div class="inner">
       <p class="eyebrow reveal">한 눈에 보기</p>
-      <h2 class="reveal">왜 굳이<br />"나사렛" 예수일까요</h2>
-      <p class="reveal">성전에서 오해를 받아 붙잡힌 바울이 히브리 말로 자기를 변론합니다. 하나님께 열심이던 그가 왜 예수 믿는 사람들을 죽이기까지 했는지, 그리고 다메섹 길에서 만난 주님이 왜 자신을 <strong class="accent">"나사렛 예수"</strong>라고 소개하셨는지 이야기합니다.</p>
+      <h2 class="reveal">기도했는데<br />길이 막힐 때</h2>
+      <p class="reveal">바울은 기도하며 계획을 세웠습니다. 그런데 예루살렘에서 오해를 받아 붙잡히고, 준비한 간증은 두 번이나 중간에 끊겼습니다. 그 혼란의 밤, <strong class="accent">주님이 바울 곁에 서서</strong> "담대하라" 말씀하셨습니다.</p>
       <div class="flow reveal">
-        <span class="node">하나님께 열심</span><span class="arrow">→</span>
-        <span class="node">기대와 다른 메시아</span><span class="arrow">→</span>
-        <span class="node">주님 누구십니까</span><span class="arrow">→</span>
-        <span class="node">십자가의 예수</span><span class="arrow">→</span>
-        <span class="node">무엇을 하리이까</span>
+        <span class="node">막힌 계획</span><span class="arrow">→</span>
+        <span class="node">끊긴 간증</span><span class="arrow">→</span>
+        <span class="node">그 날 밤</span><span class="arrow">→</span>
+        <span class="node">곁에 서신 주님</span><span class="arrow">→</span>
+        <span class="node">담대함</span>
       </div>
+      <p class="reveal" style="margin-top:6px"><strong>"곁에 서신 예수님"을 믿는다는 것은</strong></p>
       <ul class="beats reveal">
-        <li>하나님을 향한 열심도 <strong>내가 원하는 메시아</strong>를 위한 것이면 주님을 박해할 수 있습니다.</li>
-        <li>나사렛은 사람들이 <strong>메시아를 기대하지 않던 자리</strong>였습니다.</li>
-        <li>참된 구원과 능력은 <strong class="accent">십자가의 나사렛 예수</strong>에게서 나옵니다.</li>
-        <li>주님을 만나면 기도가 바뀝니다 — <strong>"주님, 무엇을 하리이까?"</strong></li>
+        <li><strong>곁에</strong> — 가장 가까이, <strong class="accent">내 안에</strong> 계신 주님을 믿는 것</li>
+        <li><strong>서신</strong> — 이제 오신 것이 아니라 <strong class="accent">처음부터 거기</strong> 계셨던 주님을 믿는 것</li>
+        <li><strong>곁에서</strong> — 나를 <strong class="accent">지지하고 돌보시는</strong> 주님을 믿는 것</li>
       </ul>
     </div>
-    <div class="counter">02 / 08</div>
+    <div class="counter">02 / 09</div>
   </section>
 
-  <!-- 3 · 말씀① 열심 -->
-  <section class="page dark" data-label="잔인한 열심">
+  <!-- 3 · 말씀① 막힌 길 -->
+  <section class="page dark" data-label="막힌 길">
     <div class="inner">
       <span class="tag reveal">말씀 ①</span>
-      <h2 class="reveal">하나님께 열심인데<br />왜 박해했을까</h2>
+      <h2 class="reveal">기도하고 걸었는데<br />오해와 감금이라니</h2>
+      <p class="reveal">선교 보고, 구제 헌금, 그리고 로마와 서바나까지. 바울의 계획은 선했습니다. 오해를 풀려고 야고보의 조언까지 따랐는데, <strong>바로 그 행동 때문에</strong> 성전에서 붙잡혀 갇혔습니다.</p>
       <div class="verse expandable reveal">
-        <span class="ref">사도행전 22:3</span>
-        <p class="scripture">나는 유대인으로 길리기아 다소에서 났고 이 성에서 자라 가말리엘의 문하에서 우리 조상들의 율법의 엄한 교훈을 받았고 <b>오늘 너희 모든 사람처럼 하나님께 대하여 열심이 있는 자라</b></p>
+        <span class="ref">사도행전 22:21–22</span>
+        <p class="scripture">나더러 또 이르시되 떠나가라 <b>내가 너를 멀리 이방인에게로 보내리라</b> 하셨느니라 이 말하는 것까지 그들이 듣다가 소리 질러 이르되 이러한 자는 세상에서 없애 버리자 살려 둘 자가 아니라 하여</p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
-      <div class="verse expandable reveal">
-        <span class="ref">사도행전 22:4</span>
-        <p class="scripture">내가 이 도를 박해하여 <b>사람을 죽이기까지 하고</b> 남녀를 결박하여 옥에 넘겼노니</p>
-        <button class="toggle">본문 펼치기 ▾</button>
-      </div>
-      <p class="reveal">스데반이 돌에 맞아 죽을 때 사울은 <strong>"그가 죽임 당함을 마땅히 여기더라"</strong>(행 8:1). 믿음을 가진 사람이 어떻게 이렇게까지 잔혹해질 수 있었을까요?</p>
-      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">하나님을 위한 열심이라 해도, 내가 원하는 메시아를 위한 것이면 주님을 박해할 수 있습니다.</p>
-    </div>
-    <div class="counter">03 / 08</div>
-  </section>
+      <p class="reveal">간증은 "이방인"이라는 말에서 끊겼고, 공회 앞에서 외친 "부활"은 다툼으로 번져 또 끊겼습니다. 바울은 어쩌면 조금 후회했을지도 모릅니다.</p>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">기도한 대로, 계획한 대로 되지 않는 것. 성도에게는 그것이 당황을 넘어 혼란이 됩니다.</p>
 
-  <!-- 4 · 말씀② 나사렛 -->
-  <section class="page parchment" data-label="나사렛">
-    <div class="inner">
-      <span class="tag reveal">말씀 ②</span>
-      <h2 class="reveal">기대하지 않은<br />자리에 오신 분</h2>
-      <p class="reveal">2007년, 세계적인 바이올리니스트 조슈아 벨이 모자를 쓰고 전철역에서 연주했습니다. 43분 동안 천 명 넘게 지나갔지만 그를 알아본 사람은 <strong>딱 한 명</strong>이었습니다. 그곳은 위대한 연주를 <strong>기대한 자리가 아니었기</strong> 때문입니다.</p>
-      <div class="verse expandable reveal">
-        <span class="ref">요한복음 1:46</span>
-        <p class="scripture">나다나엘이 이르되 <b>나사렛에서 무슨 선한 것이 날 수 있느냐</b> 빌립이 이르되 와서 보라 하니라</p>
-        <button class="toggle">본문 펼치기 ▾</button>
-      </div>
-      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">나사렛은 사람들이 메시아를 기대하지 않던 작고 초라한 마을이었습니다.</p>
-
-      <h3 class="reveal" style="margin-top:26px">요즘 나는 어떤 예수님을 기대하고 있나요?</h3>
-      <p class="reveal muted" style="font-size:15px">내 마음에 가까운 쪽을 골라 보세요</p>
+      <h3 class="reveal" style="margin-top:24px">요즘 내 계획과 현실은 어떤가요?</h3>
+      <p class="reveal muted" style="font-size:15px">가까운 쪽을 골라 보세요</p>
       <div class="scale reveal" data-store="practice" role="group" aria-label="자가진단">
         <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
       </div>
-      <div class="scale-legend reveal"><span>내 문제를 해결해 줄 예수</span><span>십자가의 예수</span></div>
+      <div class="scale-legend reveal"><span>꽉 막혀 혼란스럽다</span><span>막혀도 평안하다</span></div>
       <p class="savednote reveal" id="practice-note"></p>
     </div>
-    <div class="counter">04 / 08</div>
+    <div class="counter">03 / 09</div>
   </section>
 
-  <!-- 5 · 말씀③ 두 메시아 -->
-  <section class="page light" data-label="원하는 메시아">
+  <!-- 4 · 말씀② 끊긴 간증 -->
+  <section class="page parchment" data-label="끊긴 간증">
     <div class="inner">
-      <span class="tag reveal">말씀 ③</span>
-      <h2 class="reveal">말씀보다 크게 만든<br />내가 원하는 메시아</h2>
-      <p class="reveal">"나무에 달린 자는 하나님께 저주를 받았음이니라"(신 21:23). 성경을 잘 아는 사울은 십자가에 달린 메시아를 상상할 수 없었습니다. 그러나 성경에는 고난의 종도 분명히 나옵니다.</p>
+      <span class="tag reveal">말씀 ②</span>
+      <h2 class="reveal">끊긴 간증도<br />주님은 증언이라 하셨다</h2>
+      <p class="reveal">그 날 밤 주님은 상황을 바꿔 주시지 않았습니다. 대신 바울이 실패라 여겼을 말들에 이름을 붙여 주셨습니다. <strong>"네가 나의 일을 증언한 것 같이."</strong></p>
+      <div class="ask reveal">
+        <p>"준비 없이 튀어나와 마무리도 못 한 그 말들이 나를 증언한 것이었다. 그리고 너는 지금도 로마로 가는 내 계획 안에 있다."</p>
+      </div>
+      <p class="reveal">놀랍게도, 끊겼던 두 가지, 곧 <strong>이방인에게 가는 복음</strong>과 <strong>죽은 자의 부활</strong>은 앞으로 바울이 평생 전할 복음의 중심이었습니다.</p>
       <div class="verse expandable reveal">
-        <span class="ref">이사야 53:2</span>
-        <p class="scripture">그는 주 앞에서 자라나기를 연한 순 같고 마른 땅에서 나온 뿌리 같아서 <b>고운 모양도 없고 풍채도 없은즉</b> 우리가 보기에 흠모할 만한 아름다운 것이 없도다</p>
+        <span class="ref">잠언 16:9</span>
+        <p class="scripture">사람이 마음으로 자기의 길을 계획할지라도 <b>그의 걸음을 인도하시는 이는 여호와시니라</b></p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
-      <ul class="beats reveal">
-        <li>승리하는 왕은 보았지만 <strong>고난받는 종</strong>은 보지 못했고</li>
-        <li>다윗의 왕좌는 보았지만 <strong>십자가</strong>는 상상하지 못했고</li>
-        <li>이스라엘의 회복은 보았지만 <strong>열방을 품으시는 계획</strong>은 보지 못했습니다</li>
-      </ul>
-      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">오늘 우리는 어떤 예수를 찾고 있습니까?</p>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">내가 이해할 수 있는 그림이 아니어도, 주님은 곁에서 주님의 일을 하고 계십니다.</p>
+      <p class="reveal muted" style="font-size:16px">묵상 — 내가 "망쳤다"고 여기는 말이나 순간이 있나요? 주님은 그것을 어떻게 보고 계실까요?</p>
     </div>
-    <div class="counter">05 / 08</div>
+    <div class="counter">04 / 09</div>
   </section>
 
-  <!-- 6 · 말씀④ 십자가의 예수 -->
-  <section class="page dark-2" data-label="십자가의 예수">
+  <!-- 5 · 말씀③ 곁에 = 안에 -->
+  <section class="page light" data-label="곁에">
     <div class="inner">
-      <span class="tag reveal">말씀 ④</span>
-      <h2 class="reveal">주님, 누구십니까?</h2>
-      <p class="reveal">"사울아, 사울아" — 애정을 담아 두 번 부르신 주님은 오늘 우리에게도 다시 묻게 하십니다. 내 욕망을 채우고 내 방식대로 움직여 줄 예수는 없습니다. <strong>없는 예수를 찾으니 내 삶의 예수님을 느끼지 못하는 것입니다.</strong></p>
+      <span class="tag reveal">말씀 ③ · 곁에</span>
+      <h2 class="reveal">가장 가까운 자리,<br />내 안에</h2>
+      <p class="reveal">부활하신 예수님은 저 하늘 보좌에만 계신 분이 아닙니다. 주님이 원하시는 관계의 거리를 성경은 <strong>"안에"</strong>라고 말합니다.</p>
       <div class="verse expandable reveal">
-        <span class="ref">갈라디아서 3:13</span>
-        <p class="scripture"><b>그리스도께서 우리를 위하여 저주를 받은 바 되사</b> 율법의 저주에서 우리를 속량하셨으니 기록된 바 나무에 달린 자마다 저주 아래에 있는 자라 하였음이라</p>
+        <span class="ref">요한복음 15:4</span>
+        <p class="scripture"><b>내 안에 거하라 나도 너희 안에 거하리라</b> 가지가 포도나무에 붙어 있지 아니하면 스스로 열매를 맺을 수 없음 같이 너희도 내 안에 있지 아니하면 그러하리라</p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
-      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">짐을 대신 치워 주는 '청소부 예수'가 아니라, 고난의 자리에 함께하시며 십자가의 능력으로 돌파하게 하시는 예수님을 만나십시오.</p>
+      <div class="story reveal">
+        <p class="story-h">그때 하나님은 어디에 계셨을까</p>
+        <p>어린 시절 감당할 수 없는 상처를 입은 한 청년이 「모래 위의 발자국」 이야기에 오히려 분노했습니다. "안아 달라고 한 적 없어요. 막아 달라고 했어요!"</p>
+        <p>호레이스 듀크 목사님은 같은 아픔을 지나온 한 소녀의 고백을 들려주었습니다. <b>"주님은 벽에 걸린 십자가에 계시지 않았어요. 제 안에 계셨어요. 그 모든 시간 동안요."</b></p>
+      </div>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">주님은 멀리서 보고만 계신 분이 아닙니다. 내 안에서 내가 되어, 내가 당하는 고통을 함께 당하십니다.</p>
     </div>
-    <div class="counter">06 / 08</div>
+    <div class="counter">05 / 09</div>
   </section>
 
-  <!-- 7 · 실천 -->
+  <!-- 6 · 말씀④ 서신 -->
+  <section class="page dark-2" data-label="서신">
+    <div class="inner">
+      <span class="tag reveal">말씀 ④ · 서신</span>
+      <h2 class="reveal">이제 오신 것이 아니라<br />처음부터 거기</h2>
+      <p class="reveal">어린 사무엘은 자기를 부르시는 분이 어디 계신지 몰라 엘리에게 세 번이나 달려갔습니다. 그 사이에도 주님은 그 자리에 <strong>서서</strong> 계속 부르고 계셨습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">사무엘상 3:10</span>
+        <p class="scripture"><b>여호와께서 임하여 서서</b> 전과 같이 사무엘아 사무엘아 부르시는지라 사무엘이 이르되 말씀하옵소서 주의 종이 듣겠나이다 하니</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">유학 초기, 재정·진로·적응이 모두 막막하던 때 목사님이 받은 답은 해결책이 아니었습니다. 딱 한 마디였습니다.</p>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:23px;font-weight:600;letter-spacing:-.01em">"단 한순간도<br />너를 떠난 적이 없다."</p>
+      <p class="reveal">문제가 당장 풀린 것보다, 그 음성을 붙들고 지나온 과정에서 더 많은 것을 얻었습니다. 건져 주실 수도, 그렇게 하지 않으실 수도 있습니다. 그것은 주님의 주권입니다. 그러나 어느 쪽이든 주님은 <strong>내가 있는 그곳을 떠나지 않으십니다.</strong></p>
+      <h3 class="reveal" style="margin-top:22px">요즘 주님은 내게 어디쯤 계신 것 같나요?</h3>
+      <div class="scale reveal" data-store="near" role="group" aria-label="주님과의 거리">
+        <button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button>
+      </div>
+      <div class="scale-legend reveal"><span>멀리 계신 것 같다</span><span>바로 곁에 계신다</span></div>
+      <p class="savednote reveal" id="near-note"></p>
+    </div>
+    <div class="counter">06 / 09</div>
+  </section>
+
+  <!-- 7 · 말씀⑤ 곁에서 -->
+  <section class="page parchment" data-label="곁에서">
+    <div class="inner">
+      <span class="tag reveal">말씀 ⑤ · 곁에서</span>
+      <h2 class="reveal">불 가운데<br />넷째 사람</h2>
+      <p class="reveal">주님은 바울을 감옥에서 당장 꺼내 주실 수도 있었습니다. 그러나 그 밤에 보여 주신 것은 <strong>곁에 서서 말씀하시는 주님</strong>이었습니다.</p>
+      <div class="verse expandable reveal">
+        <span class="ref">이사야 43:2</span>
+        <p class="scripture">네가 물 가운데로 지날 때에 <b>내가 너와 함께 할 것이라</b> 강을 건널 때에 물이 너를 침몰하지 못할 것이며 네가 불 가운데로 지날 때에 타지도 아니할 것이요 불꽃이 너를 사르지도 못하리니</p>
+        <button class="toggle">본문 펼치기 ▾</button>
+      </div>
+      <p class="reveal">풀무불 속 세 친구 곁에도 넷째 사람이 있었습니다(단 3:25). 하나님은 불구덩이에서 건지시는 모습보다 <strong>불 가운데 함께 걸으시는 모습</strong>을 보여 주셨습니다.</p>
+      <div class="story reveal">
+        <p class="story-h">책 『곁에서』 · 권일한</p>
+        <p>전교생 여덟 명, 그중 절반이 화상을 입은 산골 학교. 젊은 선생님은 그 아이들에게 해 줄 말이 없어 그저 곁에 있어 주었습니다. 같이 놀고, 울고, 들어 주었습니다.</p>
+        <p>어른과 눈도 마주치지 않던 동원이가 1년 만에 삼겹살 <b>쌈을 싸서 선생님 입에 넣어 주었습니다.</b> 선생님은 울었고, 동원이는 또 쌈을 싸 주었습니다.</p>
+      </div>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:21px;font-weight:600;letter-spacing:-.01em">설명보다 곁에 있어 주는 것이 사람을 살립니다. 곁에 서신 예수님이 그렇게 우리를 살리셨습니다.</p>
+    </div>
+    <div class="counter">07 / 09</div>
+  </section>
+
+  <!-- 8 · 실천 -->
   <section class="page light" data-label="삶으로">
     <div class="inner">
       <p class="eyebrow reveal">이번 주 · 삶으로</p>
-      <h2 class="reveal">다시 묻는<br />한 주</h2>
-      <p class="reveal">주님을 만나기 전에는 <strong>내가 원하는 주님</strong>을 내가 만들었습니다. 주님을 만나면 <strong class="accent">주님이 원하시는 나</strong>를 만들고 싶어집니다.</p>
+      <h2 class="reveal">곁에 서신 주님과<br />걷는 한 주</h2>
+      <p class="reveal">계획이 막힐 때 <strong>"왜?"</strong> 대신 <strong class="accent">"주님, 여기 계시지요?"</strong>로 시작해 봅시다.</p>
       <p class="reveal muted" style="font-size:15px">체크한 내용은 이 기기에 저장됩니다. 한 주 동안 다시 열어 보세요.</p>
       <ul class="check reveal" id="checklist">
-        <li><input type="checkbox" id="c1" /><label for="c1"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">아침마다 <b>"주님, 누구십니까?"</b> 한 줄로 기도를 시작하기</span></label></li>
-        <li><input type="checkbox" id="c2" /><label for="c2"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">요즘 내 기도 제목을 적어 보고, <b>"내가 원하는 예수"</b>를 구한 것은 없는지 살펴보기</span></label></li>
-        <li><input type="checkbox" id="c3" /><label for="c3"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">기대에 차지 않아 화가 날 때 <b>십자가의 예수님</b>을 떠올리며 한 번 멈추기</span></label></li>
-        <li><input type="checkbox" id="c4" /><label for="c4"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">지금 겪는 어려움 속에서 <b>함께하시는 주님</b>을 한 가지라도 찾아 감사하기</span></label></li>
-        <li><input type="checkbox" id="c5" /><label for="c5"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><b>"주님, 무엇을 하리이까?"</b> 여쭙고 떠오르는 한 가지를 이번 주에 순종하기</span></label></li>
+        <li><input type="checkbox" id="c1" /><label for="c1"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">아침마다 <b>"주님은 단 한순간도 나를 떠난 적이 없습니다"</b> 소리 내어 고백하기</span></label></li>
+        <li><input type="checkbox" id="c2" /><label for="c2"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">계획대로 안 된 일 하나를 적고, 그 안에서 <b>주님이 하고 계신 일</b>을 한 가지 찾아보기</span></label></li>
+        <li><input type="checkbox" id="c3" /><label for="c3"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">서툴러도 괜찮으니, 내 곁에 계신 주님을 <b>한 사람에게 한 문장</b>으로 전하기</span></label></li>
+        <li><input type="checkbox" id="c4" /><label for="c4"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">힘든 시간을 지나는 한 사람을 정해, 조언 대신 <b>곁에 있어 주기</b>(전화·식사·방문)</span></label></li>
+        <li><input type="checkbox" id="c5" /><label for="c5"><span class="box"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8.5l4 4 8-9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt">이사야 43:2를 적어 <b>눈에 보이는 곳</b>에 두고 하루 한 번 읽기</span></label></li>
       </ul>
-      <label class="field-label reveal" for="reflect">묵상 — 내가 그동안 기대해 온 예수님은 어떤 모습이었나요? 말씀이 보여 주는 예수님과 무엇이 다른가요?</label>
+      <label class="field-label reveal" for="reflect">묵상 — 지난날 "그때 주님은 어디 계셨을까" 물었던 시간이 있나요? 오늘 말씀으로 그 시간을 다시 보면, 주님은 어디에 계셨나요?</label>
       <textarea id="reflect" class="reveal" data-store="reflect" placeholder="여기에 적어 보세요…"></textarea>
       <p class="savednote reveal" id="reflect-note"></p>
     </div>
-    <div class="counter">07 / 08</div>
+    <div class="counter">08 / 09</div>
   </section>
 
-  <!-- 8 · 결단 -->
+  <!-- 9 · 결단 -->
   <section class="page void" data-label="결단">
     <div class="inner">
       <p class="eyebrow reveal">나의 결단</p>
-      <h2 class="reveal">주님, 무엇을<br />하리이까</h2>
-      <p class="reveal">참된 주님을 만난 바울은 그동안 해 온 일이 잘못임을 깨닫고, 이제 내 생각대로가 아니라 주님이 시키시는 일을 하겠다고 결단합니다.</p>
+      <h2 class="reveal">담대하라</h2>
+      <p class="reveal">주님은 바울의 상황을 바꾸시기 전에 바울의 마음을 붙드셨습니다. 곁에 서신 주님을 본 사람은 막힌 길에서도 끝까지 믿음의 경주를 합니다.</p>
       <div class="verse expandable reveal">
-        <span class="ref">사도행전 22:10</span>
-        <p class="scripture">내가 이르되 <b>주님 무엇을 하리이까</b> 주께서 이르시되 <b>일어나 다메섹으로 들어가라</b> 네가 해야 할 모든 것을 거기서 누가 이르리라 하시거늘</p>
+        <span class="ref">사도행전 23:11</span>
+        <p class="scripture">그 날 밤에 주께서 바울 곁에 서서 이르시되 <b>담대하라</b> 네가 예루살렘에서 나의 일을 증언한 것 같이 <b>로마에서도 증언하여야 하리라</b> 하시니라</p>
         <button class="toggle">본문 펼치기 ▾</button>
       </div>
       <ul class="beats reveal">
-        <li><strong>내가 원하는 주님</strong>을 만들지 않고</li>
-        <li><strong class="accent">실제로 계신 나사렛 예수</strong>를 만나며</li>
-        <li><strong>주님이 원하시는 나</strong>로 순종합니다.</li>
+        <li>내 계획이 막혀도 <strong>실망하지 않고</strong></li>
+        <li><strong class="accent">곁에 서신 예수님</strong>을 바라보며</li>
+        <li>서툴러도 <strong>그분을 증언하겠습니다.</strong></li>
       </ul>
-      <p class="reveal accent" style="font-family:var(--font-display);font-size:23px;font-weight:600;letter-spacing:-.01em;margin-top:22px">“내가 원하는 주님이 되어 주십시오가 아니라,<br />주님이 원하시는 내가 되게 하소서.”</p>
+      <p class="reveal accent" style="font-family:var(--font-display);font-size:23px;font-weight:600;letter-spacing:-.01em;margin-top:22px">“주님, 제 곁에 서 계심을 믿습니다.<br />오늘도 담대히 걷게 하소서.”</p>
       <label class="field-label reveal" for="prayer" style="color:var(--body-muted)">한 줄 기도 / 결단</label>
       <textarea id="prayer" class="reveal" data-store="prayer" placeholder="주님, 오늘 저는…"></textarea>
       <div class="reveal" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
@@ -552,9 +592,9 @@ ul.check input:checked + label{background:#f5ece7;}
         <a class="btn ghost photos-link" href="#" target="_blank" rel="noopener">📸 모임사진보기</a>
         <button class="btn ghost" onclick="go(0)">처음으로</button>
       </div>
-      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 네가 박해하는 나사렛 예수 (행 22:1–11) · 2026.11.01 김진주 목사 · 성경: 개역개정</p>
+      <p class="reveal muted" style="font-size:12px;margin-top:24px">미주서부장로교회 · 곁에 서신 예수님 (행 23:1–11) · 2026.11.08 김진주 목사 · 성경: 개역개정</p>
     </div>
-    <div class="counter">08 / 08</div>
+    <div class="counter">09 / 09</div>
   </section>
 
 </main>
@@ -566,10 +606,10 @@ ul.check input:checked + label{background:#f5ece7;}
   var pages=Array.prototype.slice.call(document.querySelectorAll(".page"));
   var dotsWrap=document.getElementById("dots");
   var bar=document.getElementById("progress");
-  var KEY="sermon_261101_v1";
+  var KEY="sermon_261108_v1";
 
   /* ── 설교 영상 링크 (URL 한 곳만 채우면 됩니다. 빈 값이면 버튼 자동 숨김) ── */
-  var SERMON_URL="https://youtu.be/cF5BJA8IL6o";
+  var SERMON_URL="https://youtu.be/dVtNcb_d6Xw";
   document.querySelectorAll(".sermon-link").forEach(function(a){
     if(SERMON_URL){a.href=SERMON_URL;} else {a.style.display="none";}
   });
@@ -685,7 +725,11 @@ ul.check input:checked + label{background:#f5ece7;}
   document.querySelectorAll(".scale").forEach(function(sc){
     var key=sc.dataset.store;
     var note=document.getElementById(key+"-note");
-    var labels={1:"솔직하게 돌아보셨네요. 사울도 하나님께 열심이었지만 자기가 원하는 메시아를 기다렸습니다. 오늘 \"주님, 누구십니까?\" 다시 여쭈어 보세요.",2:"내 문제를 풀어 줄 예수님을 더 기다리고 계시는군요. 그 짐을 치워 주시기보다 그 자리에 함께하시는 주님을 찾아보세요.",3:"마음이 오가고 계시네요. 내가 원하는 것과 주님이 원하시는 것 사이에서, 작은 순종 하나부터 시작해 보세요.",4:"십자가의 예수님을 바라보고 계시네요. 고난의 자리도 다르게 보이기 시작합니다.",5:"나사렛 예수님을 따르고 계시네요. 이제 \"주님, 무엇을 하리이까?\" 여쭙고 그 한 가지를 순종해 보세요."};
+    var LABELS={
+      practice:{1:"꽉 막힌 자리에 계시는군요. 바울도 그랬습니다. 그 밤, 주님은 상황보다 먼저 바울 곁에 서셨습니다. 오늘 \"주님, 여기 계시지요?\" 한마디로 시작해 보세요.",2:"혼란스러우시지요. 계획이 막힌 것이 주님이 떠나신 증거는 아닙니다. 잠언 16:9을 천천히 읽어 보세요.",3:"흔들리면서도 걷고 계시네요. 끊긴 간증을 증언이라 불러 주신 주님이 지금 내 걸음도 받고 계십니다.",4:"막혀도 마음이 평안하시군요. 그 평안을 곁에 있는 누군가와 나누어 보세요.",5:"곁에 서신 주님을 붙들고 계시네요. 이제 그 주님을 한 사람에게 한 문장으로 증언해 보세요."},
+      near:{1:"멀게 느껴지는 그 순간에도 주님은 떠나신 적이 없습니다. 사무엘이 엘리에게 달려가던 동안에도 주님은 그 자리에 서 계셨습니다.",2:"주님이 잘 느껴지지 않으시는군요. 오늘 \"단 한순간도 나를 떠난 적이 없다\"를 소리 내어 따라 해 보세요.",3:"가까웠다 멀었다 하시는군요. 느낌이 아니라 말씀이 주님의 자리를 알려 줍니다. 요한복음 15:4을 붙드세요.",4:"주님의 가까우심을 느끼고 계시네요. 그 주님이 내 안에서 함께 당하고 계심을 기억하세요.",5:"바로 곁에 계신 주님과 걷고 계시네요. 그 곁에 계심을, 지금 힘든 누군가의 곁에 있어 주는 것으로 나누어 보세요."}
+    };
+    var labels=LABELS[key]||{};
     function paint(v){
       sc.querySelectorAll("button").forEach(function(b){b.classList.toggle("sel",b.dataset.v===String(v));});
       if(note) note.textContent=v?labels[v]:"";
@@ -720,14 +764,14 @@ ul.check input:checked + label{background:#f5ece7;}
 
   document.getElementById("shareBtn").addEventListener("click",function(){
     var prayer=(state.prayer||"").trim();
-    var SHARE_TITLE="네가 박해하는 나사렛 예수";
+    var SHARE_TITLE="곁에 서신 예수님";
     /* 링크는 ASCII 별칭(wpca.org/qt)을 쓴다 — 한글 주소는 카톡에서 링크로 안 잡히는 경우가 있다.
        도착지는 wpca.org/묵상노트 와 동일. */
     var SHARE_LINK="https://wpca.org/qt";
-    var text=SHARE_TITLE+" (행 22:1-11)\n\n"
-      +"\"내가 이르되 주님 무엇을 하리이까 주께서 이르시되 일어나 다메섹으로 들어가라\" (행 22:10)\n\n"
+    var text=SHARE_TITLE+" (행 23:1-11)\n\n"
+      +"\"그 날 밤에 주께서 바울 곁에 서서 이르시되 담대하라\" (행 23:11)\n\n"
       +(prayer?("나의 결단: "+prayer+"\n\n"):"")
-      +"내가 원하는 주님이 아니라, 주님이 원하시는 내가 되게 하소서.\n\n"
+      +"주님은 단 한순간도 나를 떠난 적이 없습니다.\n\n"
       +"📖 미주서부장로교회 묵상노트";
     /* 메시지 끝에 라벨 한 줄을 두고, 링크는 url 로 함께 보낸다 — 카톡·문자에서 그 아래
        "미주서부장로교회 묵상노트" 미리보기 카드로 예쁘게 붙는다(위 OG 태그). */
